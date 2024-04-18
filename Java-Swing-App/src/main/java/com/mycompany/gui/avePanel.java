@@ -300,6 +300,7 @@ boolean primerClicE = true;
 
     private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
 
+        CF_true.setSelected(true);
         CF_false.setSelected(false);
     }//GEN-LAST:event_CF_trueMouseClicked
 
@@ -309,6 +310,7 @@ boolean primerClicE = true;
 
     private void CF_falseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_falseMouseClicked
 
+        CF_false.setSelected(true);
         CF_true.setSelected(false);
     }//GEN-LAST:event_CF_falseMouseClicked
 
@@ -337,10 +339,9 @@ public void guardarDatos() {
                 cazaFurtiva = false;
             }
             
-            // Aquí deberías hacer algo con los datos recolectados, como guardarlos en alguna estructura de datos o enviarlos a otra parte del programa.
             
         } catch (IllegalArgumentException e) {
-           JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(null, "Datos inválidos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     } else {
         JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -360,12 +361,9 @@ public void validarTexto(String texto) {
     }
 }
 
-
 public boolean validarSeleccion() {
-    if ( CF_true.isSelected()&&CF_false.isSelected()){
+    if ( (CF_true.isSelected()&&CF_false.isSelected()) || (!CF_true.isSelected()&&!CF_false.isSelected()) ){
     return false;
-    } else if( !CF_true.isSelected()&&!CF_false.isSelected()){
-        return false;
     } else {
         return true;
     }
