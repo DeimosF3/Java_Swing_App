@@ -193,7 +193,7 @@ public class panell extends javax.swing.JFrame {
     tratamientoPanel t = new tratamientoPanel();
 
     private void altaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaButtonActionPerformed
-
+        
         contenedor.removeAll();
         contenedor.add(e);
 
