@@ -4,6 +4,8 @@
  */
 package com.mycompany.gui;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Alumno
@@ -38,11 +40,12 @@ public class avePanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         lesion_Ave = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        gravedad_Ave = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         CF_true = new javax.swing.JCheckBox();
         CF_false = new javax.swing.JCheckBox();
+        enviar_button = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
@@ -96,10 +99,10 @@ public class avePanel extends javax.swing.JPanel {
 
         jLabel7.setText("Gravedad:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Leve", "Moderada", "Grave" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        gravedad_Ave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Leve", "Moderada", "Grave" }));
+        gravedad_Ave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                gravedad_AveActionPerformed(evt);
             }
         });
 
@@ -124,6 +127,13 @@ public class avePanel extends javax.swing.JPanel {
             }
         });
 
+        enviar_button.setText("Enviar");
+        enviar_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviar_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -131,29 +141,29 @@ public class avePanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1)
-                                .addComponent(especie_Ave, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
-                                .addComponent(peso_Ave)
-                                .addComponent(lesion_Ave))
-                            .addComponent(jLabel8))
-                        .addContainerGap(426, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(CF_true)
-                                .addGap(18, 18, 18)
-                                .addComponent(CF_false))
-                            .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(gravedad_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(CF_true)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(CF_false))
+                                .addComponent(jLabel9))
+                            .addGap(40, 40, 40)
+                            .addComponent(enviar_button))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1)
+                            .addComponent(especie_Ave, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                            .addComponent(peso_Ave)
+                            .addComponent(lesion_Ave))))
+                .addContainerGap(426, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,13 +187,18 @@ public class avePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gravedad_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CF_true)
-                    .addComponent(CF_false))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CF_true)
+                            .addComponent(CF_false)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(enviar_button)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addGap(148, 148, 148))
@@ -269,9 +284,9 @@ boolean primerClicTdL = true;
         // TODO add your handling code here:
     }//GEN-LAST:event_lesion_AveActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void gravedad_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravedad_AveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_gravedad_AveActionPerformed
 
     private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
 
@@ -287,12 +302,52 @@ boolean primerClicTdL = true;
         CF_true.setSelected(false);
     }//GEN-LAST:event_CF_falseMouseClicked
 
+    private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
+        borrarDatos();
+        //método guardar datos escritosssssssss
+    }//GEN-LAST:event_enviar_buttonActionPerformed
+                                          
+
+    public void guardarDatos() {
+    //hacer metodo comprobar que si tienen el mismo valor CF_true y CF_false devuelva un boolean false y que no deje gaurdar los valores///if(){resto del codigo}
+    String nombre = nombre_Ave.getText();
+    String especie = especie_Ave.getText();
+    String peso = peso_Ave.getText();
+    String lesion = lesion_Ave.getText();
+    String gravedad = (String) gravedad_Ave.getSelectedItem();
+    boolean cazaFurtiva; // Variable para almacenar si la caza furtiva está seleccionada
+
+    // Verificar cuál de las casillas está seleccionada
+    if (CF_true.isSelected()) {
+        cazaFurtiva = true;
+    } else if (CF_false.isSelected()) {
+        cazaFurtiva = false;
+    }
+}
+
+
+    
+    public void borrarDatos(){
+        nombre_Ave.setText("");
+        especie_Ave.setText("");
+        peso_Ave.setText("");
+        lesion_Ave.setText("");
+        DefaultComboBoxModel<String> modelo = (DefaultComboBoxModel<String>) gravedad_Ave.getModel();
+    
+    if (modelo.getSize() > 0) {
+        gravedad_Ave.setSelectedItem(modelo.getElementAt(0));
+    }
+    CF_true.setSelected(false);
+    CF_false.setSelected(false);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox CF_false;
     private javax.swing.JCheckBox CF_true;
+    private javax.swing.JButton enviar_button;
     private javax.swing.JTextField especie_Ave;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> gravedad_Ave;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
