@@ -324,8 +324,9 @@ boolean primerClicTdL = true;
         cazaFurtiva = false;
     }
 }
-
-
+    public boolean validarSeleccion(){
+        return true;
+    }
     
     public void borrarDatos(){
         nombre_Ave.setText("");
