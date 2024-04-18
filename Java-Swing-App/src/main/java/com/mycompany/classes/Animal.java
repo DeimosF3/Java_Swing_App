@@ -6,7 +6,7 @@ package com.mycompany.classes;
  * @author Paolo
  */
 import java.util.Date;
-class Animal {
+public class Animal {
     private String nombre;
     private String especie;
     private double peso;

@@ -1,10 +1,17 @@
-package com.mycompany.classes;
+package com.mycompany.java.swing.app;
 
 
 
 
 
 
+
+
+import com.mycompany.classes.Animal;
+import com.mycompany.classes.Ave;
+import com.mycompany.classes.Mamifero;
+import com.mycompany.classes.Reptil;
+import com.mycompany.classes.Veterinario;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.*;
