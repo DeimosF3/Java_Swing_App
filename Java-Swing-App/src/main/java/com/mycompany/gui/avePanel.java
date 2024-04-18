@@ -361,9 +361,15 @@ public void validarTexto(String texto) {
 }
 
 
-
 public boolean validarSeleccion() {
-    return CF_true.isSelected() ^ CF_false.isSelected();
+    if ( CF_true.isSelected()&&CF_false.isSelected()){
+    return false;
+    } else if( !CF_true.isSelected()&&!CF_false.isSelected()){
+        return false;
+    } else {
+        return true;
+    }
+    
 }
 
 
