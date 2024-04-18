@@ -21,8 +21,4 @@ public class programa {
     }
     
     
-    public void paolooooooo(){
-        
-    }
-    
 }
