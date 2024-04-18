@@ -4,11 +4,15 @@
  */
 package com.mycompany.gui;
 
+import java.awt.Font;
+
 /**
  *
  * @author Alumno
  */
 public class programa {
+
+    static Font fuente1 = new Font("Cascadia Code", Font.BOLD, 13);
 
     /**
      * @param args the command line arguments
@@ -18,11 +22,8 @@ public class programa {
         asd.setVisible(true);
         asd.setLocationRelativeTo(null);
         asd.setResizable(false);
+
+        asd.setFont(fuente1);
     }
-    
-    
-    public void paolooooooo(){
-        
-    }
-    
+
 }

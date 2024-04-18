@@ -4,6 +4,8 @@
  */
 package com.mycompany.gui;
 
+import static com.mycompany.gui.programa.fuente1;
+
 /**
  *
  * @author Alumno
@@ -15,6 +17,7 @@ public class altaMeow extends javax.swing.JPanel {
      */
     public altaMeow() {
         initComponents();
+        setFont(fuente1);
     }
     
 

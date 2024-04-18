@@ -4,6 +4,8 @@
  */
 package com.mycompany.gui;
 
+import static com.mycompany.gui.programa.fuente1;
+
 /**
  *
  * @author Usuario
@@ -15,6 +17,7 @@ public class tratamientoPanel extends javax.swing.JPanel {
      */
     public tratamientoPanel() {
         initComponents();
+        setFont(fuente1);
     }
 
     /**
@@ -71,7 +74,7 @@ public class tratamientoPanel extends javax.swing.JPanel {
         jCheckBox3.setText("jCheckBox3");
 
         jLabel3.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
-        jLabel3.setText("Seleccione medicacion:");
+        jLabel3.setText("Nombre la medicacion:");
 
         jButton1.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
         jButton1.setText("Guardar registro");
@@ -82,7 +85,6 @@ public class tratamientoPanel extends javax.swing.JPanel {
         });
 
         jTextField1.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
-        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
