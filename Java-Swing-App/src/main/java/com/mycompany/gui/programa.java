@@ -20,4 +20,9 @@ public class programa {
         asd.setResizable(false);
     }
     
+    
+    public void paolooooooo(){
+        
+    }
+    
 }
