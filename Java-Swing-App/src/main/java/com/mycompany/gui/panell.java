@@ -4,6 +4,7 @@
  */
 package com.mycompany.gui;
 
+import static com.mycompany.gui.programa.fuente1;
 import java.awt.Component;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -23,6 +24,7 @@ public class panell extends javax.swing.JFrame {
         initComponents();
         ajustesVisuales();
         System.out.println(logoICON.toString());
+        setFont(fuente1);
 
     }
 

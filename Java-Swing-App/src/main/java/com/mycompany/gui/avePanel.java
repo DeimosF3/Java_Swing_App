@@ -4,6 +4,7 @@
  */
 package com.mycompany.gui;
 
+import static com.mycompany.gui.programa.fuente1;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -18,6 +19,7 @@ public class avePanel extends javax.swing.JPanel {
      */
     public avePanel() {
         initComponents();
+        setFont(fuente1);
     }
 
     /**
