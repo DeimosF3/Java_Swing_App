@@ -40,7 +40,7 @@ public class altaMeow extends javax.swing.JPanel {
         contenedor.setBackground(new java.awt.Color(191, 172, 200));
         contenedor.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(191, 172, 200));
 
         mamBoton.setText("Mamífero");
         mamBoton.addActionListener(new java.awt.event.ActionListener() {
