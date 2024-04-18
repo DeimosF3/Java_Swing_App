@@ -25,10 +25,5 @@ public class programa {
 
         asd.setFont(fuente1);
     }
-<<<<<<< HEAD
-    
-    
-=======
-
->>>>>>> 3953668f9ff2ddf48179a7b9ca7dcb5895e11b3e
 }
+
