@@ -23,6 +23,12 @@ public class panell extends javax.swing.JFrame {
     altaMeow e = new altaMeow();
     
     tratamientoPanel t = new tratamientoPanel();
+    
+    liberacionPanel l = new liberacionPanel();
+    
+    listadoPanel lis = new listadoPanel();
+    
+    bajaPanel b = new bajaPanel();
 
     public panell() {
         initComponents();
@@ -220,7 +226,12 @@ public class panell extends javax.swing.JFrame {
         contenedor.repaint();
 
     }//GEN-LAST:event_tratamientoButtonActionPerformed
-
+private void liberacionButtonActionPerformed(java.awt.event.ActionEvent evt){
+     contenedor.removeAll();
+        contenedor.add(l);
+        contenedor.revalidate();
+        contenedor.repaint();
+}
     private Icon imgToLabel(Component jLabel, ImageIcon img) {
         Icon icon = new ImageIcon(img.getImage().getScaledInstance(jLabel.getWidth(), jLabel.getHeight(), Image.SCALE_DEFAULT));
         return icon;
