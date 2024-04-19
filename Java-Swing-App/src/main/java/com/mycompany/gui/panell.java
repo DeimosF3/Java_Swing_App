@@ -19,26 +19,25 @@ public class panell extends javax.swing.JFrame {
     ImageIcon logoICON = new ImageIcon(getClass().getResource("/resources/logo.jpg"));
 
     ImageIcon fondoICON = new ImageIcon(getClass().getResource("/resources/fondo.jpg"));
-    
+
     altaMeow e = new altaMeow();
-    
+
     tratamientoPanel t = new tratamientoPanel();
-    
+
     liberacionPanel l = new liberacionPanel();
-    
+
     listadoPanel lis = new listadoPanel();
-    
+
     bajaPanel b = new bajaPanel();
 
     public panell() {
         initComponents();
         ajustesVisuales();
         System.out.println(logoICON.toString());
-        
+
         Utilities u = new Utilities();
 
         u.setFontRecursively(this.getContentPane());
-        
 
     }
 
@@ -95,16 +94,31 @@ public class panell extends javax.swing.JFrame {
         liberacionButton.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
         liberacionButton.setForeground(new java.awt.Color(120, 63, 142));
         liberacionButton.setText("Liberar\n");
+        liberacionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                liberacionButtonActionPerformed(evt);
+            }
+        });
 
         listadoButton.setBackground(new java.awt.Color(200, 198, 215));
         listadoButton.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
         listadoButton.setForeground(new java.awt.Color(120, 63, 142));
         listadoButton.setText("Listado");
+        listadoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listadoButtonActionPerformed(evt);
+            }
+        });
 
         bajaButton.setBackground(new java.awt.Color(200, 198, 215));
         bajaButton.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
         bajaButton.setForeground(new java.awt.Color(120, 63, 142));
         bajaButton.setText("Dar Baja");
+        bajaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bajaButtonActionPerformed(evt);
+            }
+        });
 
         salirButton.setBackground(new java.awt.Color(204, 0, 0));
         salirButton.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
@@ -226,12 +240,28 @@ public class panell extends javax.swing.JFrame {
         contenedor.repaint();
 
     }//GEN-LAST:event_tratamientoButtonActionPerformed
-private void liberacionButtonActionPerformed(java.awt.event.ActionEvent evt){
-     contenedor.removeAll();
+
+    private void liberacionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_liberacionButtonActionPerformed
+        contenedor.removeAll();
         contenedor.add(l);
         contenedor.revalidate();
         contenedor.repaint();
-}
+    }//GEN-LAST:event_liberacionButtonActionPerformed
+
+    private void listadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoButtonActionPerformed
+        contenedor.removeAll();
+        contenedor.add(lis);
+        contenedor.revalidate();
+        contenedor.repaint();
+    }//GEN-LAST:event_listadoButtonActionPerformed
+
+    private void bajaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaButtonActionPerformed
+        contenedor.removeAll();
+        contenedor.add(b);
+        contenedor.revalidate();
+        contenedor.repaint();
+    }//GEN-LAST:event_bajaButtonActionPerformed
+
     private Icon imgToLabel(Component jLabel, ImageIcon img) {
         Icon icon = new ImageIcon(img.getImage().getScaledInstance(jLabel.getWidth(), jLabel.getHeight(), Image.SCALE_DEFAULT));
         return icon;
