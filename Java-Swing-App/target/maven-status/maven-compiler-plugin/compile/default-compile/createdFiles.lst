@@ -1,7 +1,9 @@
 com\mycompany\guiUtils\Utilities.class
 com\mycompany\classes\bbdd\conexion.class
 com\mycompany\gui\avePanel$8.class
+com\mycompany\gui\panell$5.class
 com\mycompany\gui\panell$3.class
+com\mycompany\gui\tratamientoPanel$3.class
 com\mycompany\gui\avePanel$3.class
 com\mycompany\gui\altaMeow$2.class
 com\mycompany\gui\altaMeow.class
@@ -15,6 +17,7 @@ com\mycompany\classes\Mamifero.class
 com\mycompany\gui\avePanel$1.class
 com\mycompany\classes\Animal.class
 com\mycompany\gui\tratamientoPanel$1.class
+com\mycompany\gui\panell$4.class
 com\mycompany\gui\tratamientoPanel$2.class
 com\mycompany\gui\programa.class
 com\mycompany\gui\altaMeow$1.class
@@ -23,6 +26,7 @@ com\mycompany\gui\altaMeow$3.class
 com\mycompany\gui\avePanel$2.class
 com\mycompany\java\swing\app\logic.class
 com\mycompany\gui\bajaPanel.class
+com\mycompany\gui\tratamientoPanel$4.class
 com\mycompany\classes\Reptil.class
 com\mycompany\gui\avePanel$7.class
 com\mycompany\classes\bbdd\AnimalDAO.class
@@ -31,6 +35,7 @@ com\mycompany\gui\liberacionPanel.class
 com\mycompany\gui\panell$1.class
 com\mycompany\gui\avePanel$5.class
 com\mycompany\gui\tratamientoPanel.class
+com\mycompany\gui\tratamientoPanel$5.class
 com\mycompany\classes\bbdd\FachadaBBDD.class
 com\mycompany\classes\Ave.class
 com\mycompany\gui\avePanel.class
@@ -38,3 +43,4 @@ com\mycompany\gui\panell.class
 com\mycompany\gui\avePanel$11.class
 com\mycompany\java\swing\app\JavaSwingApp.class
 com\mycompany\classes\Fachada.class
+com\mycompany\gui\panell$6.class

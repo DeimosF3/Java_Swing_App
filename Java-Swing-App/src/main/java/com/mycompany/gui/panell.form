@@ -184,6 +184,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Liberar&#xa;"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="liberacionButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="listadoButton">
                   <Properties>
@@ -198,6 +201,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Listado"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listadoButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bajaButton">
                   <Properties>
@@ -212,6 +218,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Dar Baja"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bajaButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="salirButton">
                   <Properties>
