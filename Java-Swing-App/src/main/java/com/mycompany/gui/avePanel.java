@@ -8,6 +8,9 @@ package com.mycompany.gui;
 import com.mycompany.guiUtils.Utilities;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import com.mycompany.classes.*;
+import java.sql.SQLException;
+
 
 /**
  *
@@ -294,7 +297,7 @@ public class avePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_especie_AveMouseClicked
 boolean primerClicE = true;    boolean primerClicP = true;    boolean primerClicTdL = true;
 public void guardarDatos() {
-    if (validarSeleccion()) { 
+    if (validarSeleccion()) {
         try {
             String nombre = nombre_Ave.getText();
             validarTexto(nombre);
@@ -305,12 +308,17 @@ public void guardarDatos() {
             String lesion = lesion_Ave.getText();
             validarTexto(lesion);
             String gravedad = (String) gravedad_Ave.getSelectedItem();
-            boolean cazaFurtiva;
+            boolean cazaFurtiva= false;
 
             if (CF_true.isSelected()) {
                 cazaFurtiva = true;
             } else if(CF_false.isSelected()){
                 cazaFurtiva = false;
+            }
+            try{
+            new Fachada().insertarAnimal(nombre, especie, peso, lesion, gravedad, cazaFurtiva);
+            } catch (Exception ex){
+                JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
             
             

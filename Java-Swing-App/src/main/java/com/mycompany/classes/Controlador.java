@@ -4,6 +4,8 @@
  */
 package com.mycompany.classes;
 
+import com.mycompany.classes.bbdd.*;
+
 /**
  *
  * @author Alumno
@@ -13,4 +15,7 @@ public class Controlador {
 //            comprobar(nombre);
 //            new FachadaBBDD().insertarFabricante(new Fabricante(nombre));
 //        }
+    public void insertarAnimal(String nombre, String especie, String peso, String lesion, String gravedad, Boolean cazaFurtiva) throws Exception {
+        new FachadaBBDD().insertarAnimal(nombre, especie, peso, lesion, gravedad, cazaFurtiva);
+    }
 }

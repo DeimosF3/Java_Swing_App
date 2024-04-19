@@ -14,4 +14,7 @@ public class AnimalDAO {
 //        int nFil = s.executeUpdate("insert into fabricante(id,nombre) values (default,'" + f.getNombre() + "')");
 //        new conexion().getconexion().createStatement().executeUpdate("insert into fabricante(id,nombre) values (default,'" + f.getNombre() + "')");
 //    }
+    public void insertarAnimal(String nombre, String especie, String peso, String lesion, String gravedad, Boolean cazaFurtiva) throws Exception {
+        new conexion().getconexion().createStatement().executeUpdate("insert into animales ");
+    }
 }
