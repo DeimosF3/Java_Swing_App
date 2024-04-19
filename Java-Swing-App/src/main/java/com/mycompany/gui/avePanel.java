@@ -249,7 +249,6 @@ public class avePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_CF_falseActionPerformed
 
     private void CF_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_trueActionPerformed
-        System.out.println("Boton 1 activado");
     }//GEN-LAST:event_CF_trueActionPerformed
 
     private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
@@ -309,6 +308,7 @@ public void guardarDatos() {
             String lesion = lesion_Ave.getText();
             validarTexto(lesion);
             String gravedad = (String) gravedad_Ave.getSelectedItem();
+            validarGravedad(gravedad);
             boolean cazaFurtiva= false;
 
             if (CF_true.isSelected()) {
@@ -336,6 +336,11 @@ public void validarNumero(String texto) {
     if (!texto.matches("\\d*\\.?\\d+")) {
         throw new IllegalArgumentException("El valor ingresado no es un número válido.");
     }
+}
+public void validarGravedad(String gravedad) {
+   if (gravedad.equals("Seleccionar")){
+       throw new IllegalArgumentException("El valor ingresado no es una selección válido.");
+   }
 }
 
 public void validarTexto(String texto) {
@@ -370,6 +375,10 @@ public boolean validarSeleccion() {
         }
         CF_true.setSelected(false);
         CF_false.setSelected(false);
+        primerClicTdL = true;
+        primerClicE = true;
+        primerClicP = true;
+        
     }
 
 
