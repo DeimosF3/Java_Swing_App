@@ -14,15 +14,16 @@ import java.sql.Statement;
  * @author Alumno
  */
 
+
+public class conexion {
+    Connection c = null;
+    String urlConnection = "jdbc:mysql://localhost:3306/centro_recuperacion_fauna";
+    String user = "root";
+    String password = "";
+    
 /*
 *******NO TOCAR*******
 */
-public class conexion {
-    Connection c = null;
-    String urlConnection = "jdbc:mysql://localhost:3306/tienda";
-    String user = "root";
-    String password = "";
-
     public Connection getconexion() throws SQLException {
 
         c = DriverManager.getConnection(urlConnection, user, password);
