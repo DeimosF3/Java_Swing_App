@@ -4,6 +4,9 @@
  */
 package com.mycompany.classes.bbdd;
 
+import com.mycompany.classes.Ave;
+import java.sql.SQLException;
+
 /**
  *
  * @author Alumno
@@ -12,7 +15,7 @@ public class FachadaBBDD {
 //     public void insertarFabricante(Fabricante f) throws SQLException {
 //        new FabricanteDAO().insertarFabricante(f);
 //    }
-    public void insertarAnimal(String tipo, String nombre, String especie, String peso, String lesion, String gravedad, Boolean cazaFurtiva) throws Exception {
-        new AnimalDAO().insertarAnimal(tipo, nombre, especie, peso, lesion, gravedad, cazaFurtiva);
+    public void insertarAnimal(Ave a) throws SQLException {
+        new AnimalDAO().insertarAnimal(a);
     }
 }

@@ -1,16 +1,10 @@
 package com.mycompany.classes;
 
-
-/**
- *
- * @author Paolo
- */
-
 public class Reptil extends Animal {
     private boolean tieneInfeccionBacteriana;
 
-    public Reptil(String nombre, String especie, double peso, String tipoLesion, String gravedad, String tratamiento, boolean tieneInfeccionBacteriana) {
-        super(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+    public Reptil(String nombre, String especie, String peso, String tipoLesion, String gravedad, String tratamiento, boolean tieneInfeccionBacteriana) {
+        super(nombre, especie, peso, tipoLesion, gravedad, tratamiento, tieneInfeccionBacteriana);
         this.tieneInfeccionBacteriana = tieneInfeccionBacteriana;
     }
 
@@ -22,5 +16,3 @@ public class Reptil extends Animal {
         this.tieneInfeccionBacteriana = tieneInfeccionBacteriana;
     }
 }
-
-

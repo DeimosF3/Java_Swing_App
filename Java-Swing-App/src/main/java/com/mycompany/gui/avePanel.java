@@ -298,7 +298,7 @@ boolean primerClicE = true;    boolean primerClicP = true;    boolean primerClic
 public void guardarDatos() {
     if (validarSeleccion()) {
         try {
-            String tipo = "ave";
+            String tratamiento = null;
             String nombre = nombre_Ave.getText();
             validarTexto(nombre);
             String especie = especie_Ave.getText();
@@ -317,7 +317,7 @@ public void guardarDatos() {
                 cazaFurtiva = false;
             }
             try{
-            new Fachada().insertarAnimal(tipo, nombre, especie, peso, lesion, gravedad, cazaFurtiva);
+            new Fachada().insertarAnimal(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
             } catch (Exception ex){
                 JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
             }

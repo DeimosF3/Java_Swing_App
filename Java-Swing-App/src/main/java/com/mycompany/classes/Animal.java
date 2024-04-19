@@ -1,22 +1,18 @@
 package com.mycompany.classes;
 
-
-/**
- *
- * @author Paolo
- */
 import java.util.Date;
+
 public class Animal {
     private String nombre;
     private String especie;
     private String tratamiento;
-    private double peso;
+    private String peso;
     private String tipoLesion;
     private String gravedad;
     private Date fechaLiberacion;
     private Date fechaFallecimiento;
 
-    public Animal(String nombre, String especie, double peso, String tipoLesion, String gravedad, String tratamiento) {
+    public Animal(String nombre, String especie, String peso, String tipoLesion, String gravedad, String tratamiento, boolean cazaFurtiva) {
         this.nombre = nombre;
         this.especie = especie;
         this.peso = peso;
@@ -25,19 +21,19 @@ public class Animal {
         this.tratamiento = tratamiento;
     }
 
-
     @Override
     public String toString() {
         return "Nombre: " + nombre + ", Especie: " + especie + ", Peso: " + peso + ", Tipo de Lesión: " + tipoLesion
                 + ", Gravedad: " + gravedad + ", Fecha de Liberación: " + fechaLiberacion +
                 ", Fecha de Fallecimiento: " + fechaFallecimiento + ", Tratamiento: " + tratamiento;
     }
+
     public String getNombre() {
         return nombre;
     }
-    
-    public String setNombre() {
-        return nombre;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getEspecie() {
@@ -48,11 +44,11 @@ public class Animal {
         this.especie = especie;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
@@ -87,14 +83,12 @@ public class Animal {
     public void setFechaFallecimiento(Date fechaFallecimiento) {
         this.fechaFallecimiento = fechaFallecimiento;
     }
-    
+
     public String getTratamiento() {
         return tratamiento;
     }
 
-    public void setTratamiento() {
+    public void setTratamiento(String tratamiento) {
         this.tratamiento = tratamiento;
     }
 }
-
-
