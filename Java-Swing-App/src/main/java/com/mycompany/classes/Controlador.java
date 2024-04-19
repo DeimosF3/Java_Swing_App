@@ -15,7 +15,7 @@ public class Controlador {
 //            comprobar(nombre);
 //            new FachadaBBDD().insertarFabricante(new Fabricante(nombre));
 //        }
-    public void insertarAnimal(String nombre, String especie, String peso, String lesion, String gravedad, Boolean cazaFurtiva) throws Exception {
-        new FachadaBBDD().insertarAnimal(nombre, especie, peso, lesion, gravedad, cazaFurtiva);
+    public void insertarAnimal(String tipo, String nombre, String especie, String peso, String lesion, String gravedad, Boolean cazaFurtiva) throws Exception {
+        new FachadaBBDD().insertarAnimal(tipo, nombre, especie, peso, lesion, gravedad, cazaFurtiva);
     }
 }
