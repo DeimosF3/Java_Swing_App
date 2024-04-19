@@ -6,11 +6,19 @@ package com.mycompany.classes;
  * @author Paolo
  */
  public class Ave extends Animal {
-    private boolean motivoCaza;
+    private boolean cazaFurtiva;
 
-    public Ave(String nombre, String especie, double peso, String tipoLesion, String gravedad, boolean motivoCaza) {
-        super(nombre, especie, peso, tipoLesion, gravedad);
-        this.motivoCaza = motivoCaza;
+    public Ave(String nombre, String especie, double peso, String tipoLesion, String gravedad, String tratamiento, boolean cazaFurtiva) {
+        super(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+        this.cazaFurtiva = cazaFurtiva;
+    }
+
+    public boolean isCazaFurtiva() {
+        return cazaFurtiva;
+    }
+
+    public void setCazaFurtiva(boolean cazaFurtiva) {
+        this.cazaFurtiva = cazaFurtiva;
     }
 }
 

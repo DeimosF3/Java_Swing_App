@@ -27,6 +27,10 @@ public class Veterinario {
     public String getNombre() {
         return nombre;
     }
+    
+    public String setNombre() {
+        return nombre;
+    }
 
     /**
      * Método para obtener la especialidad del veterinario.

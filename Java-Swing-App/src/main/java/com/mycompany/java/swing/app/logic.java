@@ -76,20 +76,20 @@ public class logic extends JFrame implements ActionListener {
             String[] tiposAnimales = {"Ave", "Mamífero", "Reptil"};
             String tipoAnimal = (String) JOptionPane.showInputDialog(this, "Seleccione el tipo de animal:",
                     "Tipo de Animal", JOptionPane.QUESTION_MESSAGE, null, tiposAnimales, tiposAnimales[0]);
-
+            String tratamiento = null;
             Animal animal = null;
             if (tipoAnimal.equals("Ave")) {
                 boolean motivoCaza = JOptionPane.showConfirmDialog(this, "¿La lesión fue provocada por caza furtiva?", "Motivo de Caza",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
-                animal = new Ave(nombre, especie, peso, tipoLesion, gravedad, motivoCaza);
+                animal = new Ave(nombre, especie, peso, tipoLesion, gravedad, tratamiento, motivoCaza);
             } else if (tipoAnimal.equals("Mamífero")) {
                 boolean motivoAtropello = JOptionPane.showConfirmDialog(this, "¿La lesión fue provocada por atropello?", "Motivo de Atropello",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
-                animal = new Mamifero(nombre, especie, peso, tipoLesion, gravedad, motivoAtropello);
+                animal = new Mamifero(nombre, especie, peso, tipoLesion, gravedad,tratamiento, motivoAtropello);
             } else if (tipoAnimal.equals("Reptil")) {
                 boolean tieneInfeccionBacteriana = JOptionPane.showConfirmDialog(this, "¿El reptil tiene una infección bacteriana?", "Infección Bacteriana",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
-                animal = new Reptil(nombre, especie, peso, tipoLesion, gravedad, tieneInfeccionBacteriana);
+                animal = new Reptil(nombre, especie, peso, tipoLesion, gravedad,tratamiento, tieneInfeccionBacteriana);
             }
 
             listaAnimales.add(animal);
@@ -118,7 +118,7 @@ public class logic extends JFrame implements ActionListener {
             }
 
             String tratamiento = JOptionPane.showInputDialog(this, "Ingrese el tratamiento administrado:");
-            animalSeleccionado.registrarTratamiento(tratamiento);
+            animalSeleccionado.setTratamiento();
             JOptionPane.showMessageDialog(this, "Tratamiento registrado correctamente.");
         } else if (e.getSource() == liberacionButton) {
             // Mostrar un formulario para seleccionar un animal y registrar la fecha de liberación.
@@ -145,7 +145,7 @@ public class logic extends JFrame implements ActionListener {
                 }
             }
             Date fechaLiberacion = new Date();
-            animalSeleccionado.registrarLiberacion(fechaLiberacion);
+            animalSeleccionado.setFechaLiberacion(fechaLiberacion);
             JOptionPane.showMessageDialog(this, "Liberación registrada correctamente.");
         } else if (e.getSource() == listadoButton) {
             // Mostrar un diálogo o imprimir en consola el listado de animales en el centro de recuperación.
@@ -184,7 +184,7 @@ public class logic extends JFrame implements ActionListener {
             //FALTA baja = fallecimiento?
             //boolean 
             Date fechaBaja = new Date();
-            animalSeleccionado.registrarFallecimiento(fechaBaja);
+            animalSeleccionado.setFechaFallecimiento(fechaBaja);
             JOptionPane.showMessageDialog(this, "Baja registrada correctamente.");
         } else if (e.getSource() == salirButton) {
             int confirmacion = JOptionPane.showConfirmDialog(this, "¿Estás seguro que deseas salir?", "Salir",
