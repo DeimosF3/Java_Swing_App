@@ -4,7 +4,8 @@
  */
 package com.mycompany.gui;
 
-import static com.mycompany.gui.programa.fuente1;
+
+import com.mycompany.guiUtils.Utilities;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -19,7 +20,10 @@ public class avePanel extends javax.swing.JPanel {
      */
     public avePanel() {
         initComponents();
-        setFont(fuente1);
+                Utilities u = new Utilities();
+
+       u.setFontRecursively(contenedor);
+        
     }
 
     /**
@@ -31,9 +35,8 @@ public class avePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        contenedor = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         nombre_Ave = new javax.swing.JTextPane();
@@ -51,24 +54,15 @@ public class avePanel extends javax.swing.JPanel {
         CF_true = new javax.swing.JCheckBox();
         CF_false = new javax.swing.JCheckBox();
         enviar_button = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(620, 420));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
+        contenedor.setBackground(new java.awt.Color(191, 172, 200));
+        contenedor.setLayout(new java.awt.BorderLayout());
 
         jLabel4.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
-        jLabel4.setText("Apartado Aves");
-
-        jLabel10.setText("FurryFriends");
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("             Apartado Aves:");
+        contenedor.add(jLabel4, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setBackground(new java.awt.Color(191, 172, 200));
         jPanel3.setPreferredSize(new java.awt.Dimension(620, 420));
@@ -161,30 +155,28 @@ public class avePanel extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(gravedad_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(especie_Ave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
-                                .addComponent(peso_Ave, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lesion_Ave, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(CF_true)
-                                .addGap(18, 18, 18)
-                                .addComponent(CF_false))
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(CF_true)
+                            .addGap(18, 18, 18)
+                            .addComponent(CF_false)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(especie_Ave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                        .addComponent(peso_Ave, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lesion_Ave, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,105 +200,40 @@ public class avePanel extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gravedad_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CF_true)
-                    .addComponent(CF_false))
+                    .addComponent(CF_false)
+                    .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(148, 148, 148))
         );
+
+        contenedor.add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        jLabel10.setText("FurryFriends");
+        contenedor.add(jLabel10, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, 0)
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(86, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-boolean primerClicE = true;
-    private void especie_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especie_AveMouseClicked
-
-        if (primerClicE) {
-            especie_Ave.setText("");
-            primerClicE = false;
-        }
-    }//GEN-LAST:event_especie_AveMouseClicked
-
-    private void especie_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_especie_AveActionPerformed
-    boolean primerClicP = true;
-    private void peso_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peso_AveMouseClicked
-        if (primerClicP) {
-            peso_Ave.setText("");
-            primerClicP = false;
-        }
-    }//GEN-LAST:event_peso_AveMouseClicked
-
-    private void peso_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_peso_AveActionPerformed
-    boolean primerClicTdL = true;
-    private void lesion_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lesion_AveMouseClicked
-        if (primerClicTdL) {
-            lesion_Ave.setText("");
-            primerClicTdL = false;
-        }
-    }//GEN-LAST:event_lesion_AveMouseClicked
-
-    private void lesion_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lesion_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lesion_AveActionPerformed
-
-    private void gravedad_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravedad_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gravedad_AveActionPerformed
-
-    private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
-
-        CF_true.setSelected(true);
-        CF_false.setSelected(false);
-    }//GEN-LAST:event_CF_trueMouseClicked
-
-    private void CF_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_trueActionPerformed
-        System.out.println("Boton 1 activado");
-    }//GEN-LAST:event_CF_trueActionPerformed
 
     private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
         guardarDatos();
@@ -318,6 +245,54 @@ boolean primerClicE = true;
         CF_false.setSelected(true);
     }//GEN-LAST:event_CF_falseActionPerformed
 
+    private void CF_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_trueActionPerformed
+        System.out.println("Boton 1 activado");
+    }//GEN-LAST:event_CF_trueActionPerformed
+
+    private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
+
+        CF_true.setSelected(true);
+        CF_false.setSelected(false);
+    }//GEN-LAST:event_CF_trueMouseClicked
+
+    private void gravedad_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravedad_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gravedad_AveActionPerformed
+
+    private void lesion_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lesion_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lesion_AveActionPerformed
+
+    private void lesion_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lesion_AveMouseClicked
+        if (primerClicTdL) {
+            lesion_Ave.setText("");
+            primerClicTdL = false;
+        }
+    }//GEN-LAST:event_lesion_AveMouseClicked
+
+    private void peso_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_peso_AveActionPerformed
+
+    private void peso_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peso_AveMouseClicked
+        if (primerClicP) {
+            peso_Ave.setText("");
+            primerClicP = false;
+        }
+    }//GEN-LAST:event_peso_AveMouseClicked
+
+    private void especie_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_especie_AveActionPerformed
+
+    private void especie_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especie_AveMouseClicked
+
+        if (primerClicE) {
+            especie_Ave.setText("");
+            primerClicE = false;
+        }
+    }//GEN-LAST:event_especie_AveMouseClicked
+boolean primerClicE = true;    boolean primerClicP = true;    boolean primerClicTdL = true;
 public void guardarDatos() {
     if (validarSeleccion()) { 
         try {
@@ -392,6 +367,7 @@ public boolean validarSeleccion() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox CF_false;
     private javax.swing.JCheckBox CF_true;
+    private javax.swing.JPanel contenedor;
     private javax.swing.JButton enviar_button;
     private javax.swing.JTextField especie_Ave;
     private javax.swing.JComboBox<String> gravedad_Ave;
@@ -404,7 +380,6 @@ public boolean validarSeleccion() {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lesion_Ave;

@@ -1,8 +1,6 @@
 package com.mycompany.gui;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Font;
+import com.mycompany.guiUtils.Utilities;
 
 /**
  *
@@ -10,7 +8,7 @@ import java.awt.Font;
  */
 public class programa {
 
-    static Font fuente1 = new Font("Cascadia Code", Font.BOLD, 13);
+   
 
     /**
      * @param args the command line arguments
@@ -20,17 +18,12 @@ public class programa {
         asd.setVisible(true);
         asd.setLocationRelativeTo(null);
         asd.setResizable(false);
+        asd.setTitle("Centro de Fauna");
+        
+        Utilities u = new Utilities();
 
-        setFontRecursively(asd.getContentPane());
+        u.setFontRecursively(asd.getContentPane());
     }
 
-    public static void setFontRecursively(Container container) {
-        Component[] components = container.getComponents();
-        for (Component component : components) {
-            if (component instanceof Container) {
-                setFontRecursively((Container) component);
-            }
-            component.setFont(fuente1);
-        }
-    }
+  
 }

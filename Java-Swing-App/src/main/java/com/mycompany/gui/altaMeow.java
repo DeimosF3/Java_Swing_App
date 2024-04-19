@@ -4,7 +4,7 @@
  */
 package com.mycompany.gui;
 
-import static com.mycompany.gui.programa.fuente1;
+import com.mycompany.guiUtils.Utilities;
 
 /**
  *
@@ -17,9 +17,11 @@ public class altaMeow extends javax.swing.JPanel {
      */
     public altaMeow() {
         initComponents();
-        setFont(fuente1);
+        Utilities u = new Utilities();
+
+        u.setFontRecursively(contenedor);
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,24 +73,24 @@ public class altaMeow extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(46, 46, 46)
                 .addComponent(aveBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
+                .addGap(81, 81, 81)
                 .addComponent(mamBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
+                .addGap(65, 65, 65))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aveBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mamBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,14 +117,8 @@ public class altaMeow extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
    avePanel f = new avePanel();
     private void mamBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mamBotonActionPerformed
-                                              
-      
-      
-        
 
 
-                                            
-  
     }//GEN-LAST:event_mamBotonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -130,7 +126,7 @@ public class altaMeow extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void aveBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aveBotonActionPerformed
-         System.out.println("asd");
+        System.out.println("asd");
         contenedor.removeAll();
         contenedor.add(f);
 
