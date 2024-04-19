@@ -12,7 +12,7 @@ package com.mycompany.classes;
 /*
 ORDEN: Fachada->Controlador->FachadaBBDD->AnimalDAO->conexion
 */
-public class Fachada {
+public class Fachada{
 //    public void insertarFabricante(String nombre) throws Exception {
 //        new Controlador().insertarFabricante(nombre);
 //    }
