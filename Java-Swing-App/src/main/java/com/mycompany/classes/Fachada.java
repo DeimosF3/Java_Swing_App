@@ -16,7 +16,7 @@ public class Fachada{
 //    public void insertarFabricante(String nombre) throws Exception {
 //        new Controlador().insertarFabricante(nombre);
 //    }
-    public void insertarAnimal(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean cazaFurtiva) throws Exception {
-        new Controlador().insertarAnimal(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
+    public void insertarAve(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean cazaFurtiva) throws Exception {
+        new Controlador().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
     }
 }

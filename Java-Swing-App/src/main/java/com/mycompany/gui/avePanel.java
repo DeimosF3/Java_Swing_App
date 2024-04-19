@@ -317,7 +317,7 @@ public void guardarDatos() {
                 cazaFurtiva = false;
             }
             try{
-            new Fachada().insertarAnimal(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
+            new Fachada().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
             } catch (Exception ex){
                 JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
             }

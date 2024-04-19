@@ -15,7 +15,7 @@ public class FachadaBBDD {
 //     public void insertarFabricante(Fabricante f) throws SQLException {
 //        new FabricanteDAO().insertarFabricante(f);
 //    }
-    public void insertarAnimal(Ave a) throws SQLException {
-        new AnimalDAO().insertarAnimal(a);
+    public void insertarAve(Ave a) throws SQLException {
+        new AnimalDAO().insertarAve(a);
     }
 }

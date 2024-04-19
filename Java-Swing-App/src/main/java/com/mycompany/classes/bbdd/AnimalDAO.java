@@ -16,9 +16,9 @@ import java.sql.Statement;
  */
 public class AnimalDAO {    
     
-public void insertarAnimal(Ave a) throws SQLException {
+public void insertarAve(Ave a) throws SQLException {
     Connection con = new conexion().getconexion();
-    String query = "INSERT INTO animales (nombre, especie, peso, tipo_lesion, gravedad, motivo_lesion) " +
+    String query = "INSERT INTO aves (nombre, especie, peso, tipo_lesion, gravedad, cazaFurtiva) " +
                    "VALUES ( ?, ?, ?, ?, ?, ?)";
     
     PreparedStatement ps = con.prepareStatement(query);
