@@ -1,3 +1,4 @@
+com\mycompany\classes\bbdd\conexion.class
 com\mycompany\gui\avePanel$8.class
 com\mycompany\gui\panell$3.class
 com\mycompany\gui\avePanel$3.class
@@ -21,11 +22,15 @@ com\mycompany\gui\avePanel$2.class
 com\mycompany\java\swing\app\logic.class
 com\mycompany\classes\Reptil.class
 com\mycompany\gui\avePanel$7.class
+com\mycompany\classes\bbdd\AnimalDAO.class
+com\mycompany\classes\Controlador.class
 com\mycompany\gui\panell$1.class
 com\mycompany\gui\avePanel$5.class
 com\mycompany\gui\tratamientoPanel.class
+com\mycompany\classes\bbdd\FachadaBBDD.class
 com\mycompany\classes\Ave.class
 com\mycompany\gui\avePanel.class
 com\mycompany\gui\panell.class
 com\mycompany\gui\avePanel$11.class
 com\mycompany\java\swing\app\JavaSwingApp.class
+com\mycompany\classes\Fachada.class

@@ -143,9 +143,9 @@ public class avePanel extends javax.swing.JPanel {
         });
 
         CF_false.setText("No");
-        CF_false.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CF_falseMouseClicked(evt);
+        CF_false.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CF_falseActionPerformed(evt);
             }
         });
 
@@ -305,19 +305,18 @@ boolean primerClicE = true;
     }//GEN-LAST:event_CF_trueMouseClicked
 
     private void CF_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_trueActionPerformed
-        // TODO add your handling code here:
+        System.out.println("Boton 1 activado");
     }//GEN-LAST:event_CF_trueActionPerformed
 
-    private void CF_falseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_falseMouseClicked
-
-        CF_false.setSelected(true);
-        CF_true.setSelected(false);
-    }//GEN-LAST:event_CF_falseMouseClicked
-
     private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
-        borrarDatos();
         guardarDatos();
+        borrarDatos();
     }//GEN-LAST:event_enviar_buttonActionPerformed
+
+    private void CF_falseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_falseActionPerformed
+        CF_true.setSelected(false);
+        CF_false.setSelected(true);
+    }//GEN-LAST:event_CF_falseActionPerformed
 
 public void guardarDatos() {
     if (validarSeleccion()) { 
@@ -357,13 +356,15 @@ public void validarNumero(String texto) {
 
 public void validarTexto(String texto) {
     if (!texto.matches("[a-zA-Z\\s]+")) {
-        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras y espacios.");
+        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+    } else if (texto.length()>20){
+        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
     }
 }
 
 public boolean validarSeleccion() {
-    if ( (CF_true.isSelected()&&CF_false.isSelected()) || (!CF_true.isSelected()&&!CF_false.isSelected()) ){
-    return false;
+    if ( (CF_true.isSelected() && CF_false.isSelected()) || (!CF_true.isSelected() && !CF_false.isSelected()) ){
+        return false;
     } else {
         return true;
     }
