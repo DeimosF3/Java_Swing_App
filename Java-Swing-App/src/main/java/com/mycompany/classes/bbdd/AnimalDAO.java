@@ -18,19 +18,10 @@ public class AnimalDAO {
     
 public void insertarAve(Ave a) throws SQLException {
     Connection con = new conexion().getconexion();
-    String query = "INSERT INTO aves (nombre, especie, peso, tipo_lesion, gravedad, cazaFurtiva) " +
-                   "VALUES ( ?, ?, ?, ?, ?, ?)";
-    
-    PreparedStatement ps = con.prepareStatement(query);
-    ps.setString(1, a.getNombre());
-    ps.setString(2, a.getEspecie());
-    ps.setString(3, a.getPeso());
-    ps.setString(4, a.getTipoLesion());
-    ps.setString(5, a.getGravedad());
-    ps.setInt(6, a.isCazaFurtiva() ? 1 : 0);
+    String query = "INSERT INTO aves (nombre, especie, peso, tipo_lesion, gravedad, cazaFurtiva)"
+            + " VALUES ('"+ a.getNombre() +"','"+ a.getEspecie() +"','"+ a.getPeso()+"','"+ a.getTipoLesion()+"','"+ a.getGravedad()+"','"+ a.isCazaFurtiva() +"')";
 
-    ps.executeUpdate();
-    ps.close();
+     con.createStatement().executeUpdate(query);
     con.close();
 }
 

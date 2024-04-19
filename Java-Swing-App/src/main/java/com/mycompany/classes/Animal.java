@@ -11,6 +11,7 @@ public class Animal {
     private String gravedad;
     private Date fechaLiberacion;
     private Date fechaFallecimiento;
+    private boolean cazaFurtiva;
 
     public Animal(String nombre, String especie, String peso, String tipoLesion, String gravedad, String tratamiento, boolean cazaFurtiva) {
         this.nombre = nombre;
@@ -19,6 +20,15 @@ public class Animal {
         this.tipoLesion = tipoLesion;
         this.gravedad = gravedad;
         this.tratamiento = tratamiento;
+        this.cazaFurtiva = cazaFurtiva;
+    }
+
+    public boolean isCazaFurtiva() {
+        return cazaFurtiva;
+    }
+
+    public void setCazaFurtiva(boolean cazaFurtiva) {
+        this.cazaFurtiva = cazaFurtiva;
     }
 
     @Override

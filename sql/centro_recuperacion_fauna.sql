@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2024 a las 18:57:27
+-- Tiempo de generación: 19-04-2024 a las 22:10:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,20 +24,55 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `animales`
+-- Estructura de tabla para la tabla `aves`
 --
 
-CREATE TABLE `animales` (
+CREATE TABLE `aves` (
   `id` int(11) NOT NULL,
-  `tipo` varchar(20) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `fecha_entrada` date NOT NULL,
   `especie` varchar(50) NOT NULL,
   `peso` varchar(10) DEFAULT NULL,
   `tipo_lesion` varchar(100) NOT NULL,
   `gravedad` varchar(20) DEFAULT NULL,
-  `motivo_lesion` tinyint(1) DEFAULT NULL,
-  `infeccion_bacteriana` tinyint(1) DEFAULT NULL,
+  `cazaFurtiva` varchar(50) DEFAULT NULL,
+  `fecha_salida` date DEFAULT NULL,
+  `veterinario_salida` varchar(50) DEFAULT NULL,
+  `fecha_fallecimiento` date DEFAULT NULL,
+  `certificado_fallecimiento` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `aves`
+--
+
+INSERT INTO `aves` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tipo_lesion`, `gravedad`, `cazaFurtiva`, `fecha_salida`, `veterinario_salida`, `fecha_fallecimiento`, `certificado_fallecimiento`) VALUES
+(1, 'Apolo', '2024-04-10', 'Halcón peregrino', '1.20', 'Fractura ala', 'Moderado', '1', NULL, NULL, NULL, NULL),
+(2, 'Luna', '2024-04-10', 'Lechuza común', '0.80', 'Contusión', 'Leve', '1', NULL, NULL, NULL, NULL),
+(3, 'Zeus', '2024-04-10', 'Cuervo común', '1.50', 'Fractura pico', 'Moderado', '1', NULL, NULL, NULL, NULL),
+(4, 'Aurora', '2024-04-10', 'Gavilán común', '0.90', 'Herida grave', 'Grave', '1', NULL, NULL, NULL, NULL),
+(5, 'Thor', '2024-04-10', 'Aguilucho lagunero', '1.10', 'Contusión', 'Leve', '1', NULL, NULL, NULL, NULL),
+(6, 'Gaia', '2024-04-10', 'Busardo ratonero', '1.40', 'Fractura ala', 'Moderado', '1', NULL, NULL, NULL, NULL),
+(7, 'Eolo', '2024-04-10', 'Milano negro', '1.30', 'Contusión', 'Leve', '1', NULL, NULL, NULL, NULL),
+(8, 'Artemisa', '2024-04-10', 'Lechuza común', '1.00', 'Fractura pata', 'Moderado', '1', NULL, NULL, NULL, NULL),
+(9, 'Hércules', '2024-04-10', 'Cernícalo vulgar', '1.10', 'Herida grave', 'Grave', '1', NULL, NULL, NULL, NULL),
+(10, 'Diana', '2024-04-10', 'Cernícalo común', '1.20', 'Herida grave', 'Grave', '1', NULL, NULL, NULL, NULL),
+(11, 'NOMBRE', '0000-00-00', 'ESPECIE', '22', 'LESIONADO', 'LEVE', '1', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mamiferos`
+--
+
+CREATE TABLE `mamiferos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `fecha_entrada` date NOT NULL,
+  `especie` varchar(50) NOT NULL,
+  `peso` varchar(10) DEFAULT NULL,
+  `tipo_lesion` varchar(100) NOT NULL,
+  `gravedad` varchar(20) DEFAULT NULL,
   `fecha_salida` date DEFAULT NULL,
   `veterinario_salida` varchar(50) DEFAULT NULL,
   `fecha_fallecimiento` date DEFAULT NULL,
@@ -46,64 +81,84 @@ CREATE TABLE `animales` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `animales`
+-- Volcado de datos para la tabla `mamiferos`
 --
 
-INSERT INTO `animales` (`id`, `tipo`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tipo_lesion`, `gravedad`, `motivo_lesion`, `infeccion_bacteriana`, `fecha_salida`, `veterinario_salida`, `fecha_fallecimiento`, `certificado_fallecimiento`, `atropello`) VALUES
-(1, 'ave', 'Apolo', '2024-04-10', 'Halcón peregrino', '1.20', 'Fractura ala', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'ave', 'Luna', '2024-04-10', 'Lechuza común', '0.80', 'Contusión', 'Leve', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'ave', 'Zeus', '2024-04-10', 'Cuervo común', '1.50', 'Fractura pico', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'ave', 'Aurora', '2024-04-10', 'Gavilán común', '0.90', 'Herida grave', 'Grave', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'ave', 'Thor', '2024-04-10', 'Aguilucho lagunero', '1.10', 'Contusión', 'Leve', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'ave', 'Gaia', '2024-04-10', 'Busardo ratonero', '1.40', 'Fractura ala', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'ave', 'Eolo', '2024-04-10', 'Milano negro', '1.30', 'Contusión', 'Leve', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'ave', 'Artemisa', '2024-04-10', 'Lechuza común', '1.00', 'Fractura pata', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'ave', 'Hércules', '2024-04-10', 'Cernícalo vulgar', '1.10', 'Herida grave', 'Grave', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'ave', 'Diana', '2024-04-10', 'Cernícalo común', '1.20', 'Herida grave', 'Grave', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'mamífero', 'Osito', '2024-04-10', 'Oso pardo', '150.50', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(12, 'mamífero', 'Zorro', '2024-04-10', 'Zorro rojo', '7.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(13, 'mamífero', 'Pantera', '2024-04-10', 'Pantera negra', '100.00', 'Fractura de mandíbula', 'Grave', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(14, 'mamífero', 'Lince', '2024-04-10', 'Lince ibérico', '25.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(15, 'mamífero', 'Canguro', '2024-04-10', 'Canguro rojo', '50.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(16, 'mamífero', 'Elefante', '2024-04-10', 'Elefante africano', '5000.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(17, 'mamífero', 'Tigre', '2024-04-10', 'Tigre siberiano', '200.00', 'Contusión', 'Moderado', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(18, 'mamífero', 'León', '2024-04-10', 'León africano', '180.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(19, 'mamífero', 'Jirafa', '2024-04-10', 'Jirafa reticulada', '900.00', 'Contusión', 'Leve', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(20, 'mamífero', 'Hipopótamo', '2024-04-10', 'Hipopótamo común', '2000.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(21, 'reptil', 'Tortuguita', '2024-04-10', 'Tortuga boba', '5.00', 'Fractura de caparazón', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(22, 'reptil', 'Cocodrilo', '2024-04-10', 'Cocodrilo del Nilo', '200.00', 'Mordedura', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(23, 'reptil', 'Iguana', '2024-04-10', 'Iguana verde', '2.50', 'Mordedura', 'Leve', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(24, 'reptil', 'Boa', '2024-04-10', 'Boa constrictor', '15.00', 'Fractura de columna', 'Grave', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(25, 'reptil', 'Tortuga', '2024-04-10', 'Tortuga de tierra', '10.00', 'Herida grave', 'Grave', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(26, 'reptil', 'Cobra', '2024-04-10', 'Cobra real', '3.00', 'Mordedura', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(27, 'reptil', 'Dragón', '2024-04-10', 'Dragón de Komodo', '70.00', 'Mordedura', 'Moderado', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(28, 'reptil', 'Tortuga Marina', '2024-04-10', 'Tortuga laúd', '500.00', 'Herida grave', 'Grave', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(29, 'reptil', 'Serpiente Rey', '2024-04-10', 'Serpiente de cascabel', '2.00', 'Mordedura', 'Moderado', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(30, 'reptil', 'Gecko', '2024-04-10', 'Gecko común', '0.10', 'Herida leve', 'Leve', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(31, 'reptil', 'Tortuga de agua', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(32, 'reptil', 'Varano', '2024-04-10', 'Varanus salvator', '20.00', 'Fractura de cola', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(33, 'reptil', 'Tortuga Terrestre', '2024-04-10', 'Testudinidae', '6.00', 'Herida grave', 'Grave', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(34, 'reptil', 'Camaleón', '2024-04-10', 'Chamaeleonidae', '0.30', 'Contusión', 'Leve', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(35, 'reptil', 'Caimán', '2024-04-10', 'Caiman crocodilus', '25.00', 'Mordedura', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(36, 'reptil', 'Tortuga de agua', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(37, 'reptil', 'Varano', '2024-04-10', 'Varanus salvator', '20.00', 'Fractura de cola', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(38, 'reptil', 'Tortuga Terrestre', '2024-04-10', 'Testudinidae', '6.00', 'Herida grave', 'Grave', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(39, 'reptil', 'Camaleón', '2024-04-10', 'Chamaeleonidae', '0.30', 'Contusión', 'Leve', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(40, 'reptil', 'Caimán', '2024-04-10', 'Caiman crocodilus', '25.00', 'Mordedura', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(41, 'reptil', 'Tortuga de agua', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(42, 'reptil', 'Varano', '2024-04-10', 'Varanus salvator', '20.00', 'Fractura de cola', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(43, 'reptil', 'Tortuga Terrestre', '2024-04-10', 'Testudinidae', '6.00', 'Herida grave', 'Grave', NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(44, 'reptil', 'Camaleón', '2024-04-10', 'Chamaeleonidae', '0.30', 'Contusión', 'Leve', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(45, 'reptil', 'Caimán', '2024-04-10', 'Caiman crocodilus', '25.00', 'Mordedura', 'Moderado', NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mamiferos` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tipo_lesion`, `gravedad`, `fecha_salida`, `veterinario_salida`, `fecha_fallecimiento`, `certificado_fallecimiento`, `atropello`) VALUES
+(1, 'Osito', '2024-04-10', 'Oso pardo', '150.50', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, NULL),
+(2, 'Zorro', '2024-04-10', 'Zorro rojo', '7.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL),
+(3, 'Pantera', '2024-04-10', 'Pantera negra', '100.00', 'Fractura de mandíbula', 'Grave', NULL, NULL, NULL, NULL, NULL),
+(4, 'Lince', '2024-04-10', 'Lince ibérico', '25.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL),
+(5, 'Canguro', '2024-04-10', 'Canguro rojo', '50.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, NULL),
+(6, 'Elefante', '2024-04-10', 'Elefante africano', '5000.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL),
+(7, 'Tigre', '2024-04-10', 'Tigre siberiano', '200.00', 'Contusión', 'Moderado', NULL, NULL, NULL, NULL, NULL),
+(8, 'León', '2024-04-10', 'León africano', '180.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, NULL),
+(9, 'Jirafa', '2024-04-10', 'Jirafa reticulada', '900.00', 'Contusión', 'Leve', NULL, NULL, NULL, NULL, NULL),
+(10, 'Hipopótamo', '2024-04-10', 'Hipopótamo común', '2000.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reptiles`
+--
+
+CREATE TABLE `reptiles` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `fecha_entrada` date NOT NULL,
+  `especie` varchar(50) NOT NULL,
+  `peso` varchar(10) DEFAULT NULL,
+  `tipo_lesion` varchar(100) NOT NULL,
+  `gravedad` varchar(20) DEFAULT NULL,
+  `fecha_salida` date DEFAULT NULL,
+  `veterinario_salida` varchar(50) DEFAULT NULL,
+  `fecha_fallecimiento` date DEFAULT NULL,
+  `certificado_fallecimiento` varchar(50) DEFAULT NULL,
+  `infeccion_bacteriana` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reptiles`
+--
+
+INSERT INTO `reptiles` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tipo_lesion`, `gravedad`, `fecha_salida`, `veterinario_salida`, `fecha_fallecimiento`, `certificado_fallecimiento`, `infeccion_bacteriana`) VALUES
+(1, 'Tortuguita', '2024-04-10', 'Tortuga boba', '5.00', 'Fractura de caparazón', 'Moderado', NULL, NULL, NULL, NULL, 1),
+(2, 'Cocodrilo', '2024-04-10', 'Cocodrilo del Nilo', '200.00', 'Mordedura', 'Moderado', NULL, NULL, NULL, NULL, 1),
+(3, 'Iguana', '2024-04-10', 'Iguana verde', '2.50', 'Mordedura', 'Leve', NULL, NULL, NULL, NULL, 1),
+(4, 'Boa', '2024-04-10', 'Boa constrictor', '15.00', 'Fractura de columna', 'Grave', NULL, NULL, NULL, NULL, 1),
+(5, 'Tortuga', '2024-04-10', 'Tortuga de tierra', '10.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, 0),
+(6, 'Cobra', '2024-04-10', 'Cobra real', '3.00', 'Mordedura', 'Moderado', NULL, NULL, NULL, NULL, 1),
+(7, 'Dragón', '2024-04-10', 'Dragón de Komodo', '70.00', 'Mordedura', 'Moderado', NULL, NULL, NULL, NULL, 0),
+(8, 'Tortuga Marina', '2024-04-10', 'Tortuga laúd', '500.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, 1),
+(9, 'Serpiente Rey', '2024-04-10', 'Serpiente de cascabel', '2.00', 'Mordedura', 'Moderado', NULL, NULL, NULL, NULL, 0),
+(10, 'Gecko', '2024-04-10', 'Gecko común', '0.10', 'Herida leve', 'Leve', NULL, NULL, NULL, NULL, 0),
+(11, 'Tortuga de agua', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, NULL, NULL, NULL, 0),
+(12, 'Varano', '2024-04-10', 'Varanus salvator', '20.00', 'Fractura de cola', 'Moderado', NULL, NULL, NULL, NULL, 1),
+(13, 'Tortuga Terrestre', '2024-04-10', 'Testudinidae', '6.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, 1),
+(14, 'Camaleón', '2024-04-10', 'Chamaeleonidae', '0.30', 'Contusión', 'Leve', NULL, NULL, NULL, NULL, 0),
+(15, 'Caimán', '2024-04-10', 'Caiman crocodilus', '25.00', 'Mordedura', 'Moderado', NULL, NULL, NULL, NULL, 1),
+(16, 'Tortuga de agua', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, NULL, NULL, NULL, 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `animales`
+-- Indices de la tabla `aves`
 --
-ALTER TABLE `animales`
+ALTER TABLE `aves`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `mamiferos`
+--
+ALTER TABLE `mamiferos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `reptiles`
+--
+ALTER TABLE `reptiles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -111,10 +166,22 @@ ALTER TABLE `animales`
 --
 
 --
--- AUTO_INCREMENT de la tabla `animales`
+-- AUTO_INCREMENT de la tabla `aves`
 --
-ALTER TABLE `animales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+ALTER TABLE `aves`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `mamiferos`
+--
+ALTER TABLE `mamiferos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `reptiles`
+--
+ALTER TABLE `reptiles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
