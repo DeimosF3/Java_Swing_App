@@ -4,7 +4,7 @@
  */
 package com.mycompany.gui;
 
-import static com.mycompany.gui.programa.fuente1;
+import com.mycompany.guiUtils.Utilities;
 import java.awt.Component;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -19,12 +19,20 @@ public class panell extends javax.swing.JFrame {
     ImageIcon logoICON = new ImageIcon(getClass().getResource("/resources/logo.jpg"));
 
     ImageIcon fondoICON = new ImageIcon(getClass().getResource("/resources/fondo.jpg"));
+    
+    altaMeow e = new altaMeow();
+    
+    tratamientoPanel t = new tratamientoPanel();
 
     public panell() {
         initComponents();
         ajustesVisuales();
         System.out.println(logoICON.toString());
-        setFont(fuente1);
+        
+        Utilities u = new Utilities();
+
+        u.setFontRecursively(this.getContentPane());
+        
 
     }
 
@@ -189,11 +197,10 @@ public class panell extends javax.swing.JFrame {
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirButtonActionPerformed
-    altaMeow e = new altaMeow();
-    tratamientoPanel t = new tratamientoPanel();
+
 
     private void altaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaButtonActionPerformed
-        
+
         contenedor.removeAll();
         contenedor.add(e);
 
@@ -211,7 +218,7 @@ public class panell extends javax.swing.JFrame {
         contenedor.add(t);
         contenedor.revalidate();
         contenedor.repaint();
-        
+
     }//GEN-LAST:event_tratamientoButtonActionPerformed
 
     private Icon imgToLabel(Component jLabel, ImageIcon img) {

@@ -4,7 +4,7 @@
  */
 package com.mycompany.gui;
 
-import static com.mycompany.gui.programa.fuente1;
+import com.mycompany.guiUtils.Utilities;
 
 /**
  *
@@ -17,9 +17,11 @@ public class altaMeow extends javax.swing.JPanel {
      */
     public altaMeow() {
         initComponents();
-        setFont(fuente1);
+        Utilities u = new Utilities();
+
+        u.setFontRecursively(contenedor);
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,14 +117,8 @@ public class altaMeow extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
    avePanel f = new avePanel();
     private void mamBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mamBotonActionPerformed
-                                              
-      
-      
-        
 
 
-                                            
-  
     }//GEN-LAST:event_mamBotonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -130,7 +126,7 @@ public class altaMeow extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void aveBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aveBotonActionPerformed
-         System.out.println("asd");
+        System.out.println("asd");
         contenedor.removeAll();
         contenedor.add(f);
 
