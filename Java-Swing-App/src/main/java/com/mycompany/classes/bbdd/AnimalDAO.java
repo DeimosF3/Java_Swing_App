@@ -12,9 +12,11 @@ import java.sql.Statement;
  */
 public class AnimalDAO {    
     
-    public void insertarAnimal(String tipo, String nombre, String especie, String peso, String lesion, String gravedad, boolean cazaFurtiva) throws Exception {
-       new conexion().getconexion().createStatement().executeUpdate("INSERT INTO animales (tipo, nombre, especie, peso, tipo_lesion, gravedad, motivo_lesion) "
-                + "VALUES ('" + tipo + "', '" + nombre + "', '" + especie + "', " + peso + ", '" + lesion + "', '" + gravedad + "', '" + cazaFurtiva + "')");
+   public void insertarAnimal(String tipo, String nombre, String especie, String peso, String lesion, String gravedad, boolean cazaFurtiva) throws Exception {
+    String query = "INSERT INTO animales (tipo, nombre, especie, peso, tipo_lesion, gravedad, motivo_lesion) " +
+                   "VALUES ('" + tipo + "', '" + nombre + "', '" + especie + "', '" + peso + "', '" + lesion + "', '" + gravedad + "', '" + (cazaFurtiva ? 1 : 0) + "')";
 
-    }
+    new conexion().getconexion().createStatement().executeUpdate(query);
+}
+
 }
