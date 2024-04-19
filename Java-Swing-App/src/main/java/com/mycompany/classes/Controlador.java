@@ -9,5 +9,8 @@ package com.mycompany.classes;
  * @author Alumno
  */
 public class Controlador {
-//    new FachadaBBDD().insertarFabricante(new Fabricante(nombre));
+//    public void insertarFabricante(String nombre) throws Exception {
+//            comprobar(nombre);
+//            new FachadaBBDD().insertarFabricante(new Fabricante(nombre));
+//        }
 }

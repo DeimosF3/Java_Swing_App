@@ -9,7 +9,7 @@ package com.mycompany.classes.bbdd;
  * @author Alumno
  */
 public class FachadaBBDD {
-//     public void insertarFabricante(Fabricante f) {
+//     public void insertarFabricante(Fabricante f) throws SQLException {
 //        new FabricanteDAO().insertarFabricante(f);
 //    }
 }
