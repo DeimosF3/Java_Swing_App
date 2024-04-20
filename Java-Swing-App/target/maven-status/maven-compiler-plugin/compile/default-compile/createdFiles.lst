@@ -1,6 +1,7 @@
 com\mycompany\gui\mamiferoPanel$7.class
 com\mycompany\gui\tratamientoPanel$8.class
 com\mycompany\guiUtils\Utilities.class
+com\mycompany\gui\liberacionPanel$1.class
 com\mycompany\gui\panell$3.class
 com\mycompany\classes\ModeloAnimales.class
 com\mycompany\gui\avePanel$3.class
@@ -26,6 +27,7 @@ com\mycompany\gui\avePanel$7.class
 com\mycompany\classes\bbdd\AnimalDAO.class
 com\mycompany\gui\reptilPanel$3.class
 com\mycompany\gui\mamiferoPanel.class
+com\mycompany\gui\liberacionPanel$2.class
 com\mycompany\gui\tratamientoPanel.class
 com\mycompany\gui\tratamientoPanel$5.class
 com\mycompany\gui\reptilPanel$9.class

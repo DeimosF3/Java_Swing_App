@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2024 a las 17:25:19
+-- Tiempo de generación: 20-04-2024 a las 19:28:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -140,7 +140,32 @@ INSERT INTO `reptiles` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tip
 (13, 'Tortuga Terrestre', '2024-04-10', 'Testudinidae', '6.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, 1, NULL),
 (14, 'Camaleón', '2024-04-10', 'Chamaeleonidae', '0.30', 'Contusión', 'Leve', NULL, NULL, NULL, NULL, 0, NULL),
 (15, 'Caimán', '2024-04-10', 'Caiman crocodilus', '25.00', 'Mordedura', 'Moderado', NULL, NULL, NULL, NULL, 1, NULL),
-(16, 'Arturito', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, NULL, NULL, NULL, 0, NULL);
+(16, 'Arturito', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, NULL, NULL, NULL, 0, NULL),
+(17, 'REPTI', '2024-04-20', 'reptando', '2', 'no tiene cola', 'Leve', NULL, NULL, NULL, NULL, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `veterinario`
+--
+
+CREATE TABLE `veterinario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `apellido` varchar(50) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `veterinario`
+--
+
+INSERT INTO `veterinario` (`id`, `nombre`, `apellido`, `telefono`) VALUES
+(1, 'Juan', 'García', '123-456-7890'),
+(2, 'María', 'López', '987-654-3210'),
+(3, 'Carlos', 'Martínez', '555-123-4567'),
+(4, 'Ana', 'Rodríguez', '111-222-3333'),
+(5, 'Pedro', 'Sánchez', '999-888-7777');
 
 --
 -- Índices para tablas volcadas
@@ -165,6 +190,12 @@ ALTER TABLE `reptiles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `veterinario`
+--
+ALTER TABLE `veterinario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -184,7 +215,13 @@ ALTER TABLE `mamiferos`
 -- AUTO_INCREMENT de la tabla `reptiles`
 --
 ALTER TABLE `reptiles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de la tabla `veterinario`
+--
+ALTER TABLE `veterinario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
