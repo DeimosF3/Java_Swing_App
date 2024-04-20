@@ -80,7 +80,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="gravedad_Ave" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="gravedad_Reptil" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="710" max="32767" attributes="0"/>
@@ -96,9 +96,9 @@
                                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel2" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                                               <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="especie_Ave" alignment="0" pref="416" max="32767" attributes="0"/>
-                                              <Component id="peso_Ave" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lesion_Ave" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="especie_Reptil" alignment="0" pref="416" max="32767" attributes="0"/>
+                                              <Component id="peso_Reptil" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lesion_Reptil" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                                       </Group>
@@ -134,19 +134,19 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="especie_Ave" min="-2" max="-2" attributes="0"/>
+                      <Component id="especie_Reptil" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="peso_Ave" min="-2" max="-2" attributes="0"/>
+                      <Component id="peso_Reptil" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lesion_Ave" min="-2" max="-2" attributes="0"/>
+                      <Component id="lesion_Reptil" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="gravedad_Ave" min="-2" max="-2" attributes="0"/>
+                      <Component id="gravedad_Reptil" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
@@ -180,7 +180,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextPane" name="nombre_Ave">
+                <Component class="javax.swing.JTextPane" name="nombre_Reptil">
                 </Component>
               </SubComponents>
             </Container>
@@ -194,13 +194,13 @@
                 <Property name="text" type="java.lang.String" value="Especie:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="especie_Ave">
+            <Component class="javax.swing.JTextField" name="especie_Reptil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ej.: tortuga, serpiente..."/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="especie_AveMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="especie_AveActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="especie_ReptilMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="especie_ReptilActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -208,13 +208,13 @@
                 <Property name="text" type="java.lang.String" value="Peso(kg):"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="peso_Ave">
+            <Component class="javax.swing.JTextField" name="peso_Reptil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="En kilogramos"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="peso_AveMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="peso_AveActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="peso_ReptilMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="peso_ReptilActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -222,13 +222,13 @@
                 <Property name="text" type="java.lang.String" value="Tipo de lesi&#xf3;n:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lesion_Ave">
+            <Component class="javax.swing.JTextField" name="lesion_Reptil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ej.: Mordedura"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lesion_AveMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lesion_AveActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lesion_ReptilMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lesion_ReptilActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -236,7 +236,7 @@
                 <Property name="text" type="java.lang.String" value="Gravedad:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="gravedad_Ave">
+            <Component class="javax.swing.JComboBox" name="gravedad_Reptil">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -248,7 +248,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gravedad_AveActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gravedad_ReptilActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

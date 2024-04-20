@@ -21,6 +21,12 @@ public class Fachada{
     public void insertarAve(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean cazaFurtiva) throws Exception {
         new Controlador().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
     }
+    public void insertarMamifero(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean motivoAtropello) throws Exception {
+        new Controlador().insertarMamifero(nombre, especie, peso, lesion, gravedad, tratamiento, motivoAtropello);
+    }
+    public void insertarReptil(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean tieneInfeccionBacteriana) throws Exception {
+        new Controlador().insertarReptil(nombre, especie, peso, lesion, gravedad, tratamiento, tieneInfeccionBacteriana);
+    }
     
     public void insertarTratamiento(String nombre, String tratamiento) throws SQLException{
         new Controlador().insertarTratamiento(nombre, tratamiento);

@@ -34,16 +34,16 @@ public class reptilPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        nombre_Ave = new javax.swing.JTextPane();
+        nombre_Reptil = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        especie_Ave = new javax.swing.JTextField();
+        especie_Reptil = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        peso_Ave = new javax.swing.JTextField();
+        peso_Reptil = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        lesion_Ave = new javax.swing.JTextField();
+        lesion_Reptil = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        gravedad_Ave = new javax.swing.JComboBox<>();
+        gravedad_Reptil = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         CF_true = new javax.swing.JCheckBox();
@@ -63,58 +63,58 @@ public class reptilPanel extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(191, 172, 200));
         jPanel3.setPreferredSize(new java.awt.Dimension(620, 420));
 
-        jScrollPane1.setViewportView(nombre_Ave);
+        jScrollPane1.setViewportView(nombre_Reptil);
 
         jLabel2.setText("Nombre:");
 
         jLabel3.setText("Especie:");
 
-        especie_Ave.setText("Ej.: tortuga, serpiente...");
-        especie_Ave.addMouseListener(new java.awt.event.MouseAdapter() {
+        especie_Reptil.setText("Ej.: tortuga, serpiente...");
+        especie_Reptil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                especie_AveMouseClicked(evt);
+                especie_ReptilMouseClicked(evt);
             }
         });
-        especie_Ave.addActionListener(new java.awt.event.ActionListener() {
+        especie_Reptil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                especie_AveActionPerformed(evt);
+                especie_ReptilActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Peso(kg):");
 
-        peso_Ave.setText("En kilogramos");
-        peso_Ave.addMouseListener(new java.awt.event.MouseAdapter() {
+        peso_Reptil.setText("En kilogramos");
+        peso_Reptil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                peso_AveMouseClicked(evt);
+                peso_ReptilMouseClicked(evt);
             }
         });
-        peso_Ave.addActionListener(new java.awt.event.ActionListener() {
+        peso_Reptil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                peso_AveActionPerformed(evt);
+                peso_ReptilActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Tipo de lesión:");
 
-        lesion_Ave.setText("Ej.: Mordedura");
-        lesion_Ave.addMouseListener(new java.awt.event.MouseAdapter() {
+        lesion_Reptil.setText("Ej.: Mordedura");
+        lesion_Reptil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lesion_AveMouseClicked(evt);
+                lesion_ReptilMouseClicked(evt);
             }
         });
-        lesion_Ave.addActionListener(new java.awt.event.ActionListener() {
+        lesion_Reptil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lesion_AveActionPerformed(evt);
+                lesion_ReptilActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Gravedad:");
 
-        gravedad_Ave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Leve", "Moderada", "Grave" }));
-        gravedad_Ave.addActionListener(new java.awt.event.ActionListener() {
+        gravedad_Reptil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Leve", "Moderada", "Grave" }));
+        gravedad_Reptil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gravedad_AveActionPerformed(evt);
+                gravedad_ReptilActionPerformed(evt);
             }
         });
 
@@ -164,7 +164,7 @@ public class reptilPanel extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gravedad_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(gravedad_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addContainerGap(710, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -178,9 +178,9 @@ public class reptilPanel extends javax.swing.JPanel {
                                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(especie_Ave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
-                                        .addComponent(peso_Ave, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lesion_Ave, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(especie_Reptil, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                                        .addComponent(peso_Reptil, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lesion_Reptil, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGap(95, 95, 95))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,19 +204,19 @@ public class reptilPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(especie_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(especie_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(peso_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(peso_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lesion_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lesion_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(gravedad_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gravedad_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
@@ -259,37 +259,37 @@ public class reptilPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void especie_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especie_AveMouseClicked
+    private void especie_ReptilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especie_ReptilMouseClicked
 
         if (primerClicE) {
-            especie_Ave.setText("");
+            especie_Reptil.setText("");
             primerClicE = false;
         }
-    }//GEN-LAST:event_especie_AveMouseClicked
+    }//GEN-LAST:event_especie_ReptilMouseClicked
 boolean primerClicE = true;    boolean primerClicP = true;    boolean primerClicTdL = true;
 public void guardarDatos() {
     if (validarSeleccion()) {
         try {
             String tratamiento = null;
-            String nombre = nombre_Ave.getText();
+            String nombre = nombre_Reptil.getText();
             validarTexto(nombre);
-            String especie = especie_Ave.getText();
+            String especie = especie_Reptil.getText();
             validarTexto(especie);
-            String peso = peso_Ave.getText();
+            String peso = peso_Reptil.getText();
             validarNumero(peso);
-            String lesion = lesion_Ave.getText();
+            String lesion = lesion_Reptil.getText();
             validarTexto(lesion);
-            String gravedad = (String) gravedad_Ave.getSelectedItem();
+            String gravedad = (String) gravedad_Reptil.getSelectedItem();
             validarGravedad(gravedad);
-            boolean cazaFurtiva= false;
+            boolean tieneInfeccionBacteriana= false;
 
             if (CF_true.isSelected()) {
-                cazaFurtiva = true;
+                tieneInfeccionBacteriana = true;
             } else if(CF_false.isSelected()){
-                cazaFurtiva = false;
+                tieneInfeccionBacteriana = false;
             }
             try{
-            new Fachada().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
+            new Fachada().insertarReptil(nombre, especie, peso, lesion, gravedad, tratamiento, tieneInfeccionBacteriana);
             } catch (Exception ex){
                 JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -336,14 +336,14 @@ public boolean validarSeleccion() {
 
 
     public void borrarDatos() {
-        nombre_Ave.setText("");
-        especie_Ave.setText("Ej.: tortuga, serpiente");
-        peso_Ave.setText("En kilogramos");
-        lesion_Ave.setText("Ej.: Mordedura");
-        DefaultComboBoxModel<String> modelo = (DefaultComboBoxModel<String>) gravedad_Ave.getModel();
+        nombre_Reptil.setText("");
+        especie_Reptil.setText("Ej.: tortuga, serpiente");
+        peso_Reptil.setText("En kilogramos");
+        lesion_Reptil.setText("Ej.: Mordedura");
+        DefaultComboBoxModel<String> modelo = (DefaultComboBoxModel<String>) gravedad_Reptil.getModel();
 
         if (modelo.getSize() > 0) {
-            gravedad_Ave.setSelectedItem(modelo.getElementAt(0));
+            gravedad_Reptil.setSelectedItem(modelo.getElementAt(0));
         }
         CF_true.setSelected(false);
         CF_false.setSelected(false);
@@ -352,35 +352,35 @@ public boolean validarSeleccion() {
         primerClicP = true;
         
     }
-    private void especie_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_AveActionPerformed
+    private void especie_ReptilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_ReptilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_especie_AveActionPerformed
+    }//GEN-LAST:event_especie_ReptilActionPerformed
 
-    private void peso_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peso_AveMouseClicked
+    private void peso_ReptilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peso_ReptilMouseClicked
         if (primerClicP) {
-            peso_Ave.setText("");
+            peso_Reptil.setText("");
             primerClicP = false;
         }
-    }//GEN-LAST:event_peso_AveMouseClicked
+    }//GEN-LAST:event_peso_ReptilMouseClicked
 
-    private void peso_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso_AveActionPerformed
+    private void peso_ReptilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso_ReptilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_peso_AveActionPerformed
+    }//GEN-LAST:event_peso_ReptilActionPerformed
 
-    private void lesion_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lesion_AveMouseClicked
+    private void lesion_ReptilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lesion_ReptilMouseClicked
         if (primerClicTdL) {
-            lesion_Ave.setText("");
+            lesion_Reptil.setText("");
             primerClicTdL = false;
         }
-    }//GEN-LAST:event_lesion_AveMouseClicked
+    }//GEN-LAST:event_lesion_ReptilMouseClicked
 
-    private void lesion_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lesion_AveActionPerformed
+    private void lesion_ReptilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lesion_ReptilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lesion_AveActionPerformed
+    }//GEN-LAST:event_lesion_ReptilActionPerformed
 
-    private void gravedad_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravedad_AveActionPerformed
+    private void gravedad_ReptilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravedad_ReptilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_gravedad_AveActionPerformed
+    }//GEN-LAST:event_gravedad_ReptilActionPerformed
 
     private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
 
@@ -420,8 +420,8 @@ public boolean validarSeleccion() {
     private javax.swing.JCheckBox CF_true;
     private javax.swing.JPanel contenedor;
     private javax.swing.JButton enviar_button;
-    private javax.swing.JTextField especie_Ave;
-    private javax.swing.JComboBox<String> gravedad_Ave;
+    private javax.swing.JTextField especie_Reptil;
+    private javax.swing.JComboBox<String> gravedad_Reptil;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -433,9 +433,9 @@ public boolean validarSeleccion() {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField lesion_Ave;
-    private javax.swing.JTextPane nombre_Ave;
-    private javax.swing.JTextField peso_Ave;
+    private javax.swing.JTextField lesion_Reptil;
+    private javax.swing.JTextPane nombre_Reptil;
+    private javax.swing.JTextField peso_Reptil;
     private javax.swing.JButton regresarBoton;
     // End of variables declaration//GEN-END:variables
 }

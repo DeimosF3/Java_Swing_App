@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2024 a las 12:00:15
+-- Tiempo de generación: 20-04-2024 a las 17:25:19
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `aves` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `fecha_entrada` date NOT NULL,
+  `fecha_entrada` date DEFAULT curdate(),
   `especie` varchar(50) NOT NULL,
   `peso` varchar(10) DEFAULT NULL,
   `tipo_lesion` varchar(100) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `aves` (
 --
 
 INSERT INTO `aves` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tipo_lesion`, `gravedad`, `cazaFurtiva`, `fecha_salida`, `veterinario_salida`, `fecha_fallecimiento`, `certificado_fallecimiento`, `tratamiento`) VALUES
-(1, 'Apolo', '2024-04-10', 'Halcón peregrino', '1.20', 'Fractura ala', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL),
+(1, 'Apolo', '2024-04-10', 'Halcón peregrino', '1.20', 'Fractura ala', 'Moderado', 1, NULL, NULL, NULL, NULL, 'Ibuprofeno'),
 (2, 'Luna', '2024-04-10', 'Lechuza común', '0.80', 'Contusión', 'Leve', 1, NULL, NULL, NULL, NULL, NULL),
 (3, 'Zeus', '2024-04-10', 'Cuervo común', '1.50', 'Fractura pico', 'Moderado', 0, NULL, NULL, NULL, NULL, NULL),
 (4, 'Aurora', '2024-04-10', 'Gavilán común', '0.90', 'Herida grave', 'Grave', 0, NULL, NULL, NULL, NULL, NULL),
@@ -68,7 +68,7 @@ INSERT INTO `aves` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tipo_le
 CREATE TABLE `mamiferos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `fecha_entrada` date NOT NULL,
+  `fecha_entrada` date DEFAULT curdate(),
   `especie` varchar(50) NOT NULL,
   `peso` varchar(10) DEFAULT NULL,
   `tipo_lesion` varchar(100) NOT NULL,
@@ -95,7 +95,8 @@ INSERT INTO `mamiferos` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `ti
 (7, 'Tigre', '2024-04-10', 'Tigre siberiano', '200.00', 'Contusión', 'Moderado', NULL, NULL, NULL, NULL, 0, NULL),
 (8, 'León', '2024-04-10', 'León africano', '180.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, 1, NULL),
 (9, 'Jirafa', '2024-04-10', 'Jirafa reticulada', '900.00', 'Contusión', 'Leve', NULL, NULL, NULL, NULL, 1, NULL),
-(10, 'Hipopótamo', '2024-04-10', 'Hipopótamo común', '2000.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, 1, NULL);
+(10, 'Hipopótamo', '2024-04-10', 'Hipopótamo común', '2000.00', 'Fractura de pata', 'Moderado', NULL, NULL, NULL, NULL, 1, NULL),
+(11, 'a', '2024-04-20', 'a', '2', 'a', 'Leve', NULL, NULL, NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,7 @@ INSERT INTO `mamiferos` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `ti
 CREATE TABLE `reptiles` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `fecha_entrada` date NOT NULL,
+  `fecha_entrada` date DEFAULT curdate(),
   `especie` varchar(50) NOT NULL,
   `peso` varchar(10) DEFAULT NULL,
   `tipo_lesion` varchar(100) NOT NULL,
@@ -171,13 +172,13 @@ ALTER TABLE `reptiles`
 -- AUTO_INCREMENT de la tabla `aves`
 --
 ALTER TABLE `aves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `mamiferos`
 --
 ALTER TABLE `mamiferos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `reptiles`

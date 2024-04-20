@@ -22,4 +22,10 @@ public class Controlador {
     public void insertarTratamiento(String nombre, String tratamiento) throws SQLException{
         new FachadaBBDD().insertarTratamiento(nombre, tratamiento);
     }
+    public void insertarReptil(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean tieneInfeccionBacteriana) throws Exception {
+        new FachadaBBDD().insertarReptil(new Reptil(nombre, especie, peso, lesion, gravedad, tratamiento, tieneInfeccionBacteriana));
+    }
+    public void insertarMamifero(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean motivoAtropello) throws Exception {
+        new FachadaBBDD().insertarMamifero(new Mamifero(nombre, especie, peso, lesion, gravedad, tratamiento, motivoAtropello));
+    }
 }
