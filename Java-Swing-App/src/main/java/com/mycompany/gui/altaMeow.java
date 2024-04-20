@@ -39,6 +39,8 @@ public class altaMeow extends javax.swing.JPanel {
         aveBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         contenedor.setBackground(new java.awt.Color(191, 172, 200));
         contenedor.setLayout(new java.awt.BorderLayout());
 
@@ -100,20 +102,7 @@ public class altaMeow extends javax.swing.JPanel {
 
         contenedor.add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        add(contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
    avePanel f = new avePanel();
     mamiferoPanel m = new mamiferoPanel();
@@ -123,11 +112,12 @@ public class altaMeow extends javax.swing.JPanel {
         contenedor.removeAll();
         contenedor.add(m);
 
-        // Revalida el contenedor para que los cambios se apliquen correctamente
-        contenedor.revalidate();
+       
 
         // Repinta el contenedor para actualizar la interfaz gráfica
         contenedor.repaint();
+         // Revalida el contenedor para que los cambios se apliquen correctamente
+        contenedor.revalidate();
 
     }//GEN-LAST:event_mamBotonActionPerformed
 
