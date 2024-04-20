@@ -4,29 +4,21 @@
  */
 package com.mycompany.gui;
 
-
-import com.mycompany.guiUtils.Utilities;
+import com.mycompany.classes.Fachada;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import com.mycompany.classes.*;
-import java.sql.SQLException;
-
 
 /**
  *
- * @author Alumno
+ * @author Usuario
  */
-public class avePanel extends javax.swing.JPanel {
+public class reptilPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form avePanel
+     * Creates new form reptilPanel
      */
-    public avePanel() {
+    public reptilPanel() {
         initComponents();
-                Utilities u = new Utilities();
-
-       u.setFontRecursively(contenedor);
-        
     }
 
     /**
@@ -64,7 +56,7 @@ public class avePanel extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("             Apartado Aves:");
+        jLabel4.setText("             Apartado Reptiles:");
         contenedor.add(jLabel4, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setBackground(new java.awt.Color(191, 172, 200));
@@ -76,7 +68,7 @@ public class avePanel extends javax.swing.JPanel {
 
         jLabel3.setText("Especie:");
 
-        especie_Ave.setText("Ej.: rapaz, Pajaros");
+        especie_Ave.setText("Ej.: tortuga, serpiente...");
         especie_Ave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 especie_AveMouseClicked(evt);
@@ -104,7 +96,7 @@ public class avePanel extends javax.swing.JPanel {
 
         jLabel6.setText("Tipo de lesión:");
 
-        lesion_Ave.setText("Ej.: Fractura ósea");
+        lesion_Ave.setText("Ej.: Mordedura");
         lesion_Ave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lesion_AveMouseClicked(evt);
@@ -125,7 +117,7 @@ public class avePanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel9.setText("El motivo de la lesión ha sido provocada por caza furtiva?");
+        jLabel9.setText("El motivo de la lesión ha sido provocada por infección bacteriana?");
 
         CF_true.setText("Sí");
         CF_true.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,55 +230,6 @@ public class avePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
-        guardarDatos();
-        borrarDatos();
-    }//GEN-LAST:event_enviar_buttonActionPerformed
-
-    private void CF_falseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_falseActionPerformed
-        CF_true.setSelected(false);
-        CF_false.setSelected(true);
-    }//GEN-LAST:event_CF_falseActionPerformed
-
-    private void CF_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_trueActionPerformed
-    }//GEN-LAST:event_CF_trueActionPerformed
-
-    private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
-
-        CF_true.setSelected(true);
-        CF_false.setSelected(false);
-    }//GEN-LAST:event_CF_trueMouseClicked
-
-    private void gravedad_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravedad_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gravedad_AveActionPerformed
-
-    private void lesion_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lesion_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lesion_AveActionPerformed
-
-    private void lesion_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lesion_AveMouseClicked
-        if (primerClicTdL) {
-            lesion_Ave.setText("");
-            primerClicTdL = false;
-        }
-    }//GEN-LAST:event_lesion_AveMouseClicked
-
-    private void peso_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_peso_AveActionPerformed
-
-    private void peso_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peso_AveMouseClicked
-        if (primerClicP) {
-            peso_Ave.setText("");
-            primerClicP = false;
-        }
-    }//GEN-LAST:event_peso_AveMouseClicked
-
-    private void especie_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_AveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_especie_AveActionPerformed
-
     private void especie_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especie_AveMouseClicked
 
         if (primerClicE) {
@@ -365,9 +308,9 @@ public boolean validarSeleccion() {
 
     public void borrarDatos() {
         nombre_Ave.setText("");
-        especie_Ave.setText("Ej.: rapaz, Pajaros");
+        especie_Ave.setText("Ej.: tortuga, serpiente");
         peso_Ave.setText("En kilogramos");
-        lesion_Ave.setText("Ej.: Fractura ósea");
+        lesion_Ave.setText("Ej.: Mordedura");
         DefaultComboBoxModel<String> modelo = (DefaultComboBoxModel<String>) gravedad_Ave.getModel();
 
         if (modelo.getSize() > 0) {
@@ -380,6 +323,55 @@ public boolean validarSeleccion() {
         primerClicP = true;
         
     }
+    private void especie_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_especie_AveActionPerformed
+
+    private void peso_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peso_AveMouseClicked
+        if (primerClicP) {
+            peso_Ave.setText("");
+            primerClicP = false;
+        }
+    }//GEN-LAST:event_peso_AveMouseClicked
+
+    private void peso_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_peso_AveActionPerformed
+
+    private void lesion_AveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lesion_AveMouseClicked
+        if (primerClicTdL) {
+            lesion_Ave.setText("");
+            primerClicTdL = false;
+        }
+    }//GEN-LAST:event_lesion_AveMouseClicked
+
+    private void lesion_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lesion_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lesion_AveActionPerformed
+
+    private void gravedad_AveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravedad_AveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gravedad_AveActionPerformed
+
+    private void CF_trueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CF_trueMouseClicked
+
+        CF_true.setSelected(true);
+        CF_false.setSelected(false);
+    }//GEN-LAST:event_CF_trueMouseClicked
+
+    private void CF_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_trueActionPerformed
+
+    }//GEN-LAST:event_CF_trueActionPerformed
+
+    private void CF_falseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CF_falseActionPerformed
+        CF_true.setSelected(false);
+        CF_false.setSelected(true);
+    }//GEN-LAST:event_CF_falseActionPerformed
+
+    private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
+        guardarDatos();
+        borrarDatos();
+    }//GEN-LAST:event_enviar_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

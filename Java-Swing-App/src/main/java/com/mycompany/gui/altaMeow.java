@@ -35,7 +35,7 @@ public class altaMeow extends javax.swing.JPanel {
         contenedor = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         mamBoton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        reptilBoton = new javax.swing.JButton();
         aveBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -44,17 +44,17 @@ public class altaMeow extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(191, 172, 200));
 
-        mamBoton.setText("Mamífero");
+        mamBoton.setText("Mamifero");
         mamBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mamBotonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Reptil");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        reptilBoton.setText("Reptil");
+        reptilBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                reptilBotonActionPerformed(evt);
             }
         });
 
@@ -78,7 +78,7 @@ public class altaMeow extends javax.swing.JPanel {
                 .addGap(81, 81, 81)
                 .addComponent(mamBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reptilBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(136, 136, 136)
@@ -94,7 +94,7 @@ public class altaMeow extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aveBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mamBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reptilBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(245, Short.MAX_VALUE))
         );
 
@@ -116,14 +116,32 @@ public class altaMeow extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
    avePanel f = new avePanel();
+    mamiferoPanel m = new mamiferoPanel();
+    reptilPanel r = new reptilPanel();
     private void mamBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mamBotonActionPerformed
+        System.out.println("asd");
+        contenedor.removeAll();
+        contenedor.add(m);
 
+        // Revalida el contenedor para que los cambios se apliquen correctamente
+        contenedor.revalidate();
+
+        // Repinta el contenedor para actualizar la interfaz gráfica
+        contenedor.repaint();
 
     }//GEN-LAST:event_mamBotonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void reptilBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reptilBotonActionPerformed
+            System.out.println("asd");
+        contenedor.removeAll();
+        contenedor.add(r);
+
+        // Revalida el contenedor para que los cambios se apliquen correctamente
+        contenedor.revalidate();
+
+        // Repinta el contenedor para actualizar la interfaz gráfica
+        contenedor.repaint();
+    }//GEN-LAST:event_reptilBotonActionPerformed
 
     private void aveBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aveBotonActionPerformed
         System.out.println("asd");
@@ -141,9 +159,9 @@ public class altaMeow extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aveBoton;
     private javax.swing.JPanel contenedor;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mamBoton;
+    private javax.swing.JButton reptilBoton;
     // End of variables declaration//GEN-END:variables
 }
