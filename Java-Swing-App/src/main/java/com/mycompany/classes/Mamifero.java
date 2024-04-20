@@ -4,7 +4,7 @@ public class Mamifero extends Animal {
     private boolean motivoAtropello;
 
     public Mamifero(String nombre, String especie, String peso, String tipoLesion, String gravedad, String tratamiento, boolean motivoAtropello) {
-        super( nombre, especie, peso, tipoLesion, gravedad, tratamiento, motivoAtropello);
+        super( nombre, especie, peso, tipoLesion, gravedad, tratamiento);
         this.motivoAtropello = motivoAtropello;
     }
 

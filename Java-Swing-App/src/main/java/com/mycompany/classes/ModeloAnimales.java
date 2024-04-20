@@ -19,9 +19,9 @@ import java.util.logging.Logger;
  */
 public class ModeloAnimales {
 
-    public ArrayList<Animal> getNombresAves() throws SQLException {
+    public ArrayList<Ave> getNombresAves() throws SQLException {
         Connection con = new Conexion().getconexion();
-        ArrayList<Animal> listaAves = new ArrayList<>(); // Lista para almacenar los animales
+        ArrayList<Ave> listaAves = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
             Statement stmt = con.createStatement();
@@ -38,7 +38,7 @@ public class ModeloAnimales {
                 boolean cazaFurtiva = rs.getBoolean("cazaFurtiva");
 
                 // Crear un nuevo objeto Animal con los valores obtenidos
-                Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento, cazaFurtiva);
+                Ave a = new Ave(nombre, especie, peso, tipoLesion, gravedad, tratamiento, cazaFurtiva);
                 listaAves.add(a);
             }
 
@@ -48,6 +48,7 @@ public class ModeloAnimales {
 
         return listaAves;
     }
+
     public ArrayList<Mamifero> getNombresMamiferos() throws SQLException {
         Connection con = new Conexion().getconexion();
         ArrayList<Mamifero> listaMamiferos = new ArrayList<>(); // Lista para almacenar los animales
@@ -77,7 +78,7 @@ public class ModeloAnimales {
 
         return listaMamiferos;
     }
-    
+
     public ArrayList<Reptil> getNombresReptiles() throws SQLException {
         Connection con = new Conexion().getconexion();
         ArrayList<Reptil> listaReptiles = new ArrayList<>(); // Lista para almacenar los animales
@@ -107,6 +108,106 @@ public class ModeloAnimales {
 
         return listaReptiles;
     }
-    
+
+    public ArrayList<Animal> getListadoLeve() throws SQLException {
+    Connection con = new Conexion().getconexion();
+    ArrayList<Animal> listaLeve = new ArrayList<>(); // Lista para almacenar los animales
+
+    try {
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve'\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM mamiferos WHERE gravedad = 'Leve'\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM reptiles WHERE gravedad = 'Leve';");
+
+        while (rs.next()) {
+            // Obtener los valores reales de la consulta
+            String nombre = rs.getString("nombre");
+            String especie = rs.getString("especie");
+            String peso = rs.getString("peso");
+            String tipoLesion = rs.getString("tipo_lesion");
+            String gravedad = rs.getString("gravedad");
+            String tratamiento = rs.getString("tratamiento");
+
+            // Crear un nuevo objeto Animal con los valores obtenidos
+            Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+            listaLeve.add(a);
+        }
+
+    } catch (SQLException e) {
+        // Imprimir la excepción en caso de error
+        e.printStackTrace();
+    }
+
+    return listaLeve;
+}
+public ArrayList<Animal> getListadoModerado() throws SQLException {
+    Connection con = new Conexion().getconexion();
+    ArrayList<Animal> listaModerado = new ArrayList<>(); // Lista para almacenar los animales
+
+    try {
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado'\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM mamiferos WHERE gravedad = 'Moderado'\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM reptiles WHERE gravedad = 'Moderado';");
+
+        while (rs.next()) {
+            // Obtener los valores reales de la consulta
+            String nombre = rs.getString("nombre");
+            String especie = rs.getString("especie");
+            String peso = rs.getString("peso");
+            String tipoLesion = rs.getString("tipo_lesion");
+            String gravedad = rs.getString("gravedad");
+            String tratamiento = rs.getString("tratamiento");
+
+            // Crear un nuevo objeto Animal con los valores obtenidos
+            Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+            listaModerado.add(a);
+        }
+
+    } catch (SQLException e) {
+        // Imprimir la excepción en caso de error
+        e.printStackTrace();
+    }
+
+    return listaModerado;
+}
+public ArrayList<Animal> getListadoGrave() throws SQLException {
+    Connection con = new Conexion().getconexion();
+    ArrayList<Animal> listaGrave = new ArrayList<>(); // Lista para almacenar los animales
+
+    try {
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Grave'\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM mamiferos WHERE gravedad = 'Grave'\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM reptiles WHERE gravedad = 'Grave';");
+
+        while (rs.next()) {
+            // Obtener los valores reales de la consulta
+            String nombre = rs.getString("nombre");
+            String especie = rs.getString("especie");
+            String peso = rs.getString("peso");
+            String tipoLesion = rs.getString("tipo_lesion");
+            String gravedad = rs.getString("gravedad");
+            String tratamiento = rs.getString("tratamiento");
+
+            // Crear un nuevo objeto Animal con los valores obtenidos
+            Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+            listaGrave.add(a);
+        }
+
+    } catch (SQLException e) {
+        // Imprimir la excepción en caso de error
+        e.printStackTrace();
+    }
+
+    return listaGrave;
+}
+
 
 }

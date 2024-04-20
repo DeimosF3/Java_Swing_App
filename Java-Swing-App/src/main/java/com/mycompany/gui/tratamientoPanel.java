@@ -5,6 +5,7 @@
 package com.mycompany.gui;
 
 import com.mycompany.classes.Animal;
+import com.mycompany.classes.Ave;
 import com.mycompany.classes.Mamifero;
 import com.mycompany.classes.ModeloAnimales;
 import com.mycompany.classes.Reptil;
@@ -125,7 +126,12 @@ public class tratamientoPanel extends javax.swing.JPanel {
 
         jTextField1.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
 
-        Filtrado2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Item 2", "Item 3", "Item 4" }));
+        Filtrado2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Leve", "Moderado", "Grave" }));
+        Filtrado2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Filtrado2ActionPerformed(evt);
+            }
+        });
 
         Filtrado3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Item 2", "Item 3", "Item 4" }));
 
@@ -278,7 +284,7 @@ public class tratamientoPanel extends javax.swing.JPanel {
     public void ListarNombresAves() {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Animal> listaAnimales = modAnimales.getNombresAves();
+            ArrayList<Ave> listaAnimales = modAnimales.getNombresAves();
 
             for (Animal animal : listaAnimales) {
                 modeloCombo.addElement(animal.getNombre());
@@ -333,25 +339,75 @@ public class tratamientoPanel extends javax.swing.JPanel {
     private void llenarComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llenarComboActionPerformed
             modeloCombo.removeAllElements();
             switch (num_filtrado1) {
-                case 1:
-                    ListarNombresAves();
-                    break;
-                case 2:
-                    ListarNombresMamiferos();
-                    break;
-                case 3:
-                    ListarNombresReptiles();
-                    break;
-                default:
-                    System.out.println("filtrado no usado");
+                case 1 -> ListarNombresAves();
+                case 2 -> ListarNombresMamiferos();
+                case 3 -> ListarNombresReptiles();
+                default -> System.out.println("filtrado1 no usado");
             }
-
-
+            switch (num_filtrado2) {
+                case 1 -> ListadoLeve();
+                case 2 ->ListadoModerado();
+                case 3 ->ListadoGrave();
+                default -> System.out.println("filtrado2 no usado");
+            }
     }//GEN-LAST:event_llenarComboActionPerformed
 
+    public void ListadoLeve(){
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Animal> listaLeve = modAnimales.getListadoLeve();
+            
+            for (Animal an : listaLeve) {
+                modeloCombo.addElement(an.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void ListadoModerado(){
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Animal> listaModerado = modAnimales.getListadoModerado();
+            
+            for (Animal an : listaModerado) {
+                modeloCombo.addElement(an.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void ListadoGrave(){
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Animal> listaGrave = modAnimales.getListadoGrave();
+            
+            for (Animal an : listaGrave) {
+                modeloCombo.addElement(an.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     private void ListadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoNombresActionPerformed
         llenarComboActionPerformed(evt);
     }//GEN-LAST:event_ListadoNombresActionPerformed
+
+    int num_filtrado2;
+    private void Filtrado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtrado2ActionPerformed
+        if (!Filtrado2.getSelectedItem().equals("Seleccionar...")) {
+            if (Filtrado2.getSelectedItem().equals("Leve")) {
+                num_filtrado2 = 1;
+            } else if (Filtrado2.getSelectedItem().equals("Moderado")) {
+                num_filtrado2 = 2;
+            } else if (Filtrado2.getSelectedItem().equals("Grave")) {
+                num_filtrado2 = 3;
+            }
+            
+        }
+    }//GEN-LAST:event_Filtrado2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
