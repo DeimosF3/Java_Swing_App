@@ -18,4 +18,7 @@ public class FachadaBBDD {
     public void insertarAve(Ave a) throws SQLException {
         new AnimalDAO().insertarAve(a);
     }
+    public void insertarTratamiento(String nombre, String tratamiento) throws SQLException{
+        new AnimalDAO().insertarTratamiento(nombre, tratamiento);
+    }
 }

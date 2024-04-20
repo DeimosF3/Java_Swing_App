@@ -4,6 +4,8 @@
  */
 package com.mycompany.classes;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Alumno
@@ -18,5 +20,9 @@ public class Fachada{
 //    }
     public void insertarAve(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean cazaFurtiva) throws Exception {
         new Controlador().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
+    }
+    
+    public void insertarTratamiento(String nombre, String tratamiento) throws SQLException{
+        new Controlador().insertarTratamiento(nombre, tratamiento);
     }
 }

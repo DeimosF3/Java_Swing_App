@@ -25,4 +25,22 @@ public void insertarAve(Ave a) throws SQLException {
     con.close();
 }
 
+public void insertarTratamiento(String nombre, String tratamiento) throws SQLException {
+    Connection con = new Conexion().getconexion();
+    
+    // tratamiento para aves
+    String queryAves = "UPDATE aves SET tratamiento = '" + tratamiento + "' WHERE nombre = '" + nombre + "'";
+    con.createStatement().executeUpdate(queryAves);
+    
+    // tratamiento para mamiferos
+    String queryMamiferos = "UPDATE mamiferos SET tratamiento = '" + tratamiento + "' WHERE nombre = '" + nombre + "'";
+    con.createStatement().executeUpdate(queryMamiferos);
+    
+    // tratamiento para reptiles
+    String queryReptiles = "UPDATE reptiles SET tratamiento = '" + tratamiento + "' WHERE nombre = '" + nombre + "'";
+    con.createStatement().executeUpdate(queryReptiles);
+    
+    con.close();
+}
+
 }

@@ -5,6 +5,7 @@
 package com.mycompany.classes;
 
 import com.mycompany.classes.bbdd.*;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,5 +18,8 @@ public class Controlador {
 //        }
     public void insertarAve(String nombre, String especie, String peso, String tipoLesion, String gravedad, String tratamiento, boolean cazaFurtiva) throws Exception {
         new FachadaBBDD().insertarAve(new Ave (nombre, especie, peso, tipoLesion, gravedad, tratamiento, cazaFurtiva));
+    }
+    public void insertarTratamiento(String nombre, String tratamiento) throws SQLException{
+        new FachadaBBDD().insertarTratamiento(nombre, tratamiento);
     }
 }
