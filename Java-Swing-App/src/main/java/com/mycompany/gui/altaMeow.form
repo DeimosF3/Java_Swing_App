@@ -17,7 +17,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="180" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="contenedor" min="-2" pref="620" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -25,7 +25,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="contenedor" min="-2" pref="420" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -62,7 +62,7 @@
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                       <Component id="mamBoton" min="-2" pref="114" max="-2" attributes="0"/>
                       <EmptySpace pref="86" max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="114" max="-2" attributes="0"/>
+                      <Component id="reptilBoton" min="-2" pref="114" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -81,7 +81,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="aveBoton" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                           <Component id="mamBoton" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="reptilBoton" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="245" max="32767" attributes="0"/>
                   </Group>
@@ -91,18 +91,18 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="mamBoton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mam&#xed;fero"/>
+                <Property name="text" type="java.lang.String" value="Mamifero"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mamBotonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="reptilBoton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reptil"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reptilBotonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="aveBoton">
