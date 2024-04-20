@@ -28,4 +28,7 @@ public class Controlador {
     public void insertarMamifero(String nombre, String especie, String peso, String lesion, String gravedad, String tratamiento, boolean motivoAtropello) throws Exception {
         new FachadaBBDD().insertarMamifero(new Mamifero(nombre, especie, peso, lesion, gravedad, tratamiento, motivoAtropello));
     }
+   public void insertarFecha(String nombre, String fecha_salida) throws SQLException {
+       new FachadaBBDD().insertarfecha(nombre, fecha_salida);
+   }
 }

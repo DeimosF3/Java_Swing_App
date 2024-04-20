@@ -4,6 +4,18 @@
  */
 package com.mycompany.gui;
 
+import com.mycompany.classes.Animal;
+import com.mycompany.classes.Ave;
+import com.mycompany.classes.Fachada;
+import com.mycompany.classes.Mamifero;
+import com.mycompany.classes.ModeloAnimales;
+import com.mycompany.classes.Reptil;
+import com.mycompany.guiUtils.Utilities;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alumno
@@ -15,6 +27,8 @@ public class liberacionPanel extends javax.swing.JPanel {
      */
     public liberacionPanel() {
         initComponents();
+        Utilities u = new Utilities();
+        u.setFontRecursively(contenedor);
     }
 
     /**
@@ -31,14 +45,12 @@ public class liberacionPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        filtrado_1 = new javax.swing.JComboBox<>();
-        filtrado_2 = new javax.swing.JComboBox<>();
-        filtrado_3 = new javax.swing.JComboBox<>();
+        filtrado1 = new javax.swing.JComboBox<>();
         filtrarBoton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        animalesLista = new javax.swing.JComboBox<>();
+        listadoNombres = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        textField1 = new java.awt.TextField();
+        fechaText = new java.awt.TextField();
         enviar_button = new javax.swing.JButton();
 
         contenedor.setBackground(new java.awt.Color(191, 172, 200));
@@ -51,11 +63,12 @@ public class liberacionPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Seleccione los filtros de busqueda:");
 
-        filtrado_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        filtrado_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        filtrado_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        filtrado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Aves", "Mamiferos", "Reptiles" }));
+        filtrado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filtrado1ActionPerformed(evt);
+            }
+        });
 
         filtrarBoton.setText("Filtrar");
         filtrarBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,11 +79,21 @@ public class liberacionPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Animales que coinciden con los criterios de busqueda: ");
 
-        animalesLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listadoNombres.setModel(modeloCombo);
+        listadoNombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listadoNombresActionPerformed(evt);
+            }
+        });
 
-        jLabel4.setText("Indique la fecha de salida del animal (“AAAA-MM-DD\"):");
+        jLabel4.setText("Indique la fecha de salida del animal:");
 
-        textField1.setText("textField1");
+        fechaText.setText("“AAAA-MM-DD\"");
+        fechaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaTextActionPerformed(evt);
+            }
+        });
 
         enviar_button.setText("Actualizar");
         enviar_button.addActionListener(new java.awt.event.ActionListener() {
@@ -88,21 +111,17 @@ public class liberacionPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(animalesLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(filtrado_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(filtrado_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(filtrado_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(filtrado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(198, 198, 198)
                         .addComponent(filtrarBoton))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaText, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listadoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -113,21 +132,19 @@ public class liberacionPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(filtrado_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(filtrado_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(filtrado_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filtrado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(filtrarBoton))
                 .addGap(27, 27, 27)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(animalesLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addComponent(listadoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(fechaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         contenedor.add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -168,23 +185,143 @@ public class liberacionPanel extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+public void guardarDatos() {
+        if (filtrado1.getSelectedItem() != null) {
+            try {
+                String nombre = (String) filtrado1.getSelectedItem();
+                String fecha = (String) fechaText.getSelectedText();
+                
+                try {
+                    new Fachada().insertarFecha(nombre, fecha);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(null, "Datos invalidos.Por favor, utilice solo letras, espacios y no más de 50 caracteres.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Datos invalidos.Por favor ingrese seleccione un animal", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void borrarDatos() {
+//        listadoNombres.removeAllItems();
+//        filtrado1.setSelectedItem(filtrado1.getItemAt(0));
+    }
     private void filtrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarBotonActionPerformed
-        // TODO add your handling code here:
+        
+        filtrado1.removeAllItems();
+        
+        switch (num_filtrado1) {
+            case 1 -> {
+                ListarNombresAves();
+                establecerPrimerValor(filtrado1);
+            }
+            case 2 -> {
+                ListarNombresMamiferos();
+                establecerPrimerValor(filtrado1);
+            }
+            case 3 -> {
+                ListarNombresReptiles();
+                establecerPrimerValor(filtrado1);
+            }
+            default ->
+                System.out.println("filtrado1 no usado");
+        }
     }//GEN-LAST:event_filtrarBotonActionPerformed
-
+    private void establecerPrimerValor(javax.swing.JComboBox comboBox) {
+        comboBox.setSelectedIndex(0);
+        
+    }
     private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
-       
+        guardarDatos();
+        borrarDatos();
     }//GEN-LAST:event_enviar_buttonActionPerformed
 
+    private void fechaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaTextActionPerformed
+    public void ListarNombresAves() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Ave> listaAnimales = modAnimales.getNombresAves();
+            
+            for (Animal animal : listaAnimales) {
+                modeloCombo.addElement(animal.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void ListarNombresMamiferos() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Mamifero> listaMamiferos = modAnimales.getNombresMamiferos();
+            
+            for (Mamifero mam : listaMamiferos) {
+                modeloCombo.addElement(mam.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void ListarNombresReptiles() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Reptil> listaReptiles = modAnimales.getNombresReptiles();
+            
+            for (Reptil rep : listaReptiles) {
+                modeloCombo.addElement(rep.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+    
+   
+    private void filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrado1ActionPerformed
+  if (!filtrado1.getSelectedItem().equals("Seleccionar...")) {
+            if (filtrado1.getSelectedItem().equals("Aves")) {
+                num_filtrado1 = 1;
+            } else if (filtrado1.getSelectedItem().equals("Mamiferos")) {
+                num_filtrado1 = 2;
+            } else if (filtrado1.getSelectedItem().equals("Reptiles")) {
+                num_filtrado1 = 3;
+            }
 
+        }        
+  
+    }//GEN-LAST:event_filtrado1ActionPerformed
+ int num_filtrado1;
+    private void listadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoNombresActionPerformed
+               if (filtrado1.getSelectedItem() == null) {
+            modeloCombo.removeAllElements();
+            switch (num_filtrado1) {
+                case 1:
+                    ListarNombresAves();
+                    break;
+                case 2:
+                    ListarNombresMamiferos();
+                    break;
+                case 3:
+                    ListarNombresReptiles();
+                    break;
+                default:
+                    System.out.println("filtrado1 no usado");
+                    break;
+            }
+    }//GEN-LAST:event_listadoNombresActionPerformed
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> animalesLista;
     private javax.swing.JPanel contenedor;
     private javax.swing.JButton enviar_button;
-    private javax.swing.JComboBox<String> filtrado_1;
-    private javax.swing.JComboBox<String> filtrado_2;
-    private javax.swing.JComboBox<String> filtrado_3;
+    private java.awt.TextField fechaText;
+    private javax.swing.JComboBox<String> filtrado1;
     private javax.swing.JButton filtrarBoton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -192,6 +329,6 @@ public class liberacionPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.awt.TextField textField1;
+    private javax.swing.JComboBox<String> listadoNombres;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,4 +31,7 @@ public class Fachada{
     public void insertarTratamiento(String nombre, String tratamiento) throws SQLException{
         new Controlador().insertarTratamiento(nombre, tratamiento);
     }
+    public void insertarFecha(String nombre, String fecha_salida) throws SQLException {
+        new Controlador().insertarFecha(nombre, fecha_salida);
+    }
 }
