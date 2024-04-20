@@ -4,13 +4,10 @@
  */
 package com.mycompany.gui;
 
-
 import com.mycompany.guiUtils.Utilities;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import com.mycompany.classes.*;
-import java.sql.SQLException;
-
 
 /**
  *
@@ -23,10 +20,10 @@ public class avePanel extends javax.swing.JPanel {
      */
     public avePanel() {
         initComponents();
-                Utilities u = new Utilities();
+        Utilities u = new Utilities();
 
-       u.setFontRecursively(contenedor);
-        
+        u.setFontRecursively(contenedor);
+
     }
 
     /**
@@ -57,6 +54,7 @@ public class avePanel extends javax.swing.JPanel {
         CF_true = new javax.swing.JCheckBox();
         CF_false = new javax.swing.JCheckBox();
         enviar_button = new javax.swing.JButton();
+        regresarBoton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         contenedor.setBackground(new java.awt.Color(191, 172, 200));
@@ -153,6 +151,13 @@ public class avePanel extends javax.swing.JPanel {
             }
         });
 
+        regresarBoton.setText("Regresar");
+        regresarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -162,8 +167,11 @@ public class avePanel extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(gravedad_Ave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(regresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                             .addComponent(CF_true)
                             .addGap(18, 18, 18)
@@ -211,8 +219,10 @@ public class avePanel extends javax.swing.JPanel {
                     .addComponent(CF_false)
                     .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(regresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addGap(148, 148, 148))
+                .addGap(154, 154, 154))
         );
 
         contenedor.add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -294,74 +304,86 @@ public class avePanel extends javax.swing.JPanel {
             primerClicE = false;
         }
     }//GEN-LAST:event_especie_AveMouseClicked
-boolean primerClicE = true;    boolean primerClicP = true;    boolean primerClicTdL = true;
-public void guardarDatos() {
-    if (validarSeleccion()) {
-        try {
-            String tratamiento = null;
-            String nombre = nombre_Ave.getText();
-            validarTexto(nombre);
-            String especie = especie_Ave.getText();
-            validarTexto(especie);
-            String peso = peso_Ave.getText();
-            validarNumero(peso);
-            String lesion = lesion_Ave.getText();
-            validarTexto(lesion);
-            String gravedad = (String) gravedad_Ave.getSelectedItem();
-            validarGravedad(gravedad);
-            boolean cazaFurtiva= false;
 
-            if (CF_true.isSelected()) {
-                cazaFurtiva = true;
-            } else if(CF_false.isSelected()){
-                cazaFurtiva = false;
+    private void regresarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarBotonActionPerformed
+        altaMeow dd = new altaMeow();
+        System.out.println("asd");
+        contenedor.removeAll();
+        contenedor.add(dd);
+
+        // Revalida el contenedor para que los cambios se apliquen correctamente
+        contenedor.revalidate();
+
+        // Repinta el contenedor para actualizar la interfaz gráfica
+        contenedor.repaint();
+    }//GEN-LAST:event_regresarBotonActionPerformed
+    boolean primerClicE = true;
+    boolean primerClicP = true;
+    boolean primerClicTdL = true;
+
+    public void guardarDatos() {
+        if (validarSeleccion()) {
+            try {
+                String tratamiento = null;
+                String nombre = nombre_Ave.getText();
+                validarTexto(nombre);
+                String especie = especie_Ave.getText();
+                validarTexto(especie);
+                String peso = peso_Ave.getText();
+                validarNumero(peso);
+                String lesion = lesion_Ave.getText();
+                validarTexto(lesion);
+                String gravedad = (String) gravedad_Ave.getSelectedItem();
+                validarGravedad(gravedad);
+                boolean cazaFurtiva = false;
+
+                if (CF_true.isSelected()) {
+                    cazaFurtiva = true;
+                } else if (CF_false.isSelected()) {
+                    cazaFurtiva = false;
+                }
+                try {
+                    new Fachada().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(null, "Datos inválidos", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            try{
-            new Fachada().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
-            } catch (Exception ex){
-                JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            
-        } catch (IllegalArgumentException e) {
-           JOptionPane.showMessageDialog(null, "Datos inválidos", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    } else {
-        JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
 
-
-public void validarNumero(String texto) {
-    if (!texto.matches("\\d*\\.?\\d+")) {
-        throw new IllegalArgumentException("El valor ingresado no es un número válido.");
+    public void validarNumero(String texto) {
+        if (!texto.matches("\\d*\\.?\\d+")) {
+            throw new IllegalArgumentException("El valor ingresado no es un número válido.");
+        }
     }
-}
-public void validarGravedad(String gravedad) {
-   if (gravedad.equals("Seleccionar")){
-       throw new IllegalArgumentException("El valor ingresado no es una selección válido.");
-   }
-}
 
-public void validarTexto(String texto) {
-    if (!texto.matches("[a-zA-Z\\s]+")) {
-        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
-    } else if (texto.length()>20){
-        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+    public void validarGravedad(String gravedad) {
+        if (gravedad.equals("Seleccionar")) {
+            throw new IllegalArgumentException("El valor ingresado no es una selección válido.");
+        }
     }
-}
 
-public boolean validarSeleccion() {
-    if ( (CF_true.isSelected() && CF_false.isSelected()) || (!CF_true.isSelected() && !CF_false.isSelected()) ){
-        return false;
-    } else {
-        return true;
+    public void validarTexto(String texto) {
+        if (!texto.matches("[a-zA-Z\\s]+")) {
+            throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+        } else if (texto.length() > 20) {
+            throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+        }
     }
-    
-}
 
+    public boolean validarSeleccion() {
+        if ((CF_true.isSelected() && CF_false.isSelected()) || (!CF_true.isSelected() && !CF_false.isSelected())) {
+            return false;
+        } else {
+            return true;
+        }
 
-
+    }
 
     public void borrarDatos() {
         nombre_Ave.setText("");
@@ -378,7 +400,7 @@ public boolean validarSeleccion() {
         primerClicTdL = true;
         primerClicE = true;
         primerClicP = true;
-        
+
     }
 
 
@@ -403,5 +425,6 @@ public boolean validarSeleccion() {
     private javax.swing.JTextField lesion_Ave;
     private javax.swing.JTextPane nombre_Ave;
     private javax.swing.JTextField peso_Ave;
+    private javax.swing.JButton regresarBoton;
     // End of variables declaration//GEN-END:variables
 }
