@@ -122,6 +122,11 @@ public class tratamientoPanel extends javax.swing.JPanel {
                 jTratamientoMouseClicked(evt);
             }
         });
+        jTratamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTratamientoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,9 +216,30 @@ public class tratamientoPanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+public void guardarDatos() {
+    try{
+    String tratamiento = jTratamiento.getText();
+    validarTexto(tratamiento);
+    } catch (IllegalArgumentException e){
+         JOptionPane.showMessageDialog(null, "Datos inválidos.Por favor, utilice solo letras, espacios y no más de 50 carácteres.", "Error", JOptionPane.ERROR_MESSAGE);
+
+    }
+}
+
+public void validarTexto(String texto) {
+    if (!texto.matches("[a-zA-Z\\s]+")) {
+        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 50 carácteres.");
+    } else if (texto.length()>50){
+        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 50 carácteres.");
+    } else if (texto.equals("50 carácteres máximo")){
+        throw new IllegalArgumentException("Ingresar tratamiento");
+    } else if (texto.equals("")){
+        throw new IllegalArgumentException("Ingresar tratamiento");
+    }
+}
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        guardarDatos();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void ListarNombresAves() {
         try {
@@ -394,6 +420,9 @@ public class tratamientoPanel extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_Filtrado3ActionPerformed
+
+    private void jTratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTratamientoActionPerformed
+    }//GEN-LAST:event_jTratamientoActionPerformed
 
    
 
