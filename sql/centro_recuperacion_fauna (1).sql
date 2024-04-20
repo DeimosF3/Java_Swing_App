@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2024 a las 11:16:17
+-- Tiempo de generación: 20-04-2024 a las 12:00:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -50,12 +50,12 @@ CREATE TABLE `aves` (
 INSERT INTO `aves` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tipo_lesion`, `gravedad`, `cazaFurtiva`, `fecha_salida`, `veterinario_salida`, `fecha_fallecimiento`, `certificado_fallecimiento`, `tratamiento`) VALUES
 (1, 'Apolo', '2024-04-10', 'Halcón peregrino', '1.20', 'Fractura ala', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL),
 (2, 'Luna', '2024-04-10', 'Lechuza común', '0.80', 'Contusión', 'Leve', 1, NULL, NULL, NULL, NULL, NULL),
-(3, 'Zeus', '2024-04-10', 'Cuervo común', '1.50', 'Fractura pico', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL),
-(4, 'Aurora', '2024-04-10', 'Gavilán común', '0.90', 'Herida grave', 'Grave', 1, NULL, NULL, NULL, NULL, NULL),
+(3, 'Zeus', '2024-04-10', 'Cuervo común', '1.50', 'Fractura pico', 'Moderado', 0, NULL, NULL, NULL, NULL, NULL),
+(4, 'Aurora', '2024-04-10', 'Gavilán común', '0.90', 'Herida grave', 'Grave', 0, NULL, NULL, NULL, NULL, NULL),
 (5, 'Thor', '2024-04-10', 'Aguilucho lagunero', '1.10', 'Contusión', 'Leve', 1, NULL, NULL, NULL, NULL, NULL),
 (6, 'Gaia', '2024-04-10', 'Busardo ratonero', '1.40', 'Fractura ala', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL),
 (7, 'Eolo', '2024-04-10', 'Milano negro', '1.30', 'Contusión', 'Leve', 1, NULL, NULL, NULL, NULL, NULL),
-(8, 'Artemisa', '2024-04-10', 'Lechuza común', '1.00', 'Fractura pata', 'Moderado', 1, NULL, NULL, NULL, NULL, NULL),
+(8, 'Artemisa', '2024-04-10', 'Lechuza común', '1.00', 'Fractura pata', 'Moderado', 0, NULL, NULL, NULL, NULL, NULL),
 (9, 'Hércules', '2024-04-10', 'Cernícalo vulgar', '1.10', 'Herida grave', 'Grave', 1, NULL, NULL, NULL, NULL, NULL),
 (10, 'Diana', '2024-04-10', 'Cernícalo común', '1.20', 'Herida grave', 'Grave', 1, NULL, NULL, NULL, NULL, NULL);
 
@@ -139,7 +139,7 @@ INSERT INTO `reptiles` (`id`, `nombre`, `fecha_entrada`, `especie`, `peso`, `tip
 (13, 'Tortuga Terrestre', '2024-04-10', 'Testudinidae', '6.00', 'Herida grave', 'Grave', NULL, NULL, NULL, NULL, 1, NULL),
 (14, 'Camaleón', '2024-04-10', 'Chamaeleonidae', '0.30', 'Contusión', 'Leve', NULL, NULL, NULL, NULL, 0, NULL),
 (15, 'Caimán', '2024-04-10', 'Caiman crocodilus', '25.00', 'Mordedura', 'Moderado', NULL, NULL, NULL, NULL, 1, NULL),
-(16, 'Tortuga de agua', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, NULL, NULL, NULL, 0, NULL);
+(16, 'Arturito', '2024-04-10', 'Tortuga de orejas rojas', '3.50', 'Herida leve', 'Leve', NULL, NULL, NULL, NULL, 0, NULL);
 
 --
 -- Índices para tablas volcadas
