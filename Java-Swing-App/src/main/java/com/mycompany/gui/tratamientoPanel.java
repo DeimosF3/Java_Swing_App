@@ -5,7 +5,9 @@
 package com.mycompany.gui;
 
 import com.mycompany.classes.Animal;
+import com.mycompany.classes.Mamifero;
 import com.mycompany.classes.ModeloAnimales;
+import com.mycompany.classes.Reptil;
 import com.mycompany.guiUtils.Utilities;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -55,6 +57,7 @@ public class tratamientoPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         ListadoNombres = new javax.swing.JComboBox<>();
         llenarCombo = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
 
         contenedor.setBackground(new java.awt.Color(191, 172, 200));
         contenedor.setLayout(new java.awt.BorderLayout());
@@ -70,7 +73,7 @@ public class tratamientoPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
         jLabel1.setText("Seleccione los filtros de búsqueda");
 
-        Filtrado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Filtrado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Aves", "Mamiferos", "Reptiles" }));
         Filtrado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Filtrado1ActionPerformed(evt);
@@ -122,9 +125,9 @@ public class tratamientoPanel extends javax.swing.JPanel {
 
         jTextField1.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
 
-        Filtrado2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Filtrado2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Item 2", "Item 3", "Item 4" }));
 
-        Filtrado3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Filtrado3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Animales que coincidan con los criterios de la búsqueda:");
 
@@ -150,6 +153,9 @@ public class tratamientoPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(vendajeBox)
@@ -160,24 +166,23 @@ public class tratamientoPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(jCheckBox3))
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ListadoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(Filtrado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Filtrado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Filtrado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(llenarCombo))
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Filtrado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Filtrado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Filtrado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(llenarCombo))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
+                        .addGap(123, 123, 123)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,10 +209,12 @@ public class tratamientoPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addGap(128, 128, 128)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(352, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -215,10 +222,10 @@ public class tratamientoPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,18 +275,10 @@ public class tratamientoPanel extends javax.swing.JPanel {
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox3ActionPerformed
-
-    private void Filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtrado1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Filtrado1ActionPerformed
-
-
-    private void llenarComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llenarComboActionPerformed
-
+    public void ListarNombresAves() {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Animal> listaAnimales = modAnimales.getAnimales();
-            modeloCombo.removeAllElements();
+            ArrayList<Animal> listaAnimales = modAnimales.getNombresAves();
 
             for (Animal animal : listaAnimales) {
                 modeloCombo.addElement(animal.getNombre());
@@ -287,14 +286,73 @@ public class tratamientoPanel extends javax.swing.JPanel {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    public void ListarNombresMamiferos() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Mamifero> listaMamiferos = modAnimales.getNombresMamiferos();
+            
+            for (Mamifero mam : listaMamiferos) {
+                modeloCombo.addElement(mam.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void ListarNombresReptiles() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Reptil> listaReptiles = modAnimales.getNombresReptiles();
+            
+            for (Reptil rep : listaReptiles) {
+                modeloCombo.addElement(rep.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
+    int num_filtrado1;
+    private void Filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtrado1ActionPerformed
+        if (!Filtrado1.getSelectedItem().equals("Seleccionar...")) {
+            if (Filtrado1.getSelectedItem().equals("Aves")) {
+                num_filtrado1 = 1;
+            } else if (Filtrado1.getSelectedItem().equals("Mamiferos")) {
+                num_filtrado1 = 2;
+            } else if (Filtrado1.getSelectedItem().equals("Reptiles")) {
+                num_filtrado1 = 3;
+            }
+            
+        }
+    }//GEN-LAST:event_Filtrado1ActionPerformed
+
+    DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+
+    private void llenarComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llenarComboActionPerformed
+            modeloCombo.removeAllElements();
+            switch (num_filtrado1) {
+                case 1:
+                    ListarNombresAves();
+                    break;
+                case 2:
+                    ListarNombresMamiferos();
+                    break;
+                case 3:
+                    ListarNombresReptiles();
+                    break;
+                default:
+                    System.out.println("filtrado no usado");
+            }
+
+
     }//GEN-LAST:event_llenarComboActionPerformed
 
     private void ListadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoNombresActionPerformed
         llenarComboActionPerformed(evt);
     }//GEN-LAST:event_ListadoNombresActionPerformed
 
-    DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
-//        modeloCombo.addElement(Filtrado1.getSelectedItem());
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Filtrado1;
@@ -314,6 +372,7 @@ public class tratamientoPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton llenarCombo;
     private javax.swing.JCheckBox vendajeBox;
     // End of variables declaration//GEN-END:variables
