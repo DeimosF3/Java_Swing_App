@@ -208,9 +208,9 @@ public class bajaPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_filtrado1ActionPerformed
-   private void establecerPrimerValor(javax.swing.JComboBox comboBox) {
+    private void establecerPrimerValor(javax.swing.JComboBox comboBox) {
         comboBox.setSelectedIndex(0);
-        
+
     }
     private void filtrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarBotonActionPerformed
 
