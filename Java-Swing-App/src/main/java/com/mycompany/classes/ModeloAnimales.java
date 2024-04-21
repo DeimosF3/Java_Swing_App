@@ -4,7 +4,7 @@
  */
 package com.mycompany.classes;
 
-import com.mycompany.classes.bbdd.Conexion;
+import com.mycompany.classes.bbdd.conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class ModeloAnimales {
 
     public ArrayList<Ave> getNombresAves() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Ave> listaAves = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
@@ -50,7 +50,7 @@ public class ModeloAnimales {
     }
 
     public ArrayList<Mamifero> getNombresMamiferos() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Mamifero> listaMamiferos = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
@@ -80,7 +80,7 @@ public class ModeloAnimales {
     }
 
     public ArrayList<Reptil> getNombresReptiles() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Reptil> listaReptiles = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
@@ -110,7 +110,7 @@ public class ModeloAnimales {
     }
 
     public ArrayList<Animal> getListadoLeve() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Animal> listaLeve = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
@@ -144,7 +144,7 @@ public class ModeloAnimales {
     }
 
     public ArrayList<Animal> getListadoModerado() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Animal> listaModerado = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
@@ -178,7 +178,7 @@ public class ModeloAnimales {
     }
 
     public ArrayList<Animal> getListadoGrave() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Animal> listaGrave = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
@@ -212,7 +212,7 @@ public class ModeloAnimales {
     }
 
     public ArrayList<Animal> getListadoSin() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Animal> listaSin = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
@@ -246,7 +246,7 @@ public class ModeloAnimales {
     }
 
     public ArrayList<Animal> getListadoCon() throws SQLException {
-        Connection con = new Conexion().getconexion();
+        Connection con = new conexion().getconexion();
         ArrayList<Animal> listaCon = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
