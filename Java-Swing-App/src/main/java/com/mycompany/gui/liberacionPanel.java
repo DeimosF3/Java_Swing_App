@@ -136,7 +136,7 @@ public class liberacionPanel extends javax.swing.JPanel {
                     .addComponent(filtrarBoton))
                 .addGap(27, 27, 27)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(listadoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
                 .addComponent(jLabel4)
@@ -144,7 +144,7 @@ public class liberacionPanel extends javax.swing.JPanel {
                 .addComponent(fechaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         contenedor.add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -205,12 +205,12 @@ public void guardarDatos() {
     }
     
     public void borrarDatos() {
-//        listadoNombres.removeAllItems();
-//        filtrado1.setSelectedItem(filtrado1.getItemAt(0));
+        listadoNombres.removeAllItems();
+        filtrado1.setSelectedItem(filtrado1.getItemAt(0));
     }
     private void filtrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarBotonActionPerformed
         
-        filtrado1.removeAllItems();
+        listadoNombres.removeAllItems();
         
         switch (num_filtrado1) {
             case 1 -> {
@@ -298,7 +298,7 @@ public void guardarDatos() {
     }//GEN-LAST:event_filtrado1ActionPerformed
  int num_filtrado1;
     private void listadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoNombresActionPerformed
-               if (filtrado1.getSelectedItem() == null) {
+               if (listadoNombres.getSelectedItem() == null) {
             modeloCombo.removeAllElements();
             switch (num_filtrado1) {
                 case 1:
@@ -314,6 +314,7 @@ public void guardarDatos() {
                     System.out.println("filtrado1 no usado");
                     break;
             }
+            establecerPrimerValor(listadoNombres);
     }//GEN-LAST:event_listadoNombresActionPerformed
 
     }
