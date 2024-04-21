@@ -4,7 +4,15 @@
  */
 package com.mycompany.gui;
 
+import com.mycompany.classes.Animal;
+import com.mycompany.classes.Ave;
+import com.mycompany.classes.Mamifero;
+import com.mycompany.classes.ModeloAnimales;
+import com.mycompany.classes.Reptil;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -174,8 +182,16 @@ public class bajaPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
   DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
-    
+
     String tipo;
+
+    private void guardarDatos() {
+
+    }
+
+    private void borrarDatos() {
+
+    }
     private void filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrado1ActionPerformed
         if (!filtrado1.getSelectedItem().equals("Seleccionar...")) {
             if (filtrado1.getSelectedItem().equals("Aves")) {
@@ -192,7 +208,10 @@ public class bajaPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_filtrado1ActionPerformed
-
+   private void establecerPrimerValor(javax.swing.JComboBox comboBox) {
+        comboBox.setSelectedIndex(0);
+        
+    }
     private void filtrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarBotonActionPerformed
 
         listadoNombres.removeAllItems();
@@ -211,34 +230,71 @@ public class bajaPanel extends javax.swing.JPanel {
                 establecerPrimerValor(filtrado1);
             }
             default ->
-            System.out.println("filtrado1 no usado");
+                System.out.println("filtrado1 no usado");
         }
     }//GEN-LAST:event_filtrarBotonActionPerformed
-int num_filtrado1;
+    int num_filtrado1;
     private void listadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoNombresActionPerformed
         if (listadoNombres.getSelectedItem() == null) {
             modeloCombo.removeAllElements();
             switch (num_filtrado1) {
                 case 1:
-                ListarNombresAves();
-                break;
+                    ListarNombresAves();
+                    break;
                 case 2:
-                ListarNombresMamiferos();
-                break;
+                    ListarNombresMamiferos();
+                    break;
                 case 3:
-                ListarNombresReptiles();
-                break;
+                    ListarNombresReptiles();
+                    break;
                 default:
-                System.out.println("filtrado1 no usado");
-                break;
+                    System.out.println("filtrado1 no usado");
+                    break;
             }
             establecerPrimerValor(listadoNombres);
     }//GEN-LAST:event_listadoNombresActionPerformed
-
+    }
     private void fechaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaTextActionPerformed
+    public void ListarNombresAves() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Ave> listaAnimales = modAnimales.getNombresAves();
 
+            for (Animal animal : listaAnimales) {
+                modeloCombo.addElement(animal.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void ListarNombresMamiferos() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Mamifero> listaMamiferos = modAnimales.getNombresMamiferos();
+
+            for (Mamifero mam : listaMamiferos) {
+                modeloCombo.addElement(mam.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void ListarNombresReptiles() {
+        try {
+            ModeloAnimales modAnimales = new ModeloAnimales();
+            ArrayList<Reptil> listaReptiles = modAnimales.getNombresReptiles();
+
+            for (Reptil rep : listaReptiles) {
+                modeloCombo.addElement(rep.getNombre());
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
         guardarDatos();
         borrarDatos();
