@@ -11,6 +11,33 @@ public class Animal {
     private String gravedad;
     private Date fechaLiberacion;
     private Date fechaFallecimiento;
+    private Date fechaEntrada;
+    private String veterinarioSalida;
+    private String certificadoFallecimiento;
+
+    public Date getFechaEntrada() {
+        return fechaEntrada;
+    }
+
+    public void setFechaEntrada(Date fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
+    }
+
+    public String getVeterinarioSalida() {
+        return veterinarioSalida;
+    }
+
+    public void setVeterinarioSalida(String veterinarioSalida) {
+        this.veterinarioSalida = veterinarioSalida;
+    }
+
+    public String getCertificadoFallecimiento() {
+        return certificadoFallecimiento;
+    }
+
+    public void setCertificadoFallecimiento(String certificadoFallecimiento) {
+        this.certificadoFallecimiento = certificadoFallecimiento;
+    }
 
     public Animal(String nombre, String especie, String peso, String tipoLesion, String gravedad, String tratamiento ) {
         this.nombre = nombre;
