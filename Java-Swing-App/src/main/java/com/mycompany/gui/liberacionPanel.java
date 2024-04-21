@@ -188,11 +188,11 @@ public class liberacionPanel extends javax.swing.JPanel {
 public void guardarDatos() {
         if (filtrado1.getSelectedItem() != null) {
             try {
-                String nombre = (String) listadoNombres.getSelectedItem();
-                String fecha = fechaText.getText();
-
+                String nombre = (String) filtrado1.getSelectedItem();
+                String fecha = (String) fechaText.getSelectedText();
+                
                 try {
-                    new Fachada().insertarFecha(tipo, nombre, fecha);
+                    new Fachada().insertarFecha(nombre, fecha);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -203,34 +203,35 @@ public void guardarDatos() {
             JOptionPane.showMessageDialog(null, "Datos invalidos.Por favor ingrese seleccione un animal", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     public void borrarDatos() {
 //        listadoNombres.removeAllItems();
 //        filtrado1.setSelectedItem(filtrado1.getItemAt(0));
     }
     private void filtrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarBotonActionPerformed
-        listadoNombres.removeAllItems();
+        
+        filtrado1.removeAllItems();
+        
         switch (num_filtrado1) {
             case 1 -> {
                 ListarNombresAves();
-                establecerPrimerValor(listadoNombres);
+                establecerPrimerValor(filtrado1);
             }
             case 2 -> {
                 ListarNombresMamiferos();
-                establecerPrimerValor(listadoNombres);
+                establecerPrimerValor(filtrado1);
             }
             case 3 -> {
                 ListarNombresReptiles();
-                establecerPrimerValor(listadoNombres);
+                establecerPrimerValor(filtrado1);
             }
             default ->
                 System.out.println("filtrado1 no usado");
-
         }
     }//GEN-LAST:event_filtrarBotonActionPerformed
     private void establecerPrimerValor(javax.swing.JComboBox comboBox) {
         comboBox.setSelectedIndex(0);
-
+        
     }
     private void enviar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_buttonActionPerformed
         guardarDatos();
@@ -238,13 +239,13 @@ public void guardarDatos() {
     }//GEN-LAST:event_enviar_buttonActionPerformed
 
     private void fechaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaTextActionPerformed
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_fechaTextActionPerformed
     public void ListarNombresAves() {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
             ArrayList<Ave> listaAnimales = modAnimales.getNombresAves();
-
+            
             for (Animal animal : listaAnimales) {
                 modeloCombo.addElement(animal.getNombre());
             }
@@ -252,12 +253,12 @@ public void guardarDatos() {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     public void ListarNombresMamiferos() {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
             ArrayList<Mamifero> listaMamiferos = modAnimales.getNombresMamiferos();
-
+            
             for (Mamifero mam : listaMamiferos) {
                 modeloCombo.addElement(mam.getNombre());
             }
@@ -265,12 +266,12 @@ public void guardarDatos() {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     public void ListarNombresReptiles() {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
             ArrayList<Reptil> listaReptiles = modAnimales.getNombresReptiles();
-
+            
             for (Reptil rep : listaReptiles) {
                 modeloCombo.addElement(rep.getNombre());
             }
@@ -278,30 +279,26 @@ public void guardarDatos() {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
-String tipo= null;
-    int num_filtrado1;
+    
+   
     private void filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrado1ActionPerformed
-        num_filtrado1 = 0;
-        if (!filtrado1.getSelectedItem().equals("Seleccionar...")) {
+  if (!filtrado1.getSelectedItem().equals("Seleccionar...")) {
             if (filtrado1.getSelectedItem().equals("Aves")) {
-                tipo = "aves";
                 num_filtrado1 = 1;
             } else if (filtrado1.getSelectedItem().equals("Mamiferos")) {
-                tipo = "mamiferos";
                 num_filtrado1 = 2;
             } else if (filtrado1.getSelectedItem().equals("Reptiles")) {
-                tipo = "reptiles";
                 num_filtrado1 = 3;
             }
 
-        }
-
+        }        
+  
     }//GEN-LAST:event_filtrado1ActionPerformed
-
+ int num_filtrado1;
     private void listadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoNombresActionPerformed
-        if (listadoNombres.getSelectedItem() == null) {
+               if (filtrado1.getSelectedItem() == null) {
             modeloCombo.removeAllElements();
             switch (num_filtrado1) {
                 case 1:
@@ -317,7 +314,6 @@ String tipo= null;
                     System.out.println("filtrado1 no usado");
                     break;
             }
-            establecerPrimerValor(listadoNombres);
     }//GEN-LAST:event_listadoNombresActionPerformed
 
     }
