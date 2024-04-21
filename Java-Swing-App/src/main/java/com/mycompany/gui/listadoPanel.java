@@ -48,8 +48,9 @@ public class listadoPanel extends javax.swing.JPanel implements ActionListener{
         jPanel1 = new javax.swing.JPanel();
         contenedor = new javax.swing.JPanel();
         Panel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         button_anterior = new javax.swing.JButton();
         button_siguiente = new javax.swing.JButton();
 
@@ -59,10 +60,14 @@ public class listadoPanel extends javax.swing.JPanel implements ActionListener{
         Panel.setBackground(new java.awt.Color(191, 172, 200));
         Panel.setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setLayout(new java.awt.BorderLayout());
+        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
         jLabel1.setText("Lista de todos los animales centro:");
-        Panel.add(jLabel1, java.awt.BorderLayout.PAGE_START);
-        Panel.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+        jPanel2.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        Panel.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         contenedor.add(Panel, java.awt.BorderLayout.CENTER);
 
@@ -82,44 +87,38 @@ public class listadoPanel extends javax.swing.JPanel implements ActionListener{
         );
 
         button_anterior.setText("Anterior");
-        button_anterior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_anteriorActionPerformed(evt);
-            }
-        });
+        button_anterior.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         button_siguiente.setText("Siguiente");
+        button_siguiente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button_anterior)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_siguiente))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 547, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(button_anterior)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(button_siguiente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 40, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(0, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_anterior)
-                    .addComponent(button_siguiente)))
+                    .addComponent(button_siguiente)
+                    .addComponent(button_anterior))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void button_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_anteriorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button_anteriorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -129,6 +128,7 @@ public class listadoPanel extends javax.swing.JPanel implements ActionListener{
     private javax.swing.JPanel contenedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
@@ -141,16 +141,17 @@ public class listadoPanel extends javax.swing.JPanel implements ActionListener{
                 panel2.setVisible(false);
                 panel1.setVisible(true);
                 
-                Panel.add(panel1);
-                Panel.validate();
-                deshabilitarBotones();
+                contenedor.add(panel1);
+                contenedor.validate();
+                
+                 deshabilitarBotones();
                 
         } else if (evt.equals(button_siguiente)){
             panel2.setVisible(true);
                 panel1.setVisible(false);
                 
-                Panel.add(panel2);
-                Panel.validate();
+                contenedor.add(panel2);
+                contenedor.validate();
                 deshabilitarBotones();
         }
     }
