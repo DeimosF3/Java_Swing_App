@@ -115,7 +115,8 @@ public void insertarTratamiento(String nombre, String tratamiento) throws SQLExc
     con.close();
 }
  public void insertarFecha(String nombre, String fecha_salida) throws SQLException {
-        Connection con = new conexion().getconexion();
+     Connection con = new conexion().getconexion();
+
 
         // consulta para insertar fecha de salida del animal a partir del nombre
         String queryFecha = "UPDATE mamiferos SET fecha_salida = = '" + fecha_salida + "' WHERE nombre = '" + nombre + "'";
