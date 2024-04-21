@@ -1,6 +1,7 @@
 com\mycompany\gui\mamiferoPanel$7.class
 com\mycompany\gui\tratamientoPanel$8.class
 com\mycompany\guiUtils\Utilities.class
+com\mycompany\classes\bbdd\conexion.class
 com\mycompany\gui\liberacionPanel$1.class
 com\mycompany\gui\panell$3.class
 com\mycompany\classes\ModeloAnimales.class
@@ -57,7 +58,6 @@ com\mycompany\classes\Veterinario.class
 com\mycompany\gui\avePanel$10.class
 com\mycompany\gui\avePanel$4.class
 com\mycompany\gui\liberacionPanel$3.class
-com\mycompany\classes\bbdd\Conexion.class
 com\mycompany\gui\panell$2.class
 com\mycompany\gui\tratamientoPanel$6.class
 com\mycompany\gui\avePanel$1.class

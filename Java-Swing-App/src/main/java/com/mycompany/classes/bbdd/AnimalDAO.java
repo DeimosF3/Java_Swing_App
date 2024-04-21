@@ -1,5 +1,5 @@
 package com.mycompany.classes.bbdd;
-import com.mycompany.classes.bbdd.Conexion;
+import com.mycompany.classes.bbdd.conexion;
 import com.mycompany.classes.Ave;
 import com.mycompany.classes.*;
 import java.sql.Connection;
@@ -12,7 +12,7 @@ public void insertarAve(Ave ave) throws SQLException {
     Connection conn = null;
     PreparedStatement pstmt = null;
 try {
-        conn = new Conexion().getconexion();
+        conn = new conexion().getconexion();
 
         String sql = "INSERT INTO aves (nombre, especie, peso, tipo_lesion, gravedad, cazaFurtiva) VALUES (?, ?, ?, ?, ?, ?)";
         pstmt = conn.prepareStatement(sql);
@@ -42,7 +42,7 @@ public void insertarReptil(Reptil rep) throws SQLException {
     PreparedStatement pstmt = null;
 
     try {
-        conn = new Conexion().getconexion();
+        conn = new conexion().getconexion();
 
         String sql = "INSERT INTO reptiles (nombre, especie, peso, tipo_lesion, gravedad, infeccion_bacteriana) VALUES (?, ?, ?, ?, ?, ?)";
         pstmt = conn.prepareStatement(sql);
@@ -71,7 +71,7 @@ public void insertarMamifero(Mamifero mam) throws SQLException {
     PreparedStatement pstmt = null;
 
     try {
-        conn = new Conexion().getconexion();
+        conn = new conexion().getconexion();
         String query = "INSERT INTO mamiferos (nombre, especie, peso, tipo_lesion, gravedad, atropello)"
                 + " VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -98,7 +98,7 @@ public void insertarMamifero(Mamifero mam) throws SQLException {
 
 
 public void insertarTratamiento(String nombre, String tratamiento) throws SQLException {
-    Connection con = new Conexion().getconexion();
+    Connection con = new conexion().getconexion();
     
     // tratamiento para aves
     String queryAves = "UPDATE aves SET tratamiento = '" + tratamiento + "' WHERE nombre = '" + nombre + "'";
@@ -115,7 +115,10 @@ public void insertarTratamiento(String nombre, String tratamiento) throws SQLExc
     con.close();
 }
  public void insertarFecha(String tipo, String nombre, String fecha_salida) throws SQLException {
-        Connection con = new Conexion().getconexion();
+
+
+        Connection con = new conexion().getconexion();
+
 
         // consulta para insertar fecha de salida del animal a partir del nombre
         String queryFecha = "UPDATE " + tipo + " SET fecha_salida = '" + fecha_salida + "' WHERE nombre = '" + nombre + "'";
