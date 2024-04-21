@@ -88,7 +88,7 @@ public class liberacionPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Indique la fecha de fallecimiento del animal:");
+        jLabel4.setText("Indique la fecha de liberación del animal:");
 
         fechaText.setText("“AAAA-MM-DD\"");
         fechaText.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +104,7 @@ public class liberacionPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Indique el veterinario encargado del certificado de fallecimiento:");
+        jLabel5.setText("Indique el veterinario encargado de la salida del animal:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -122,7 +122,7 @@ public class liberacionPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(filtrado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(198, 198, 198)
+                            .addGap(35, 35, 35)
                             .addComponent(filtrarBoton))
                         .addComponent(fechaText, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
@@ -130,7 +130,7 @@ public class liberacionPanel extends javax.swing.JPanel {
                         .addComponent(listadoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -202,7 +202,7 @@ public void guardarDatos() {
         if (filtrado1.getSelectedItem() != null) {
             try {
                 String nombre = (String) listadoNombres.getSelectedItem();
-                String fecha = (String) fechaText.getText();
+                String fecha =  fechaText.getText();
                 
                 try {
                     new Fachada().insertarFecha(tipo, nombre, fecha);
@@ -210,7 +210,7 @@ public void guardarDatos() {
                     JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (IllegalArgumentException e) {
-                JOptionPane.showMessageDialog(null, "Datos invalidos.Por favor, utilice solo letras, espacios y no más de 50 caracteres.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Datos invalidos.Por favor, utilice solo letras, espacios y no mas de 50 caracteres.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Datos invalidos.Por favor ingrese seleccione un animal", "Error", JOptionPane.ERROR_MESSAGE);

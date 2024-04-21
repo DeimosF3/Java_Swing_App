@@ -67,7 +67,7 @@ public class tratamientoPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(191, 172, 200));
 
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 12)); // NOI18N
-        jLabel1.setText("Seleccione los filtros de búsqueda");
+        jLabel1.setText("Seleccione los filtros de busqueda:");
 
         Filtrado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Aves", "Mamiferos", "Reptiles" }));
         Filtrado1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,12 +149,12 @@ public class tratamientoPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(llenarCombo))
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

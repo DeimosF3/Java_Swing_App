@@ -116,8 +116,8 @@
                                           <Component id="llenarCombo" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel3" alignment="0" min="-2" pref="399" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" pref="345" max="-2" attributes="0"/>
                                       <Component id="jTratamiento" alignment="0" min="-2" pref="328" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" alignment="0" min="-2" pref="466" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -125,7 +125,7 @@
                                   <Component id="jButton1" min="-2" pref="195" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="140" max="32767" attributes="0"/>
+                          <EmptySpace pref="115" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -161,7 +161,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Cascadia Code" size="12" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Seleccione los filtros de b&#xfa;squeda"/>
+                    <Property name="text" type="java.lang.String" value="Seleccione los filtros de busqueda:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="Filtrado1">
