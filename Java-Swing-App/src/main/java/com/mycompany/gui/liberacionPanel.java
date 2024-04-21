@@ -188,11 +188,11 @@ public class liberacionPanel extends javax.swing.JPanel {
 public void guardarDatos() {
         if (filtrado1.getSelectedItem() != null) {
             try {
-                String nombre = (String) filtrado1.getSelectedItem();
-                String fecha = (String) fechaText.getSelectedText();
+                String nombre = (String) listadoNombres.getSelectedItem();
+                String fecha = (String) fechaText.getText();
                 
                 try {
-                    new Fachada().insertarFecha(nombre, fecha);
+                    new Fachada().insertarFecha(tipo, nombre, fecha);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -205,8 +205,8 @@ public void guardarDatos() {
     }
     
     public void borrarDatos() {
-        listadoNombres.removeAllItems();
-        filtrado1.setSelectedItem(filtrado1.getItemAt(0));
+//        listadoNombres.removeAllItems();
+//        filtrado1.setSelectedItem(filtrado1.getItemAt(0));
     }
     private void filtrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarBotonActionPerformed
         
@@ -282,14 +282,18 @@ public void guardarDatos() {
     
     DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
     
+    String tipo;
    
     private void filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrado1ActionPerformed
   if (!filtrado1.getSelectedItem().equals("Seleccionar...")) {
             if (filtrado1.getSelectedItem().equals("Aves")) {
                 num_filtrado1 = 1;
+                tipo = "aves";
             } else if (filtrado1.getSelectedItem().equals("Mamiferos")) {
+                tipo = "mamiferos";
                 num_filtrado1 = 2;
             } else if (filtrado1.getSelectedItem().equals("Reptiles")) {
+                tipo = "reptiles";
                 num_filtrado1 = 3;
             }
 

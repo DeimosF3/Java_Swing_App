@@ -31,10 +31,10 @@ public class ModeloAnimales {
                 // Obtener los valores reales de la consulta
                 String nombre = rs.getString("nombre");
                 String especie = rs.getString("especie");
-                String peso = rs.getString("peso");
+                    String peso = rs.getString("peso");
                 String tipoLesion = rs.getString("tipo_lesion");
                 String gravedad = rs.getString("gravedad");
-                String tratamiento = rs.getString("tratamiento");
+                    String tratamiento = rs.getString("tratamiento");
                 boolean cazaFurtiva = rs.getBoolean("cazaFurtiva");
 
                 // Crear un nuevo objeto Animal con los valores obtenidos
