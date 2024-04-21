@@ -4,6 +4,11 @@
  */
 package com.mycompany.gui;
 
+import com.mycompany.classes.ModeloAnimales;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Usuario
@@ -13,10 +18,41 @@ public class listadoPanel_2 extends javax.swing.JPanel {
     /**
      * Creates new form listadoPanel_2
      */
-    public listadoPanel_2() {
-        initComponents();
-    }
+public listadoPanel_2() {
+    initComponents();
+    try {
+        String consulta = ("SELECT * FROM aves\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM mamiferos\n"
+                + "UNION ALL\n"
+                + "SELECT * FROM reptiles;");
+        DefaultTableModel md = new DefaultTableModel();
+        ResultSet rs = ModeloAnimales.ListarTabla(consulta);
+        md.setColumnIdentifiers(new Object[]{"ID", "Entrada", "Salida", "Autorización salida", "Fallecimiento", "Certificado fallecimiento"});
+        tablaLista.setModel(md);
 
+        while (rs.next()) {
+            String tipoAnimal = rs.getMetaData().getTableName(1);
+            String certificadoFallecimiento = rs.getString("certificado_fallecimiento");
+            // Verificar si el certificado_fallecimiento es nulo o un número
+            if (certificadoFallecimiento == null || certificadoFallecimiento.matches("\\d+")) {
+                certificadoFallecimiento = ""; // Si es nulo o un número, establecerlo como cadena vacía
+            }
+            Object[] rowData = {
+                rs.getInt("id"),
+                rs.getString("fecha_entrada"),
+                rs.getString("fecha_salida"),
+                rs.getString("veterinario_salida"),
+                rs.getString("fecha_fallecimiento"),
+                certificadoFallecimiento
+            };
+            md.addRow(rowData);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace(); // Manejo básico de la excepción, puedes cambiar esto según tus necesidades
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,6 +65,8 @@ public class listadoPanel_2 extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaLista = new javax.swing.JTable();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
 
@@ -37,6 +75,19 @@ public class listadoPanel_2 extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
         jLabel1.setText("Lista de todos los animales centro:");
 
+        tablaLista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaLista);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -44,12 +95,18 @@ public class listadoPanel_2 extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 212, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 385, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -94,5 +151,7 @@ public class listadoPanel_2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaLista;
     // End of variables declaration//GEN-END:variables
 }

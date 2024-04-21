@@ -18,6 +18,22 @@ import java.util.logging.Logger;
  * @author Usuario
  */
 public class ModeloAnimales {
+    
+    public static ResultSet ListarTabla(String consulta) throws SQLException{
+        Connection conn = new conexion().getconexion();
+        Statement sql;
+        
+        ResultSet datos = null;
+        
+        try{
+        sql=conn.createStatement();
+        datos = sql.executeQuery(consulta);
+        
+    }catch(Exception e){
+            System.out.println(e);
+            }
+        return datos;
+    }
 
     public ArrayList<Ave> getNombresAves() throws SQLException {
         Connection con = new conexion().getconexion();

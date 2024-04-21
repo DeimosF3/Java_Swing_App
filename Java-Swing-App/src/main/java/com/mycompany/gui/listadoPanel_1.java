@@ -4,6 +4,11 @@
  */
 package com.mycompany.gui;
 
+import com.mycompany.classes.ModeloAnimales;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Usuario
@@ -15,6 +20,23 @@ public class listadoPanel_1 extends javax.swing.JPanel {
      */
     public listadoPanel_1() {
         initComponents();
+        try {
+            String consulta = ("SELECT * FROM aves\n"
+                    + "UNION ALL\n"
+                    + "SELECT * FROM mamiferos\n"
+                    + "UNION ALL\n"
+                    + "SELECT * FROM reptiles;");
+            DefaultTableModel md = new DefaultTableModel();
+            ResultSet rs = ModeloAnimales.ListarTabla(consulta);
+            md.setColumnIdentifiers(new Object[]{"ID","Nombre", "Peso", "Tipo Lesión", "Gravedad", "Tratamiento"});
+            tablaLista.setModel(md);
+
+            while (rs.next()) {
+                md.addRow(new Object[]{rs.getInt("id"),rs.getString("nombre"), rs.getString("peso"), rs.getString("tipo_lesion"), rs.getString("gravedad"), rs.getString("tratamiento")});
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo básico de la excepción, puedes cambiar esto según tus necesidades
+        }
     }
 
     /**
@@ -28,6 +50,8 @@ public class listadoPanel_1 extends javax.swing.JPanel {
 
         listadoPanel_1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaLista = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(800, 500));
 
@@ -36,6 +60,19 @@ public class listadoPanel_1 extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
         jLabel1.setText("Lista de todos los animales centro:");
 
+        tablaLista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaLista);
+
         javax.swing.GroupLayout listadoPanel_1Layout = new javax.swing.GroupLayout(listadoPanel_1);
         listadoPanel_1.setLayout(listadoPanel_1Layout);
         listadoPanel_1Layout.setHorizontalGroup(
@@ -43,12 +80,17 @@ public class listadoPanel_1 extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listadoPanel_1Layout.createSequentialGroup()
                 .addGap(0, 212, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(listadoPanel_1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         listadoPanel_1Layout.setVerticalGroup(
             listadoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listadoPanel_1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 385, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -63,13 +105,15 @@ public class listadoPanel_1 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(listadoPanel_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 80, Short.MAX_VALUE))
+                .addGap(0, 32, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel listadoPanel_1;
+    private javax.swing.JTable tablaLista;
     // End of variables declaration//GEN-END:variables
 }
