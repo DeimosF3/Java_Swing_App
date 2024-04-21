@@ -4,17 +4,36 @@
  */
 package com.mycompany.gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Alumno
  */
-public class listadoPanel extends javax.swing.JPanel {
+public class listadoPanel extends javax.swing.JPanel implements ActionListener{
 
-    /**
-     * Creates new form listadoPanel
-     */
+    listadoPanel_1 panel1 = new listadoPanel_1();
+    listadoPanel_2 panel2 = new listadoPanel_2();
     public listadoPanel() {
         initComponents();
+        
+        contenedor.add(panel1);
+        panel1.setVisible(true);
+        panel2.setVisible(false);
+        deshabilitarBotones();
+        
+        button_anterior.addActionListener(this);
+        button_siguiente.addActionListener(this);
+    }
+    private void deshabilitarBotones(){
+        if(panel1.isVisible()){
+            button_anterior.setEnabled(false);
+            button_siguiente.setEnabled(true);
+        } else if (panel2.isVisible()){
+            button_anterior.setEnabled(true);
+            button_siguiente.setEnabled(false);
+        }
     }
 
     /**
@@ -28,42 +47,24 @@ public class listadoPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         contenedor = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        Panel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        button_anterior = new javax.swing.JButton();
+        button_siguiente = new javax.swing.JButton();
 
         contenedor.setBackground(new java.awt.Color(191, 172, 200));
         contenedor.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(191, 172, 200));
+        Panel.setBackground(new java.awt.Color(191, 172, 200));
+        Panel.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
         jLabel1.setText("Lista de todos los animales centro:");
+        Panel.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+        Panel.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
-        jButton1.setText("jButton1");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 212, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(473, 473, 473)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jButton1)
-                .addGap(0, 352, Short.MAX_VALUE))
-        );
-
-        contenedor.add(jPanel2, java.awt.BorderLayout.CENTER);
+        contenedor.add(Panel, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,30 +81,77 @@ public class listadoPanel extends javax.swing.JPanel {
                 .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        button_anterior.setText("Anterior");
+        button_anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_anteriorActionPerformed(evt);
+            }
+        });
+
+        button_siguiente.setText("Siguiente");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 90, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 90, Short.MAX_VALUE))
+                .addGap(0, 547, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(button_anterior)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(button_siguiente)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 40, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_anterior)
+                    .addComponent(button_siguiente)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_anteriorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_anteriorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Panel;
+    private javax.swing.JButton button_anterior;
+    private javax.swing.JButton button_siguiente;
     private javax.swing.JPanel contenedor;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
+
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object evt = e.getSource();
+        
+        if(evt.equals(button_anterior)){
+                panel2.setVisible(false);
+                panel1.setVisible(true);
+                
+                Panel.add(panel1);
+                Panel.validate();
+                deshabilitarBotones();
+                
+        } else if (evt.equals(button_siguiente)){
+            panel2.setVisible(true);
+                panel1.setVisible(false);
+                
+                Panel.add(panel2);
+                Panel.validate();
+                deshabilitarBotones();
+        }
+    }
 }
