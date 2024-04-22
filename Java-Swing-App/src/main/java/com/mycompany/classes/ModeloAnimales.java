@@ -26,7 +26,7 @@ public class ModeloAnimales {
         ResultSet datos = null;
         
         try{
-        sql=conn.createStatement();
+        sql=conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         datos = sql.executeQuery(consulta);
         
     }catch(Exception e){
@@ -40,7 +40,7 @@ public class ModeloAnimales {
         ArrayList<Ave> listaAves = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado2 == 1){
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Leve';");
@@ -98,7 +98,7 @@ public class ModeloAnimales {
         ArrayList<Ave> listaAves = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves");
 
@@ -129,7 +129,7 @@ public class ModeloAnimales {
         ArrayList<Mamifero> listaMamiferos = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado2 == 1){
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Leve';");
@@ -188,7 +188,7 @@ public class ModeloAnimales {
         ArrayList<Mamifero> listaMamiferos = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, atropello FROM mamiferos;");
 
             while (rs.next()) {
@@ -218,7 +218,7 @@ public class ModeloAnimales {
         ArrayList<Reptil> listaReptiles = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado2 == 1){
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Leve';");
@@ -277,7 +277,7 @@ public class ModeloAnimales {
         ArrayList<Reptil> listaReptiles = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, infeccion_bacteriana FROM reptiles;");
 
             while (rs.next()) {
@@ -307,7 +307,7 @@ public class ModeloAnimales {
         ArrayList<Animal> listaLeve = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado1 == 0 && num_filtrado3 == 0){
             rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve'\n"
@@ -355,7 +355,7 @@ public class ModeloAnimales {
         ArrayList<Animal> listaModerado = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado1 == 0 && num_filtrado3 == 0){
             rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado'\n"
@@ -403,7 +403,7 @@ public class ModeloAnimales {
         ArrayList<Animal> listaGrave = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado1 == 0 && num_filtrado3 == 0){
             rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Grave'\n"
@@ -452,7 +452,7 @@ public class ModeloAnimales {
         ArrayList<Animal> listaSin = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado1 == 0 && num_filtrado2 == 0){
              rs = stmt.executeQuery("SELECT * FROM aves WHERE tratamiento IS NULL\n"
@@ -488,7 +488,7 @@ public class ModeloAnimales {
         ArrayList<Animal> listaCon = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
             if(num_filtrado1 == 0 && num_filtrado2 == 0){
              rs = stmt.executeQuery("SELECT * FROM aves WHERE tratamiento IS NOT NULL\n"
