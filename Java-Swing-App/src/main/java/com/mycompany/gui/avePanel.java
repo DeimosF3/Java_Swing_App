@@ -351,7 +351,7 @@ public class avePanel extends javax.swing.JPanel {
                 try {
                     new Fachada().insertarAve(nombre, especie, peso, lesion, gravedad, tratamiento, cazaFurtiva);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                    
                 }
 
             } catch (IllegalArgumentException e) {
