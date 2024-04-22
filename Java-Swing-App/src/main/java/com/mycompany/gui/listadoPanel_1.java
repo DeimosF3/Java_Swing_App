@@ -49,16 +49,13 @@ public class listadoPanel_1 extends javax.swing.JPanel {
     private void initComponents() {
 
         listadoPanel_1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaLista = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 500));
 
         listadoPanel_1.setBackground(new java.awt.Color(191, 172, 200));
-
-        jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
-        jLabel1.setText("Lista de las aves del centro:");
 
         tablaLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,15 +70,19 @@ public class listadoPanel_1 extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tablaLista);
 
+        jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
+        jLabel1.setText("Lista del todos los animales del centro:");
+
         javax.swing.GroupLayout listadoPanel_1Layout = new javax.swing.GroupLayout(listadoPanel_1);
         listadoPanel_1.setLayout(listadoPanel_1Layout);
         listadoPanel_1Layout.setHorizontalGroup(
             listadoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listadoPanel_1Layout.createSequentialGroup()
-                .addGap(0, 212, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(listadoPanel_1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
+                .addGroup(listadoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listadoPanel_1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
         );
         listadoPanel_1Layout.setVerticalGroup(
@@ -99,7 +100,7 @@ public class listadoPanel_1 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(listadoPanel_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 180, Short.MAX_VALUE))
+                .addGap(0, 471, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
