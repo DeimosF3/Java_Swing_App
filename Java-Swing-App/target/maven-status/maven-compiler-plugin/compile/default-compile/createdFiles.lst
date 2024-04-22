@@ -50,7 +50,6 @@ com\mycompany\gui\avePanel$9.class
 com\mycompany\classes\Animal.class
 com\mycompany\gui\tratamientoPanel$2.class
 com\mycompany\gui\mamiferoPanel$1.class
-com\mycompany\gui\programa.class
 com\mycompany\classes\bbdd\AnimalDAO.class
 com\mycompany\gui\reptilPanel$3.class
 com\mycompany\gui\tratamientoPanel.class
