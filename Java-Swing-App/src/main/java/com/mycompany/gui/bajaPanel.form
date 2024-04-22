@@ -199,7 +199,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Indique la fecha de salida del animal:"/>
+                    <Property name="text" type="java.lang.String" value="Indique la fecha de fallecimiento del animal:"/>
                   </Properties>
                 </Component>
                 <Component class="java.awt.TextField" name="fechaText">
@@ -224,9 +224,6 @@
                   </Properties>
                 </Component>
                 <Component class="java.awt.TextField" name="vetText">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="textField1"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

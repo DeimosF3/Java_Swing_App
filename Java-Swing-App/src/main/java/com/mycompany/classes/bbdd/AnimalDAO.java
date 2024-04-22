@@ -112,11 +112,11 @@ public class AnimalDAO {
         con.close();
     }
 
-    public void insertarFecha(String tipo, String nombre, String fecha_salida) throws SQLException {
+    public void insertarFecha(String tipo, String nombre, String fecha_salida, String veterinario_salida) throws SQLException {
         Connection con = new conexion().getconexion();
 
         // consulta para insertar fecha de salida del animal a partir del nombre
-        String queryFecha = "UPDATE " + tipo + " SET fecha_salida = '" + fecha_salida + "' WHERE nombre = '" + nombre + "'";
+        String queryFecha = "UPDATE " + tipo + " SET fecha_salida = '" + fecha_salida + "', veterinario_salida = '" + veterinario_salida + "' WHERE nombre = '" + nombre + "'";
         con.createStatement().executeUpdate(queryFecha);
     }
 

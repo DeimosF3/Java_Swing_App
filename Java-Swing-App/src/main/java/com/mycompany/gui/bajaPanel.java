@@ -88,7 +88,7 @@ public class bajaPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Indique la fecha de salida del animal:");
+        jLabel4.setText("Indique la fecha de fallecimiento del animal:");
 
         fechaText.setText("“AAAA-MM-DD\"");
         fechaText.addActionListener(new java.awt.event.ActionListener() {
@@ -105,8 +105,6 @@ public class bajaPanel extends javax.swing.JPanel {
         });
 
         jLabel5.setText("Indique el veterinario encargado del certificado de defuncion del animal:");
-
-        vetText.setText("textField1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

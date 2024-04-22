@@ -27,8 +27,8 @@ public class FachadaBBDD {
     public void insertarMamifero(Mamifero mam) throws SQLException {
         new AnimalDAO().insertarMamifero(mam);
     }
-    public void insertarfecha(String tipo, String nombre, String fecha_salida) throws SQLException {
-        new AnimalDAO().insertarFecha(tipo, nombre, fecha_salida);
+    public void insertarfecha(String tipo, String nombre, String fecha_salida, String veterinario_salida) throws SQLException {
+        new AnimalDAO().insertarFecha(tipo, nombre, fecha_salida, veterinario_salida);
     }
     public void insertarBaja(String tipo, String nombre, String fecha_fallecimiento, String certificado_fallecimiento) throws SQLException {
         new AnimalDAO().insertarBaja(tipo, nombre, fecha_fallecimiento, certificado_fallecimiento);
