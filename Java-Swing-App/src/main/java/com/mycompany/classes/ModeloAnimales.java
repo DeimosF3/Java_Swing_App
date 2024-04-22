@@ -18,67 +18,67 @@ import java.util.logging.Logger;
  * @author Usuario
  */
 public class ModeloAnimales {
-    
-    public static ResultSet ListarTabla(String consulta) throws SQLException{
+
+    public static ResultSet ListarTabla(String consulta) throws SQLException {
         Connection conn = new conexion().getconexion();
         Statement sql;
-        
+
         ResultSet datos = null;
-        
-        try{
-        sql=conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        datos = sql.executeQuery(consulta);
-        
-    }catch(Exception e){
+
+        try {
+            sql = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            datos = sql.executeQuery(consulta);
+
+        } catch (Exception e) {
             System.out.println(e);
-            }
+        }
         return datos;
     }
 
-    public ArrayList<Ave> getNombresAvesTratamiento(int num_filtrado2,int num_filtrado3) throws SQLException {
+    public ArrayList<Ave> getNombresAvesTratamiento(int num_filtrado2, int num_filtrado3) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Ave> listaAves = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
-            if(num_filtrado2 == 1){
+            if (num_filtrado2 == 1) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Leve';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Leve' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Leve' AND tratamiento IS NULL");
                 }
-            } else if (num_filtrado2 == 2){
+            } else if (num_filtrado2 == 2) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad = 'Moderado';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Moderado' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Moderado' AND tratamiento IS NULL");
                 }
-            } else if (num_filtrado2 == 3){
+            } else if (num_filtrado2 == 3) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad = 'Grave';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Grave' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Grave' AND tratamiento IS NULL");
                 }
-            
-            } else if (num_filtrado3 == 1 && num_filtrado2 == 0){
+
+            } else if (num_filtrado3 == 1 && num_filtrado2 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE tratamiento IS NOT NULL;");
-            } else if (num_filtrado3 == 2 && num_filtrado2 == 0){
+            } else if (num_filtrado3 == 2 && num_filtrado2 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE tratamiento IS NULL;");
-            } else if (num_filtrado2 == 0 && num_filtrado3 == 0){
+            } else if (num_filtrado2 == 0 && num_filtrado3 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves;");
             }
             while (rs.next()) {
                 // Obtener los valores reales de la consulta
                 String nombre = rs.getString("nombre");
                 String especie = rs.getString("especie");
-                    String peso = rs.getString("peso");
+                String peso = rs.getString("peso");
                 String tipoLesion = rs.getString("tipo_lesion");
                 String gravedad = rs.getString("gravedad");
-                    String tratamiento = rs.getString("tratamiento");
+                String tratamiento = rs.getString("tratamiento");
                 boolean cazaFurtiva = rs.getBoolean("cazaFurtiva");
 
                 // Crear un nuevo objeto Animal con los valores obtenidos
@@ -87,12 +87,12 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-           
+
         }
 
         return listaAves;
     }
-    
+
     public ArrayList<Ave> getNombresAves() throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Ave> listaAves = new ArrayList<>(); // Lista para almacenar los animales
@@ -100,16 +100,16 @@ public class ModeloAnimales {
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
-                rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves");
+            rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves");
 
             while (rs.next()) {
                 // Obtener los valores reales de la consulta
                 String nombre = rs.getString("nombre");
                 String especie = rs.getString("especie");
-                    String peso = rs.getString("peso");
+                String peso = rs.getString("peso");
                 String tipoLesion = rs.getString("tipo_lesion");
                 String gravedad = rs.getString("gravedad");
-                    String tratamiento = rs.getString("tratamiento");
+                String tratamiento = rs.getString("tratamiento");
                 boolean cazaFurtiva = rs.getBoolean("cazaFurtiva");
 
                 // Crear un nuevo objeto Animal con los valores obtenidos
@@ -118,46 +118,46 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-          
+
         }
 
         return listaAves;
     }
 
-    public ArrayList<Mamifero> getNombresMamiferosTratamiento(int num_filtrado2,int num_filtrado3) throws SQLException {
+    public ArrayList<Mamifero> getNombresMamiferosTratamiento(int num_filtrado2, int num_filtrado3) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Mamifero> listaMamiferos = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
-            if(num_filtrado2 == 1){
+            if (num_filtrado2 == 1) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Leve';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Leve' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Leve' AND tratamiento IS NULL");
                 }
-            } else if (num_filtrado2 == 2){
+            } else if (num_filtrado2 == 2) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad = 'Moderado';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Moderado' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Moderado' AND tratamiento IS NULL");
                 }
-            } else if (num_filtrado2 == 3){
+            } else if (num_filtrado2 == 3) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad = 'Grave';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Grave' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE gravedad= 'Grave' AND tratamiento IS NULL");
                 }
-            
-            } else if (num_filtrado3 == 1 && num_filtrado2 == 0){
+
+            } else if (num_filtrado3 == 1 && num_filtrado2 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE tratamiento IS NOT NULL;");
-            } else if (num_filtrado3 == 2 && num_filtrado2 == 0){
+            } else if (num_filtrado3 == 2 && num_filtrado2 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos WHERE tratamiento IS NULL;");
-            } else if (num_filtrado3 == 0 && num_filtrado2 == 0){
+            } else if (num_filtrado3 == 0 && num_filtrado2 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM mamiferos;");
             }
 
@@ -177,12 +177,12 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-           
+
         }
 
         return listaMamiferos;
     }
-    
+
     public ArrayList<Mamifero> getNombresMamiferos() throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Mamifero> listaMamiferos = new ArrayList<>(); // Lista para almacenar los animales
@@ -207,46 +207,46 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            
+
         }
 
         return listaMamiferos;
     }
 
-    public ArrayList<Reptil> getNombresReptilesTratamiento(int num_filtrado2,int num_filtrado3) throws SQLException {
+    public ArrayList<Reptil> getNombresReptilesTratamiento(int num_filtrado2, int num_filtrado3) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Reptil> listaReptiles = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = null;
-            if(num_filtrado2 == 1){
+            if (num_filtrado2 == 1) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Leve';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Leve' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Leve' AND tratamiento IS NULL");
                 }
-            } else if (num_filtrado2 == 2){
+            } else if (num_filtrado2 == 2) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad = 'Moderado';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Moderado' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Moderado' AND tratamiento IS NULL");
                 }
-            } else if (num_filtrado2 == 3){
+            } else if (num_filtrado2 == 3) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad = 'Grave';");
                 if (num_filtrado3 == 1) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Grave' AND tratamiento IS NOT NULL");
-                } else if (num_filtrado3 == 2){
+                } else if (num_filtrado3 == 2) {
                     rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE gravedad= 'Grave' AND tratamiento IS NULL");
                 }
-            
-            } else if (num_filtrado3 == 1 && num_filtrado2 == 0){
+
+            } else if (num_filtrado3 == 1 && num_filtrado2 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE tratamiento IS NOT NULL;");
-            } else if (num_filtrado3 == 2 && num_filtrado2 == 0){
+            } else if (num_filtrado3 == 2 && num_filtrado2 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles WHERE tratamiento IS NULL;");
-            } else if (num_filtrado2 == 0 && num_filtrado3 == 0){
+            } else if (num_filtrado2 == 0 && num_filtrado3 == 0) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM reptiles;");
             }
 
@@ -266,12 +266,12 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            
+
         }
 
         return listaReptiles;
     }
-    
+
     public ArrayList<Reptil> getNombresReptiles() throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Reptil> listaReptiles = new ArrayList<>(); // Lista para almacenar los animales
@@ -296,7 +296,7 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            
+
         }
 
         return listaReptiles;
@@ -305,46 +305,55 @@ public class ModeloAnimales {
     public ArrayList<Animal> getListadoLeve(int num_filtrado1, int num_filtrado3) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Animal> listaLeve = new ArrayList<>(); // Lista para almacenar los animales
+        ResultSet rs = null;
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = null;
-            if(num_filtrado1 == 0 && num_filtrado3 == 0){
-            rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve'\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Leve'\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Leve';");
-            } else if (num_filtrado1 == 0 && num_filtrado3 == 1){
-                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve' AND IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Leve' AND IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Leve' AND IS NOT NULL;");
-            } else if (num_filtrado1 == 0 && num_filtrado3 == 2){
-                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve' AND IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Leve' AND IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Leve' AND IS NULL;");
-            }
-            while (rs.next()) {
-                // Obtener los valores reales de la consulta
-                String nombre = rs.getString("nombre");
-                String especie = rs.getString("especie");
-                String peso = rs.getString("peso");
-                String tipoLesion = rs.getString("tipo_lesion");
-                String gravedad = rs.getString("gravedad");
-                String tratamiento = rs.getString("tratamiento");
 
-                // Crear un nuevo objeto Animal con los valores obtenidos
-                Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
-                listaLeve.add(a);
+            if (num_filtrado1 == 0 && num_filtrado3 == 0) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve'\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Leve'\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Leve';");
+            } else if (num_filtrado1 == 0 && num_filtrado3 == 1) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve' AND tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Leve' AND tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Leve' AND tratamiento IS NOT NULL;");
+            } else if (num_filtrado1 == 0 && num_filtrado3 == 2) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Leve' AND tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Leve' AND tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Leve' AND tratamiento IS NULL;");
+            }
+
+            if (rs != null) {
+                while (rs.next()) {
+                    // Obtener los valores reales de la consulta
+                    String nombre = rs.getString("nombre");
+                    String especie = rs.getString("especie");
+                    String peso = rs.getString("peso");
+                    String tipoLesion = rs.getString("tipo_lesion");
+                    String gravedad = rs.getString("gravedad");
+                    String tratamiento = rs.getString("tratamiento");
+
+                    // Crear un nuevo objeto Animal con los valores obtenidos
+                    Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+                    listaLeve.add(a);
+                }
             }
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            
+
+        } finally {
+            if (rs != null) {
+                rs.close(); // Cerrar el ResultSet
+            }
+            con.close(); // Cerrar la conexión
         }
 
         return listaLeve;
@@ -353,46 +362,55 @@ public class ModeloAnimales {
     public ArrayList<Animal> getListadoModerado(int num_filtrado1, int num_filtrado3) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Animal> listaModerado = new ArrayList<>(); // Lista para almacenar los animales
+        ResultSet rs = null;
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = null;
-            if(num_filtrado1 == 0 && num_filtrado3 == 0){
-            rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado'\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Moderado'\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Moderado';");
-            } else if (num_filtrado1 == 0 && num_filtrado3 == 1){
-                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado' AND IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Moderado' AND IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Moderado' AND IS NOT NULL;");
-            } else if (num_filtrado1 == 0 && num_filtrado3 == 2){
-                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado' AND IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Moderado' AND IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Moderado' AND IS NULL;");
-            }
-            while (rs.next()) {
-                // Obtener los valores reales de la consulta
-                String nombre = rs.getString("nombre");
-                String especie = rs.getString("especie");
-                String peso = rs.getString("peso");
-                String tipoLesion = rs.getString("tipo_lesion");
-                String gravedad = rs.getString("gravedad");
-                String tratamiento = rs.getString("tratamiento");
 
-                // Crear un nuevo objeto Animal con los valores obtenidos
-                Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
-                listaModerado.add(a);
+            if (num_filtrado1 == 0 && num_filtrado3 == 0) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado'\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Moderado'\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Moderado';");
+            } else if (num_filtrado1 == 0 && num_filtrado3 == 1) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado' AND tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Moderado' AND tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Moderado' AND tratamiento IS NOT NULL;");
+            } else if (num_filtrado1 == 0 && num_filtrado3 == 2) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado' AND tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Moderado' AND tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Moderado' AND tratamiento IS NULL;");
+            }
+
+            if (rs != null) {
+                while (rs.next()) {
+                    // Obtener los valores reales de la consulta
+                    String nombre = rs.getString("nombre");
+                    String especie = rs.getString("especie");
+                    String peso = rs.getString("peso");
+                    String tipoLesion = rs.getString("tipo_lesion");
+                    String gravedad = rs.getString("gravedad");
+                    String tratamiento = rs.getString("tratamiento");
+
+                    // Crear un nuevo objeto Animal con los valores obtenidos
+                    Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+                    listaModerado.add(a);
+                }
             }
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-          
+
+        } finally {
+            if (rs != null) {
+                rs.close(); // Cerrar el ResultSet
+            }
+            con.close(); // Cerrar la conexión
         }
 
         return listaModerado;
@@ -401,47 +419,55 @@ public class ModeloAnimales {
     public ArrayList<Animal> getListadoGrave(int num_filtrado1, int num_filtrado3) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Animal> listaGrave = new ArrayList<>(); // Lista para almacenar los animales
+        ResultSet rs = null;
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = null;
-            if(num_filtrado1 == 0 && num_filtrado3 == 0){
-            rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Grave'\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Grave'\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Grave';");
-            } else if (num_filtrado1 == 0 && num_filtrado3 == 1){
-                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Grave' AND IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Grave' AND IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Grave' AND IS NOT NULL;");
-            } else if (num_filtrado1 == 0 && num_filtrado3 == 2){
-                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Moderado' AND IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE gravedad = 'Grave' AND IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE gravedad = 'Grave' AND IS NULL;");
+
+            if (num_filtrado1 == 0 && num_filtrado3 == 0) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Grave'\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Grave'\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Grave';");
+            } else if (num_filtrado1 == 0 && num_filtrado3 == 1) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Grave' AND tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Grave' AND tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Grave' AND tratamiento IS NOT NULL;");
+            } else if (num_filtrado1 == 0 && num_filtrado3 == 2) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE gravedad = 'Grave' AND tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE gravedad = 'Grave' AND tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE gravedad = 'Grave' AND tratamiento IS NULL;");
             }
 
-            while (rs.next()) {
-                // Obtener los valores reales de la consulta
-                String nombre = rs.getString("nombre");
-                String especie = rs.getString("especie");
-                String peso = rs.getString("peso");
-                String tipoLesion = rs.getString("tipo_lesion");
-                String gravedad = rs.getString("gravedad");
-                String tratamiento = rs.getString("tratamiento");
+            if (rs != null) {
+                while (rs.next()) {
+                    // Obtener los valores reales de la consulta
+                    String nombre = rs.getString("nombre");
+                    String especie = rs.getString("especie");
+                    String peso = rs.getString("peso");
+                    String tipoLesion = rs.getString("tipo_lesion");
+                    String gravedad = rs.getString("gravedad");
+                    String tratamiento = rs.getString("tratamiento");
 
-                // Crear un nuevo objeto Animal con los valores obtenidos
-                Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
-                listaGrave.add(a);
+                    // Crear un nuevo objeto Animal con los valores obtenidos
+                    Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+                    listaGrave.add(a);
+                }
             }
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            
+
+        } finally {
+            if (rs != null) {
+                rs.close(); // Cerrar el ResultSet
+            }
+            con.close(); // Cerrar la conexión
         }
 
         return listaGrave;
@@ -450,34 +476,43 @@ public class ModeloAnimales {
     public ArrayList<Animal> getListadoSin(int num_filtrado1, int num_filtrado2) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Animal> listaSin = new ArrayList<>(); // Lista para almacenar los animales
+        ResultSet rs = null;
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = null;
-            if(num_filtrado1 == 0 && num_filtrado2 == 0){
-             rs = stmt.executeQuery("SELECT * FROM aves WHERE tratamiento IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE tratamiento IS NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE tratamiento IS NULL;;");
-            }
-            while (rs.next()) {
-                // Obtener los valores reales de la consulta
-                String nombre = rs.getString("nombre");
-                String especie = rs.getString("especie");
-                String peso = rs.getString("peso");
-                String tipoLesion = rs.getString("tipo_lesion");
-                String gravedad = rs.getString("gravedad");
-                String tratamiento = rs.getString("tratamiento");
 
-                // Crear un nuevo objeto Animal con los valores obtenidos
-                Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
-                listaSin.add(a);
+            if (num_filtrado1 == 0 && num_filtrado2 == 0) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE tratamiento IS NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE tratamiento IS NULL;");
+
+                if (rs != null) {
+                    while (rs.next()) {
+                        // Obtener los valores reales de la consulta
+                        String nombre = rs.getString("nombre");
+                        String especie = rs.getString("especie");
+                        String peso = rs.getString("peso");
+                        String tipoLesion = rs.getString("tipo_lesion");
+                        String gravedad = rs.getString("gravedad");
+                        String tratamiento = rs.getString("tratamiento");
+
+                        // Crear un nuevo objeto Animal con los valores obtenidos
+                        Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+                        listaSin.add(a);
+                    }
+                }
             }
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-           
+
+        } finally {
+            if (rs != null) {
+                rs.close(); // Cerrar el ResultSet
+            }
+            con.close(); // Cerrar la conexión
         }
 
         return listaSin;
@@ -486,34 +521,43 @@ public class ModeloAnimales {
     public ArrayList<Animal> getListadoCon(int num_filtrado1, int num_filtrado2) throws SQLException {
         Connection con = new conexion().getconexion();
         ArrayList<Animal> listaCon = new ArrayList<>(); // Lista para almacenar los animales
+        ResultSet rs = null;
 
         try {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = null;
-            if(num_filtrado1 == 0 && num_filtrado2 == 0){
-             rs = stmt.executeQuery("SELECT * FROM aves WHERE tratamiento IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM mamiferos WHERE tratamiento IS NOT NULL\n"
-                    + "UNION ALL\n"
-                    + "SELECT * FROM reptiles WHERE tratamiento IS NOT NULL;;");
-            }
-            while (rs.next()) {
-                // Obtener los valores reales de la consulta
-                String nombre = rs.getString("nombre");
-                String especie = rs.getString("especie");
-                String peso = rs.getString("peso");
-                String tipoLesion = rs.getString("tipo_lesion");
-                String gravedad = rs.getString("gravedad");
-                String tratamiento = rs.getString("tratamiento");
 
-                // Crear un nuevo objeto Animal con los valores obtenidos
-                Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
-                listaCon.add(a);
+            if (num_filtrado1 == 0 && num_filtrado2 == 0) {
+                rs = stmt.executeQuery("SELECT * FROM aves WHERE tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM mamiferos WHERE tratamiento IS NOT NULL\n"
+                        + "UNION ALL\n"
+                        + "SELECT * FROM reptiles WHERE tratamiento IS NOT NULL;");
+            }
+
+            if (rs != null) {
+                while (rs.next()) {
+                    // Obtener los valores reales de la consulta
+                    String nombre = rs.getString("nombre");
+                    String especie = rs.getString("especie");
+                    String peso = rs.getString("peso");
+                    String tipoLesion = rs.getString("tipo_lesion");
+                    String gravedad = rs.getString("gravedad");
+                    String tratamiento = rs.getString("tratamiento");
+
+                    // Crear un nuevo objeto Animal con los valores obtenidos
+                    Animal a = new Animal(nombre, especie, peso, tipoLesion, gravedad, tratamiento);
+                    listaCon.add(a);
+                }
             }
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            con.close();
         }
 
         return listaCon;
