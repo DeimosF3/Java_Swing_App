@@ -293,7 +293,6 @@ public class mamiferoPanel extends javax.swing.JPanel {
                 try {
                     new Fachada().insertarMamifero(nombre, especie, peso, lesion, gravedad, tratamiento, motivoAtropello);
                 } catch (Exception ex) {
-                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
                 }
 
