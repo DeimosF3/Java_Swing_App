@@ -14,6 +14,7 @@ import com.mycompany.guiUtils.Utilities;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -259,7 +260,7 @@ public void guardarDatos() {
         guardarDatos();
         borrarDatos();
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void ListarNombresAves(int num_filtrado2,int num_filtrado3) {
+    public void ListarNombresAves(int num_filtrado2, int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
             ArrayList<Ave> listaAnimales = modAnimales.getNombresAvesTratamiento(num_filtrado2, num_filtrado3);
@@ -272,7 +273,7 @@ public void guardarDatos() {
         }
     }
 
-    public void ListarNombresMamiferos(int num_filtrado2,int num_filtrado3) {
+    public void ListarNombresMamiferos(int num_filtrado2, int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
             ArrayList<Mamifero> listaMamiferos = modAnimales.getNombresMamiferosTratamiento(num_filtrado2, num_filtrado3);
@@ -285,7 +286,7 @@ public void guardarDatos() {
         }
     }
 
-    public void ListarNombresReptiles(int num_filtrado2,int num_filtrado3) {
+    public void ListarNombresReptiles(int num_filtrado2, int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
             ArrayList<Reptil> listaReptiles = modAnimales.getNombresReptilesTratamiento(num_filtrado2, num_filtrado3);
@@ -296,13 +297,13 @@ public void guardarDatos() {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }                                      
+    }
 
-    int num_filtrado1;
+    int num_filtrado1 = 0;
     private void Filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtrado1ActionPerformed
-        num_filtrado1=0;
+        
         if (!Filtrado1.getSelectedItem().equals("Seleccionar...")) {
-            
+
             if (Filtrado1.getSelectedItem().equals("Aves")) {
                 num_filtrado1 = 1;
             } else if (Filtrado1.getSelectedItem().equals("Mamiferos")) {
@@ -314,7 +315,6 @@ public void guardarDatos() {
         }
     }//GEN-LAST:event_Filtrado1ActionPerformed
 
-
     DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
 
     private void llenarComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llenarComboActionPerformed
@@ -323,15 +323,12 @@ public void guardarDatos() {
         switch (num_filtrado1) {
             case 1 -> {
                 ListarNombresAves(num_filtrado2, num_filtrado3);
-                establecerPrimerValor(ListadoNombres);
             }
             case 2 -> {
                 ListarNombresMamiferos(num_filtrado2, num_filtrado3);
-                establecerPrimerValor(ListadoNombres);
             }
             case 3 -> {
                 ListarNombresReptiles(num_filtrado2, num_filtrado3);
-                establecerPrimerValor(ListadoNombres);
             }
             default ->
                 System.out.println("filtrado1 no usado");
@@ -355,7 +352,7 @@ public void guardarDatos() {
                 System.out.println("filtrado3 no usado");
         }
     }//GEN-LAST:event_llenarComboActionPerformed
-
+   
     public void ListadoLeve(int num_filtrado1, int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
@@ -425,7 +422,7 @@ public void guardarDatos() {
     private void ListadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoNombresActionPerformed
         ListadoNombres.removeAllItems();
         if (ListadoNombres.getSelectedItem() == null) {
-            
+
             switch (num_filtrado1) {
                 case 1:
                     ListarNombresAves(num_filtrado2, num_filtrado3);
@@ -470,13 +467,13 @@ public void guardarDatos() {
     }//GEN-LAST:event_ListadoNombresActionPerformed
 
     private void establecerPrimerValor(javax.swing.JComboBox comboBox) {
-            comboBox.setSelectedIndex(0);
-        
+        comboBox.setSelectedIndex(0);
+
     }
 
-    int num_filtrado2;
+    int num_filtrado2 = 0;
     private void Filtrado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtrado2ActionPerformed
-        num_filtrado2=0;
+        
         if (!Filtrado2.getSelectedItem().equals("Seleccionar...")) {
             if (Filtrado2.getSelectedItem().equals("Leve")) {
                 num_filtrado2 = 1;
@@ -497,9 +494,9 @@ public void guardarDatos() {
         }
     }//GEN-LAST:event_jTratamientoMouseClicked
 
-    int num_filtrado3;
+    int num_filtrado3 = 0;
     private void Filtrado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtrado3ActionPerformed
-            num_filtrado3=0;
+        
         if (!Filtrado3.getSelectedItem().equals("Seleccionar...")) {
             if (Filtrado3.getSelectedItem().equals("Con tratamiento")) {
                 num_filtrado3 = 1;
