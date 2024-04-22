@@ -259,10 +259,10 @@ public void guardarDatos() {
         guardarDatos();
         borrarDatos();
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void ListarNombresAves() {
+    public void ListarNombresAves(int num_filtrado2,int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Ave> listaAnimales = modAnimales.getNombresAves();
+            ArrayList<Ave> listaAnimales = modAnimales.getNombresAvesTratamiento(num_filtrado2, num_filtrado3);
 
             for (Animal animal : listaAnimales) {
                 modeloCombo.addElement(animal.getNombre());
@@ -272,10 +272,10 @@ public void guardarDatos() {
         }
     }
 
-    public void ListarNombresMamiferos() {
+    public void ListarNombresMamiferos(int num_filtrado2,int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Mamifero> listaMamiferos = modAnimales.getNombresMamiferos();
+            ArrayList<Mamifero> listaMamiferos = modAnimales.getNombresMamiferosTratamiento(num_filtrado2, num_filtrado3);
 
             for (Mamifero mam : listaMamiferos) {
                 modeloCombo.addElement(mam.getNombre());
@@ -285,10 +285,10 @@ public void guardarDatos() {
         }
     }
 
-    public void ListarNombresReptiles() {
+    public void ListarNombresReptiles(int num_filtrado2,int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Reptil> listaReptiles = modAnimales.getNombresReptiles();
+            ArrayList<Reptil> listaReptiles = modAnimales.getNombresReptilesTratamiento(num_filtrado2, num_filtrado3);
 
             for (Reptil rep : listaReptiles) {
                 modeloCombo.addElement(rep.getNombre());
@@ -300,7 +300,9 @@ public void guardarDatos() {
 
     int num_filtrado1;
     private void Filtrado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filtrado1ActionPerformed
+        num_filtrado1=0;
         if (!Filtrado1.getSelectedItem().equals("Seleccionar...")) {
+            
             if (Filtrado1.getSelectedItem().equals("Aves")) {
                 num_filtrado1 = 1;
             } else if (Filtrado1.getSelectedItem().equals("Mamiferos")) {
@@ -317,18 +319,18 @@ public void guardarDatos() {
 
     private void llenarComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_llenarComboActionPerformed
         ListadoNombres.removeAllItems();
-
+        modeloCombo.removeAllElements();
         switch (num_filtrado1) {
             case 1 -> {
-                ListarNombresAves();
+                ListarNombresAves(num_filtrado2, num_filtrado3);
                 establecerPrimerValor(ListadoNombres);
             }
             case 2 -> {
-                ListarNombresMamiferos();
+                ListarNombresMamiferos(num_filtrado2, num_filtrado3);
                 establecerPrimerValor(ListadoNombres);
             }
             case 3 -> {
-                ListarNombresReptiles();
+                ListarNombresReptiles(num_filtrado2, num_filtrado3);
                 establecerPrimerValor(ListadoNombres);
             }
             default ->
@@ -336,28 +338,28 @@ public void guardarDatos() {
         }
         switch (num_filtrado2) {
             case 1 ->
-                ListadoLeve();
+                ListadoLeve(num_filtrado1, num_filtrado3);
             case 2 ->
-                ListadoModerado();
+                ListadoModerado(num_filtrado1, num_filtrado3);
             case 3 ->
-                ListadoGrave();
+                ListadoGrave(num_filtrado1, num_filtrado3);
             default ->
                 System.out.println("filtrado2 no usado");
         }
         switch (num_filtrado3) {
             case 1 ->
-                ListadoCon();
+                ListadoCon(num_filtrado1, num_filtrado2);
             case 2 ->
-                ListadoSin();
+                ListadoSin(num_filtrado1, num_filtrado2);
             default ->
                 System.out.println("filtrado3 no usado");
         }
     }//GEN-LAST:event_llenarComboActionPerformed
 
-    public void ListadoLeve() {
+    public void ListadoLeve(int num_filtrado1, int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Animal> listaLeve = modAnimales.getListadoLeve();
+            ArrayList<Animal> listaLeve = modAnimales.getListadoLeve(num_filtrado1, num_filtrado3);
 
             for (Animal an : listaLeve) {
                 modeloCombo.addElement(an.getNombre());
@@ -367,10 +369,10 @@ public void guardarDatos() {
         }
     }
 
-    public void ListadoModerado() {
+    public void ListadoModerado(int num_filtrado1, int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Animal> listaModerado = modAnimales.getListadoModerado();
+            ArrayList<Animal> listaModerado = modAnimales.getListadoModerado(num_filtrado1, num_filtrado3);
 
             for (Animal an : listaModerado) {
                 modeloCombo.addElement(an.getNombre());
@@ -380,10 +382,10 @@ public void guardarDatos() {
         }
     }
 
-    public void ListadoGrave() {
+    public void ListadoGrave(int num_filtrado1, int num_filtrado3) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Animal> listaGrave = modAnimales.getListadoGrave();
+            ArrayList<Animal> listaGrave = modAnimales.getListadoGrave(num_filtrado1, num_filtrado3);
 
             for (Animal an : listaGrave) {
                 modeloCombo.addElement(an.getNombre());
@@ -393,10 +395,10 @@ public void guardarDatos() {
         }
     }
 
-    public void ListadoSin() {
+    public void ListadoSin(int num_filtrado1, int num_filtrado2) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Animal> listaSin = modAnimales.getListadoSin();
+            ArrayList<Animal> listaSin = modAnimales.getListadoSin(num_filtrado1, num_filtrado2);
 
             for (Animal an : listaSin) {
                 modeloCombo.addElement(an.getNombre());
@@ -406,10 +408,10 @@ public void guardarDatos() {
         }
     }
 
-    public void ListadoCon() {
+    public void ListadoCon(int num_filtrado1, int num_filtrado2) {
         try {
             ModeloAnimales modAnimales = new ModeloAnimales();
-            ArrayList<Animal> listaCon = modAnimales.getListadoCon();
+            ArrayList<Animal> listaCon = modAnimales.getListadoCon(num_filtrado1, num_filtrado2);
 
             for (Animal an : listaCon) {
                 modeloCombo.addElement(an.getNombre());
@@ -421,17 +423,18 @@ public void guardarDatos() {
 
 
     private void ListadoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoNombresActionPerformed
+        ListadoNombres.removeAllItems();
         if (ListadoNombres.getSelectedItem() == null) {
-            modeloCombo.removeAllElements();
+            
             switch (num_filtrado1) {
                 case 1:
-                    ListarNombresAves();
+                    ListarNombresAves(num_filtrado2, num_filtrado3);
                     break;
                 case 2:
-                    ListarNombresMamiferos();
+                    ListarNombresMamiferos(num_filtrado2, num_filtrado3);
                     break;
                 case 3:
-                    ListarNombresReptiles();
+                    ListarNombresReptiles(num_filtrado2, num_filtrado3);
                     break;
                 default:
                     System.out.println("filtrado1 no usado");
@@ -439,13 +442,13 @@ public void guardarDatos() {
             }
             switch (num_filtrado2) {
                 case 1:
-                    ListadoLeve();
+                    ListadoLeve(num_filtrado1, num_filtrado3);
                     break;
                 case 2:
-                    ListadoModerado();
+                    ListadoModerado(num_filtrado1, num_filtrado3);
                     break;
                 case 3:
-                    ListadoGrave();
+                    ListadoGrave(num_filtrado1, num_filtrado3);
                     break;
                 default:
                     System.out.println("filtrado2 no usado");
@@ -453,10 +456,10 @@ public void guardarDatos() {
             }
             switch (num_filtrado3) {
                 case 1:
-                    ListadoCon();
+                    ListadoCon(num_filtrado1, num_filtrado2);
                     break;
                 case 2:
-                    ListadoSin();
+                    ListadoSin(num_filtrado1, num_filtrado2);
                     break;
                 default:
                     System.out.println("filtrado3 no usado");

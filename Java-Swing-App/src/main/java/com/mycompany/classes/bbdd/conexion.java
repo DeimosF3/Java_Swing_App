@@ -17,6 +17,7 @@ import java.sql.Statement;
 
 public class conexion {
     Connection c = null;
+    //localhost<->100.66.21.35
     String urlConnection = "jdbc:mysql://localhost:3306/centro_recuperacion_fauna";
     String user = "root";
     String password = "";
