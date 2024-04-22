@@ -27,7 +27,7 @@ public class conexion {
     public Connection getconexion() throws SQLException {
 
         c = DriverManager.getConnection(urlConnection, user, password);
-        System.out.println("Conexión realizada");
+        System.out.println("Conexion realizada");
         Statement s = c.createStatement();
 
         return c;

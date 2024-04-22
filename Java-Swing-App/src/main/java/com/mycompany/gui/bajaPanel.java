@@ -9,6 +9,7 @@ import com.mycompany.classes.Ave;
 import com.mycompany.classes.Mamifero;
 import com.mycompany.classes.ModeloAnimales;
 import com.mycompany.classes.Reptil;
+import com.mycompany.guiUtils.Utilities;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -25,6 +26,8 @@ public class bajaPanel extends javax.swing.JPanel {
      */
     public bajaPanel() {
         initComponents();
+        Utilities u = new Utilities();
+        u.setFontRecursively(contenedor);
     }
 
     /**
