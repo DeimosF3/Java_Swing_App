@@ -40,7 +40,7 @@ public class ModeloAnimales {
         ArrayList<Ave> listaAves = new ArrayList<>(); // Lista para almacenar los animales
 
         try {
-            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            Statement stmt = con.createStatement();
             ResultSet rs = null;
             if (num_filtrado2 == 1) {
                 rs = stmt.executeQuery("SELECT nombre, especie, peso, tipo_lesion, gravedad, tratamiento, cazaFurtiva FROM aves WHERE gravedad= 'Leve';");

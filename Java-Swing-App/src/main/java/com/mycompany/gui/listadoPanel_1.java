@@ -35,7 +35,6 @@ public class listadoPanel_1 extends javax.swing.JPanel {
                 md.addRow(new Object[]{rs.getInt("id"),rs.getString("nombre"), rs.getString("peso"), rs.getString("tipo_lesion"), rs.getString("gravedad"), rs.getString("tratamiento")});
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Manejo básico de la excepción, puedes cambiar esto según tus necesidades
         }
     }
 
