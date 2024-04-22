@@ -5,6 +5,7 @@
 package com.mycompany.gui;
 
 import com.mycompany.classes.Fachada;
+import com.mycompany.guiUtils.Utilities;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,9 @@ public class reptilPanel extends javax.swing.JPanel {
      */
     public reptilPanel() {
         initComponents();
+        Utilities u = new Utilities();
+
+        u.setFontRecursively(contenedor);
     }
 
     /**
@@ -163,15 +167,27 @@ public class reptilPanel extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gravedad_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addContainerGap(710, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(CF_true)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(CF_false))
+                                    .addComponent(gravedad_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(regresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,20 +196,8 @@ public class reptilPanel extends javax.swing.JPanel {
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(especie_Reptil, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                                         .addComponent(peso_Reptil, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lesion_Reptil, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addGap(95, 95, 95))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(CF_true)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(CF_false))
-                                        .addComponent(jLabel9))
-                                    .addGap(29, 29, 29)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(regresarBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                        .addComponent(enviar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addGap(294, 294, 294))))
+                                        .addComponent(lesion_Reptil, javax.swing.GroupLayout.Alignment.LEADING)))))
+                        .addGap(389, 389, 389))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,23 +221,19 @@ public class reptilPanel extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gravedad_Reptil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CF_true)
-                            .addComponent(CF_false))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addGap(148, 148, 148))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(regresarBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(159, 159, 159))))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CF_true)
+                    .addComponent(CF_false))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(regresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(110, 110, 110))
         );
 
         contenedor.add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -246,16 +246,14 @@ public class reptilPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -266,74 +264,73 @@ public class reptilPanel extends javax.swing.JPanel {
             primerClicE = false;
         }
     }//GEN-LAST:event_especie_ReptilMouseClicked
-boolean primerClicE = true;    boolean primerClicP = true;    boolean primerClicTdL = true;
-public void guardarDatos() {
-    if (validarSeleccion()) {
-        try {
-            String tratamiento = null;
-            String nombre = nombre_Reptil.getText();
-            validarTexto(nombre);
-            String especie = especie_Reptil.getText();
-            validarTexto(especie);
-            String peso = peso_Reptil.getText();
-            validarNumero(peso);
-            String lesion = lesion_Reptil.getText();
-            validarTexto(lesion);
-            String gravedad = (String) gravedad_Reptil.getSelectedItem();
-            validarGravedad(gravedad);
-            boolean tieneInfeccionBacteriana= false;
+    boolean primerClicE = true;
+    boolean primerClicP = true;
+    boolean primerClicTdL = true;
 
-            if (CF_true.isSelected()) {
-                tieneInfeccionBacteriana = true;
-            } else if(CF_false.isSelected()){
-                tieneInfeccionBacteriana = false;
+    public void guardarDatos() {
+        if (validarSeleccion()) {
+            try {
+                String tratamiento = null;
+                String nombre = nombre_Reptil.getText();
+                validarTexto(nombre);
+                String especie = especie_Reptil.getText();
+                validarTexto(especie);
+                String peso = peso_Reptil.getText();
+                validarNumero(peso);
+                String lesion = lesion_Reptil.getText();
+                validarTexto(lesion);
+                String gravedad = (String) gravedad_Reptil.getSelectedItem();
+                validarGravedad(gravedad);
+                boolean tieneInfeccionBacteriana = false;
+
+                if (CF_true.isSelected()) {
+                    tieneInfeccionBacteriana = true;
+                } else if (CF_false.isSelected()) {
+                    tieneInfeccionBacteriana = false;
+                }
+                try {
+                    new Fachada().insertarReptil(nombre, especie, peso, lesion, gravedad, tratamiento, tieneInfeccionBacteriana);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(null, "Datos inválidos", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            try{
-            new Fachada().insertarReptil(nombre, especie, peso, lesion, gravedad, tratamiento, tieneInfeccionBacteriana);
-            } catch (Exception ex){
-                JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            
-        } catch (IllegalArgumentException e) {
-           JOptionPane.showMessageDialog(null, "Datos inválidos", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    } else {
-        JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
 
-
-public void validarNumero(String texto) {
-    if (!texto.matches("\\d*\\.?\\d+")) {
-        throw new IllegalArgumentException("El valor ingresado no es un número válido.");
+    public void validarNumero(String texto) {
+        if (!texto.matches("\\d*\\.?\\d+")) {
+            throw new IllegalArgumentException("El valor ingresado no es un número válido.");
+        }
     }
-}
-public void validarGravedad(String gravedad) {
-   if (gravedad.equals("Seleccionar")){
-       throw new IllegalArgumentException("El valor ingresado no es una selección válido.");
-   }
-}
 
-public void validarTexto(String texto) {
-    if (!texto.matches("[a-zA-Z\\s]+")) {
-        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
-    } else if (texto.length()>20){
-        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+    public void validarGravedad(String gravedad) {
+        if (gravedad.equals("Seleccionar")) {
+            throw new IllegalArgumentException("El valor ingresado no es una selección válido.");
+        }
     }
-}
 
-public boolean validarSeleccion() {
-    if ( (CF_true.isSelected() && CF_false.isSelected()) || (!CF_true.isSelected() && !CF_false.isSelected()) ){
-        return false;
-    } else {
-        return true;
+    public void validarTexto(String texto) {
+        if (!texto.matches("[a-zA-Z\\s]+")) {
+            throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+        } else if (texto.length() > 20) {
+            throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+        }
     }
-    
-}
 
+    public boolean validarSeleccion() {
+        if ((CF_true.isSelected() && CF_false.isSelected()) || (!CF_true.isSelected() && !CF_false.isSelected())) {
+            return false;
+        } else {
+            return true;
+        }
 
-
+    }
 
     public void borrarDatos() {
         nombre_Reptil.setText("");
@@ -350,7 +347,7 @@ public boolean validarSeleccion() {
         primerClicTdL = true;
         primerClicE = true;
         primerClicP = true;
-        
+
     }
     private void especie_ReptilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_ReptilActionPerformed
         // TODO add your handling code here:

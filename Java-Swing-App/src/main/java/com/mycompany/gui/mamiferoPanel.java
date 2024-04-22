@@ -5,6 +5,7 @@
 package com.mycompany.gui;
 
 import com.mycompany.classes.Fachada;
+import com.mycompany.guiUtils.Utilities;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,9 @@ public class mamiferoPanel extends javax.swing.JPanel {
      */
     public mamiferoPanel() {
         initComponents();
+        Utilities u = new Utilities();
+
+        u.setFontRecursively(contenedor);
     }
 
     /**
@@ -165,26 +169,29 @@ public class mamiferoPanel extends javax.swing.JPanel {
                     .addComponent(gravedad_Mamifero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(especie_Mamifero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                         .addComponent(peso_Mamifero, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lesion_Mamifero, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(CF_true)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addComponent(CF_true)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(CF_false))
+                                        .addComponent(jLabel9))
                                     .addGap(18, 18, 18)
-                                    .addComponent(CF_false))
-                                .addComponent(jLabel9))
-                            .addGap(43, 43, 43)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(enviar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(regresarBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))))
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(regresarBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                        .addComponent(enviar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGap(0, 0, Short.MAX_VALUE))))
                 .addContainerGap(301, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -217,15 +224,15 @@ public class mamiferoPanel extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CF_true)
                             .addComponent(CF_false))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(148, 148, 148))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(enviar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(regresarBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(17, 17, 17)))
-                .addComponent(jLabel8)
-                .addGap(148, 148, 148))
+                        .addGap(57, 57, 57)
+                        .addComponent(enviar_button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(regresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         contenedor.add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -253,81 +260,79 @@ public class mamiferoPanel extends javax.swing.JPanel {
 
     private void especie_MamiferoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_especie_MamiferoMouseClicked
 
-
         if (primerClicE) {
             especie_Mamifero.setText("");
             primerClicE = false;
         }
     }//GEN-LAST:event_especie_MamiferoMouseClicked
-boolean primerClicE = true;    boolean primerClicP = true;    boolean primerClicTdL = true;
-public void guardarDatos() {
-    if (validarSeleccion()) {
-        try {
-            String tratamiento = null;
-            String nombre = nombre_Mamifero.getText();
-            validarTexto(nombre);
-            String especie = especie_Mamifero.getText();
-            validarTexto(especie);
-            String peso = peso_Mamifero.getText();
-            validarNumero(peso);
-            String lesion = lesion_Mamifero.getText();
-            validarTexto(lesion);
-            String gravedad = (String) gravedad_Mamifero.getSelectedItem();
-            validarGravedad(gravedad);
-            boolean motivoAtropello= false;
+    boolean primerClicE = true;
+    boolean primerClicP = true;
+    boolean primerClicTdL = true;
 
-            if (CF_true.isSelected()) {
-                motivoAtropello = true;
-            } else if(CF_false.isSelected()){
-                motivoAtropello = false;
+    public void guardarDatos() {
+        if (validarSeleccion()) {
+            try {
+                String tratamiento = null;
+                String nombre = nombre_Mamifero.getText();
+                validarTexto(nombre);
+                String especie = especie_Mamifero.getText();
+                validarTexto(especie);
+                String peso = peso_Mamifero.getText();
+                validarNumero(peso);
+                String lesion = lesion_Mamifero.getText();
+                validarTexto(lesion);
+                String gravedad = (String) gravedad_Mamifero.getSelectedItem();
+                validarGravedad(gravedad);
+                boolean motivoAtropello = false;
+
+                if (CF_true.isSelected()) {
+                    motivoAtropello = true;
+                } else if (CF_false.isSelected()) {
+                    motivoAtropello = false;
+                }
+                try {
+                    new Fachada().insertarMamifero(nombre, especie, peso, lesion, gravedad, tratamiento, motivoAtropello);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(null, "Datos inválidos", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            try{
-            new Fachada().insertarMamifero(nombre, especie, peso, lesion, gravedad, tratamiento, motivoAtropello);
-            } catch (Exception ex){
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error al dar de alta en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            
-        } catch (IllegalArgumentException e) {
-           JOptionPane.showMessageDialog(null, "Datos inválidos", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    } else {
-        JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
 
-
-public void validarNumero(String texto) {
-    if (!texto.matches("\\d*\\.?\\d+")) {
-        throw new IllegalArgumentException("El valor ingresado no es un número válido.");
+    public void validarNumero(String texto) {
+        if (!texto.matches("\\d*\\.?\\d+")) {
+            throw new IllegalArgumentException("El valor ingresado no es un número válido.");
+        }
     }
-}
-public void validarGravedad(String gravedad) {
-   if (gravedad.equals("Seleccionar")){
-       throw new IllegalArgumentException("El valor ingresado no es una selección válido.");
-   }
-}
 
-public void validarTexto(String texto) {
-    if (!texto.matches("[a-zA-Z\\s]+")) {
-        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
-    } else if (texto.length()>20){
-        throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+    public void validarGravedad(String gravedad) {
+        if (gravedad.equals("Seleccionar")) {
+            throw new IllegalArgumentException("El valor ingresado no es una selección válido.");
+        }
     }
-}
 
-public boolean validarSeleccion() {
-    if ( (CF_true.isSelected() && CF_false.isSelected()) || (!CF_true.isSelected() && !CF_false.isSelected()) ){
-        return false;
-    } else {
-        return true;
+    public void validarTexto(String texto) {
+        if (!texto.matches("[a-zA-Z\\s]+")) {
+            throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+        } else if (texto.length() > 20) {
+            throw new IllegalArgumentException("El valor ingresado contiene caracteres no válidos. Por favor, utilice solo letras, espacios y no más de 20 carácteres.");
+        }
     }
-    
-}
 
+    public boolean validarSeleccion() {
+        if ((CF_true.isSelected() && CF_false.isSelected()) || (!CF_true.isSelected() && !CF_false.isSelected())) {
+            return false;
+        } else {
+            return true;
+        }
 
-
+    }
 
     public void borrarDatos() {
         nombre_Mamifero.setText("");
@@ -344,7 +349,7 @@ public boolean validarSeleccion() {
         primerClicTdL = true;
         primerClicE = true;
         primerClicP = true;
-        
+
     }
     private void especie_MamiferoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especie_MamiferoActionPerformed
         // TODO add your handling code here:
