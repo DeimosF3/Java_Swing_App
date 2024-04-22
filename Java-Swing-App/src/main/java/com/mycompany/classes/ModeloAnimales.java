@@ -87,7 +87,7 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+           
         }
 
         return listaAves;
@@ -118,7 +118,7 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+          
         }
 
         return listaAves;
@@ -177,7 +177,7 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+           
         }
 
         return listaMamiferos;
@@ -207,7 +207,7 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            
         }
 
         return listaMamiferos;
@@ -266,7 +266,7 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            
         }
 
         return listaReptiles;
@@ -296,7 +296,7 @@ public class ModeloAnimales {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            
         }
 
         return listaReptiles;
@@ -344,7 +344,7 @@ public class ModeloAnimales {
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            e.printStackTrace();
+            
         }
 
         return listaLeve;
@@ -392,7 +392,7 @@ public class ModeloAnimales {
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            e.printStackTrace();
+          
         }
 
         return listaModerado;
@@ -441,7 +441,7 @@ public class ModeloAnimales {
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            e.printStackTrace();
+            
         }
 
         return listaGrave;
@@ -477,7 +477,7 @@ public class ModeloAnimales {
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            e.printStackTrace();
+           
         }
 
         return listaSin;
@@ -513,7 +513,7 @@ public class ModeloAnimales {
 
         } catch (SQLException e) {
             // Imprimir la excepción en caso de error
-            e.printStackTrace();
+            
         }
 
         return listaCon;
