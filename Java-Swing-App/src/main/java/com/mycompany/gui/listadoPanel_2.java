@@ -73,7 +73,7 @@ public listadoPanel_2() {
         jPanel2.setBackground(new java.awt.Color(191, 172, 200));
 
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
-        jLabel1.setText("todos los animales");
+        jLabel1.setText("Lista de todos los animales del centro:");
 
         tablaLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,12 +92,12 @@ public listadoPanel_2() {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 212, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(

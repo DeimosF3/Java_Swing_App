@@ -2,19 +2,25 @@ package com.mycompany.classes;
 
 import java.util.Date;
 
+/**
+ * La clase Animal representa un animal con diversos atributos como nombre, especie, peso, lesiones, etc.
+ */
 public class Animal {
-    private String nombre;
-    private String especie;
-    private String tratamiento;
-    private String peso;
-    private String tipoLesion;
-    private String gravedad;
-    private Date fechaLiberacion;
-    private Date fechaFallecimiento;
-    private Date fechaEntrada;
-    private String veterinarioSalida;
-    private String certificadoFallecimiento;
+    // Atributos
+    private String nombre; // Nombre del animal
+    private String especie; // Especie del animal
+    private String tratamiento; // Tratamiento del animal
+    private String peso; // Peso del animal
+    private String tipoLesion; // Tipo de lesión que ha sufrido el animal
+    private String gravedad; // Gravedad de la lesión
+    private Date fechaLiberacion; // Fecha de liberación del animal
+    private Date fechaFallecimiento; // Fecha de fallecimiento del animal
+    private Date fechaEntrada; // Fecha de entrada del animal
+    private String veterinarioSalida; // Veterinario encargado de la salida del animal
+    private String certificadoFallecimiento; // Certificado de fallecimiento del animal
 
+    // Constructor y getters y setters
+    
     public Date getFechaEntrada() {
         return fechaEntrada;
     }
