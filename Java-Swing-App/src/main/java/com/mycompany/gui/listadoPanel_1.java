@@ -58,7 +58,7 @@ public class listadoPanel_1 extends javax.swing.JPanel {
         listadoPanel_1.setBackground(new java.awt.Color(191, 172, 200));
 
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
-        jLabel1.setText("Lista de todos los animales centro:");
+        jLabel1.setText("Lista de las aves del centro:");
 
         tablaLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
